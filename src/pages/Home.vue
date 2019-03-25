@@ -32,12 +32,16 @@
             </div>
         </header>
         <router-view />
-        <footer></footer>
+        <my-footer></my-footer>
     </div>
 </template>
 <script>
+import myFooter from '@/pages/Home/footer.vue'
 export default {
     name: 'home',
+    components: {
+        myFooter
+    },
     components: {
         
     }
