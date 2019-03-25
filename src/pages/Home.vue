@@ -41,9 +41,6 @@ export default {
     name: 'home',
     components: {
         myFooter
-    },
-    components: {
-        
     }
 }
 </script>
