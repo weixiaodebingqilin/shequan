@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
     // production(打包环境);   development(开发环境)
     baseUrl: process.env.NODE_ENV === 'production' ? '//114.116.11.4:8080' : '/',
@@ -13,5 +14,14 @@ module.exports = {
             }
         }
         
-    }
+    },
+    // 配置less
+    pluginOptions: {
+        'style-resources-loader': {
+          preProcessor: 'less',
+          patterns: [
+            path.resolve(__dirname, './src/assets/style/glob.less'),
+          ],
+        },
+      },
 }

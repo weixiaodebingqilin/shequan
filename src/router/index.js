@@ -10,11 +10,14 @@ export default new Router({
             path: '/',
             name: 'home',
             component: _import('Home'),
+            redirect: '/index',
+            meta: { title: '首页' },
             children: [
                 {
                     path: '/index',
                     name: 'index',
                     component: _import('index/index'),
+                    meta: { title: '首页' },
                 },
                 {
                     path: '/article',

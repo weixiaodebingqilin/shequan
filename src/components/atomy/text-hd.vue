@@ -1,0 +1,60 @@
+<template>
+    <p class="text-hd" :style="[boxLine,{'height':boxHeigth}]">
+        <slot></slot>
+    </p>
+</template>
+<script>
+export default {
+    name: 'text-hd',
+    props:{
+        line: {
+            type: Number,
+        },
+        height:{
+            type: [Number,String],
+        }
+    },
+    data(){
+        return{
+            
+        }
+    },
+    computed: {
+        boxHeigth(){
+            let height = this.height
+            if(!height) return '48px'
+            if(typeof height === number || height.indexOf('%') < 0 || height.indexOf('px') < 0){
+                return height + 'px'
+            }
+            return height 
+        },
+        boxLine(){
+            if(!this.line) return {'-webkit-line-clamp':2}
+            return {'-webkit-line-clamp':this.line}
+        }
+    },
+    mounted(){
+        
+        
+    },
+    methods:{
+        
+    }
+}
+</script>
+<style lang="less">
+.text-hd{
+    display: -webkit-box;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /*如果该行末端有个很长的英文单词，它会把单词截断，一部分保持在行尾，另一部分换到下一行。*/
+    // word-break:break-all; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 24px;
+}
+</style>
+
+
