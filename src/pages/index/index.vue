@@ -166,8 +166,29 @@
                         </ul>     
                     </dd>
                 </dl>
-                <!-- combat -->
-
+                <!-- 推荐圈主 -->
+                <dl class="right-manager">
+                    <dt>
+                        <img src="@/assets/images/icon/flag.png" >
+                        <h3>推荐圈主</h3>
+                    </dt>
+                    <dd>
+                        <ul class="manager-list">
+                            <li>
+                                <img src="" >
+                                <h4>彩云Sky</h4>
+                                <dl>
+                                    <dd>22篇文章</dd>
+                                    <dd>40k人气</dd>
+                                    <dt>+关注</dt>
+                                </dl>
+                            </li>
+                        </ul>
+                    </dd>
+                    <dt>更多圈主</dt>
+                </dl>
+                
+                
             </div>
         </section>
     </div>
@@ -612,10 +633,41 @@ export default {
         margin-top: 20px;
         >li{
             font-size: 12px;
+            display: flex;
+            height:16px;
+            line-height: 16px;
+            margin-bottom: 18px;
             >h4{
                 font-weight:400;
                 color:rgba(51,51,51,1);
+                flex: 1;
+                
             }
+            >p{
+                min-width: 40px;
+            }
+        }
+    }
+    .right-manager{
+        >dt:first-child{
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(242,242,242,1);
+            display: flex;
+            >img{
+                width: 16px;
+                height: 18px;
+                margin-right: 11px;
+            }
+            >h3{
+                height:18px;
+                line-height:18px;
+                font-size:18px;
+                color:rgba(51,51,51,1);
+                
+            }
+        }
+        >dd{
+
         }
     }
 }
