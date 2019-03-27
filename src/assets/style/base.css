@@ -71,3 +71,12 @@ outline:none;
     background-color: #ccc;
     background-clip: padding-box;
 }
+
+
+/*
+* inco
+*/
+.icon-arrow{
+    width: 10px;
+    height: 18px;
+}

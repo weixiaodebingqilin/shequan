@@ -175,19 +175,56 @@
                     <dd>
                         <ul class="manager-list">
                             <li>
-                                <img src="" >
-                                <h4>彩云Sky</h4>
+                                <img src="@/assets/images/temp/header.png" >
                                 <dl>
-                                    <dd>22篇文章</dd>
-                                    <dd>40k人气</dd>
-                                    <dt>+关注</dt>
+                                    <dt>彩云Sky</dt>
+                                    <dd>
+                                        <p>22篇文章</p>
+                                        <p>40k人气</p>
+                                        <span>+关注</span>
+                                    </dd>
+                                </dl>
+                                <div class="sicon-arrow"></div>
+                            </li>
+                            <li>
+                                <img src="@/assets/images/temp/header.png" >
+                                <dl>
+                                    <dt>彩云Sky</dt>
+                                    <dd>
+                                        <p>22篇文章</p>
+                                        <p>40k人气</p>
+                                        <span>+关注</span>
+                                    </dd>
                                 </dl>
                             </li>
                         </ul>
                     </dd>
-                    <dt>更多圈主</dt>
+                    <dt class="manager-more">更多圈主</dt>
                 </dl>
-                
+                <!-- 合作伙伴2 -->
+                <!-- partner -->
+                <ul class="index-partner">
+                    <li>
+                        <img src="@/assets/images/temp/Group20.png" >
+                    </li>
+                </ul>
+                <!-- 热门标签 -->
+                <dl class="hot-tags">
+                    <dt>
+                        <img src="@/assets/images/icon/hot-tags.png" >
+                        <h3>热门标签</h3>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li>交互设计</li>
+                            <li>职场精英</li>
+                            <li>Ps</li>
+                            <li>UI</li>
+                            <li>插画</li>
+                            <li>动效</li>
+                        </ul>
+                    </dd>
+                </dl>
                 
             </div>
         </section>
@@ -667,9 +704,133 @@ export default {
             }
         }
         >dd{
-
+           
         }
     }
+    ul.manager-list{
+        margin-top: 20px;
+        >li{
+            height: 40px;
+            padding-bottom: 14px;
+            margin-bottom: 14px;
+            display: flex;
+            position: relative;
+            &::before{
+                content: '';
+                height: 2px;
+                width: 82%;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                background-color: rgba(242,242,242,1);
+                transition: all @transTime;
+            }
+            &:hover{
+                &::before{
+                    width: 100%;
+                }
+            }
+            >img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            >dl{
+                flex: 1;
+                >dt{
+                    font-size:14px;
+                    font-weight:500;
+                    color:rgba(51,51,51,1);
+                    margin-bottom: 5px;
+                }
+                >dd{
+                    font-size:12px;
+                    color:rgba(146,146,146,1);
+                    display: flex;
+                    position: relative;
+                    >p:nth-child(2){
+                        margin: 0 20px 0 16px;
+                        position: relative;
+                        &::after{
+                            content: '';
+                            width: 1px;
+                            height: 10px;
+                            background: rgba(151,151,151,.3);
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -5px;
+                            left: -8px;
+                        }
+                    }
+                    >span{
+                        font-weight:500;
+                        color:rgba(84,120,235,1);
+                        cursor: pointer;
+                    }
+                }
+            }
+            
+        }
+    }
+    .manager-more{
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        font-size: 12px;
+        color: #5478EB;
+        text-align: center;
+        border-radius: @bradius;
+        background:rgba(84,120,235,.1);
+        cursor: pointer;
+        margin: 20px 0;
+    }
+    .sicon-arrow{
+        width: 10px;
+        height: 18px;
+        position: absolute;
+        background: rgba(120, 0, 0, .3);
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+    }
+    .hot-tags{
+        margin-top: 24px;
+        >dt{
+            display: flex;
+            padding-bottom:15px;
+            border: 1px solid rgba(242,242,242,1);
+            >img{
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+            }
+            >h3{
+                width:74px;
+                height:18px;
+                font-size:18px;
+                line-height:18px;
+            }
+        }
+        >dd{
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                >li{
+                    height:32px;
+                    line-height: 32px;
+                    font-size:12px;
+                    color:rgba(51,51,51,1);
+                    background:rgba(89,123,233,1);
+                    border-radius:15px;
+                    margin-top: 15px;
+                    padding: 0 20px;
+                }
+            }
+        }
+    }
+    
 }
 </style>
 

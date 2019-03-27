@@ -69,8 +69,9 @@ export default {
 #articles{
     width: 100%;
     background:rgba(243,245,247,1);
-    .article-wrap{
+    .article-main{
         width:1100px;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         .main-left{
@@ -88,7 +89,7 @@ export default {
                     font-weight:500;
                     color:rgba(51,51,51,1);
                     line-height:22px;
-                    margin-top: 30rpx;
+                    margin-bottom: 30px;
                 }
                 .article-user .user-msg{
                     display: flex;
@@ -103,6 +104,7 @@ export default {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        width: 100%;
                         >dt{
                             padding-top: 2px;
                             display: flex;
