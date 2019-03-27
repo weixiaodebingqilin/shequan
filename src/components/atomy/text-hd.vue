@@ -22,7 +22,6 @@ export default {
     computed: {
         boxHeigth(){
             let height = this.height
-            console.log('height: ',height)
             if(!height) return '48px'
             if(typeof height === "number" || height.indexOf('%') < 0 || height.indexOf('px') < 0){
                 return height + 'px'

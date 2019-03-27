@@ -46,6 +46,22 @@
                     <p>网络上有很多关于Icon设计的文章，一些文章从部分维度切入讲述Icon的设计理念，但大部分缺乏整体性。 所以我尝试把自己的思考方式结合其他人的设计理念整理了一个完整的Icon设计法则，通过简单易懂的描述语言，并且结合设计案例呈现出来，希望能够对大家有所帮助。文章使用的案例只代表个人观点，并不代表相关产品。 本文重点讲述Icon设计思维，关于Icon的具体定义以及具体的制作过程就不再赘述，网络上有很多相关文章都有讲述。 从不同维度对Icon设计进行解析，整理一整套Icon的设计法则。每一个产品中都有不同类型的Icon，产品通过Icon可以快速的向用户传递语意，通过独特的设计语言让用户形成对于产品的认知心智。Icon的重要性就不言而喻了。 ICON的设计法则-菱形设计法则，主要包括语意、层级、设计形式、风格、一致性、范围。而其他的设计思考也是这个设计法则的变体，中心思想没有发生变化。通过对以上设计思考点的聚合，来设计能够传递Icon语意，并且能够清晰展现产品结构和信息层级的Icon系统，通过差异化的设计形式展现产品设计的独特风格，让具有一致性的设计语言传递信息，和用户形成共鸣。</p>
                     <img src="@/assets/images/temp/Group.png">
                 </div>
+                <!-- 评论 -->
+                <section class="palte-comment">
+                    <!-- 功能区--我发表评论 -->
+                    <div class="function-discuss">
+                        <div class="textarea-text">
+                            <textarea name=""  cols="30" rows="10"></textarea>
+                            <p><span>30</span> / 500</p>
+                        </div>
+                        <dl>
+                            <dt>取消评论</dt>
+                            <dd>评论</dd>
+                        </dl>
+                        
+
+                    </div>
+                </section>
                 <!-- //文章推送 -->
                 <div class="article-push">
 
@@ -53,7 +69,7 @@
             </div>
             <!-- 文章右侧内容 -->
             <div class="main-right">
-
+                
             </div>
         </section>
     </div>
@@ -65,7 +81,7 @@ export default {
 }
 </script>
 <style lang="less">
-
+@import '~@/assets/style/glob.less';
 #articles{
     width: 100%;
     background:rgba(243,245,247,1);
@@ -195,4 +211,52 @@ export default {
         }
     }
 }
+.palte-comment{
+    padding: 20px 20px 30px 20px;
+    .function-discuss{
+        >dl{
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+            >dt{
+                height:28px;
+                font-size:14px;
+                color:rgba(153,153,153,1);
+                line-height:28px;
+                margin-right: 20px;
+            }
+            >dd{
+                width:85px;
+                height:28px;
+                line-height: 28px;
+                text-align: center;
+                border-radius:@bradius;
+                border:1px solid rgba(151,151,151,.8);
+                cursor: pointer;
+            }
+        }
+    }
+    .textarea-text{
+        position: relative;
+        >textarea{
+            width: 100%;
+            height: 96px;
+            padding: 10px;
+            box-sizing: border-box;
+            line-height:24px;
+            font-size:14px;
+            color:rgba(51,51,51,1);
+            
+        }
+        >p{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            >span{
+               color:  #FF6C47;
+            }
+        }
+    }
+}
+
 </style>
