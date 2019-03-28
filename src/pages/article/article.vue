@@ -3,7 +3,7 @@
         <section class="article-main">
             <!-- 文章左侧内容 -->
             <div class="main-left">
-                <!-- //文章内容 -->
+                <!-- //文章内 容 -->
                 <div class="article-content">
                     <div class="article-user">
                         <h5>Icon设计的法则</h5>
@@ -58,33 +58,132 @@
                             <dt>取消评论</dt>
                             <dd>评论</dd>
                         </dl>
-                        
-
                     </div>
+                    <div class="show-comment-box">
+                        <ul class="show-comment">
+                            <li class="comment-list">
+                                <img src="@/assets/images/temp/header.png" >
+                                <section>
+                                    <dl>
+                                        <dt>作者名字<span>02.24 14:02</span></dt>
+                                        <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                        <dd>
+                                            <p><span></span>回复</p>
+                                            <p><span></span>举报</p>
+                                        </dd>    
+                                    </dl>
+                                    <ul class="show-comment">
+                                        <li class="comment-list">
+                                            <img src="@/assets/images/temp/header.png" >
+                                            <section>
+                                                <dl>
+                                                    <dt>作者名字<span>02.24 14:02</span></dt>
+                                                    <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                                    <dd>
+                                                        <p><span></span>回复</p>
+                                                        <p><span></span>举报</p>
+                                                    </dd>    
+                                                </dl>
+                                            </section>
+                                        </li>
+                                        <li class="comment-list">
+                                            <img src="@/assets/images/temp/header.png" >
+                                            <section>
+                                                <dl>
+                                                    <dt>作者名字<span>02.24 14:02</span></dt>
+                                                    <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                                    <dd>
+                                                        <p><span></span>回复</p>
+                                                        <p><span></span>举报</p>
+                                                    </dd>    
+                                                </dl>
+                                            </section>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </li>
+                            <li class="comment-list">
+                                <img src="@/assets/images/temp/header.png" >
+                                <section>
+                                    <dl>
+                                        <dt>作者名字<span>02.24 14:02</span></dt>
+                                        <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                        <dd>
+                                            <p><span></span>回复</p>
+                                            <p><span></span>举报</p>
+                                        </dd>    
+                                    </dl>
+                                    <ul class="show-comment">
+                                        <li class="comment-list">
+                                            <img src="@/assets/images/temp/header.png" >
+                                            <section>
+                                                <dl>
+                                                    <dt>作者名字<span>02.24 14:02</span></dt>
+                                                    <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                                    <dd>
+                                                        <p><span></span>回复</p>
+                                                        <p><span></span>举报</p>
+                                                    </dd>    
+                                                </dl>
+                                            </section>
+                                        </li>
+                                        <li class="comment-list">
+                                            <img src="@/assets/images/temp/header.png" >
+                                            <section>
+                                                <dl>
+                                                    <dt>作者名字<span>02.24 14:02</span></dt>
+                                                    <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                                    <dd>
+                                                        <p><span></span>回复</p>
+                                                        <p><span></span>举报</p>
+                                                    </dd>    
+                                                </dl>
+                                            </section>
+                                        </li>
+                                    </ul>
+                                </section>
+                            </li>
+                            
+                        </ul>
+                        <div class="comment-addmore">
+                            <span>更多评论</span>
+                        </div>
+                    </div>
+                    
+
                 </section>
                 <!-- //文章推送 -->
                 <div class="article-push">
-
+                    <ul class="kind-box">
+                        <card-artical></card-artical>
+                        <card-artical></card-artical>
+                    </ul>
                 </div>
             </div>
             <!-- 文章右侧内容 -->
             <div class="main-right">
-                
+                <!-- 课程安排 -->
+                <section class=""></section>
             </div>
         </section>
     </div>
 </template>
 <script>
+import cardArtical from '@/components/molecule/card-artical.vue'
 export default {
     name: 'articles',
-   
+    components: {
+        cardArtical
+    },
 }
 </script>
 <style lang="less">
 @import '~@/assets/style/glob.less';
+
 #articles{
     width: 100%;
     background:rgba(243,245,247,1);
+    padding-top: 20px;
     .article-main{
         width:1100px;
         margin: 0 auto;
@@ -207,12 +306,19 @@ export default {
         }
         .main-right{
             width: 290px;
-            background: #FFFFFF;
+            
         }
+    }
+    .article-push{
+        background: #fff;
+        padding: 20px 20px 0 20px;
+        margin-bottom: 30px;
     }
 }
 .palte-comment{
-    padding: 20px 20px 30px 20px;
+    padding: 20px 20px 0 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
     .function-discuss{
         >dl{
             display: flex;
@@ -258,5 +364,94 @@ export default {
         }
     }
 }
+// 评论
+.show-comment-box{
+    position: relative;
+}
+.show-comment{
+    li.comment-list{
+        display: flex;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(242,242,242,1);
+        &:last-child{
+            border-bottom: none;
+        }
+        >img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        section{
+            >dl{
+                >dt{
+                    height:14px;
+                    font-size:14px;
+                    line-height:14px;
+                    font-weight:500;
+                    color:rgba(51,51,51,1);
+                    margin-bottom: 5px;
+                    >span{
+                        margin-left: 14px;
+                        font-size:12px;
+                        color:rgba(189,189,189,1);
+                    }
+                }
+                >dd{
+                    font-size:14px;
+                    line-height:28px;
+                    color:rgba(51,51,51,1);
+                    margin: 15px 0;
+                    &:last-child{
+                        height: 18px;
+                        line-height:18px;
+                        font-size: 12px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-content: center;
+                        >p{
+                            cursor: pointer;
+                            >span{
+                                display: inline-block;
+                                width: 14px;
+                                height: 14px;
+                                background: rgba(151,151,151,.8);
+                                margin-right:5px;
+                            }
+                        }
+                        
+                    }
+                }
 
+            }
+        }
+        .show-comment{
+            padding: 15px;
+            background:rgba(246,246,246,1);
+            border-radius:2px;
+        }
+        
+    }
+}
+.comment-addmore{
+    width: 100%;
+    height: 160px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 10%, rgba(255,255,255,.9) 30%, white);
+    >span{
+        display: block;
+        width: 150px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        font-size:12px;
+        color:rgba(153,153,153,1);
+        border: 1px solid rgba(153,153,153,.6);
+        border-radius: 17px;
+        margin: 95px auto 0;
+    }
+}
 </style>

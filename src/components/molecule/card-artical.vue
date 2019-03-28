@@ -44,6 +44,9 @@ li.card-artical{
     display: flex;
     justify-content: space-between;
     border-bottom:1px solid rgba(242,242,242,1);
+    &:last-child{
+        border-bottom:none;
+    }
     >img{
         width: 180px;
         height: 100%;

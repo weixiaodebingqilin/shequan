@@ -51,7 +51,7 @@ export default {
     width:100%;
     min-height: 311px; 
     background: #282828;
-    
+    margin-top: 30px;
     .footer-main{
        width:@wap;
         margin: 0 auto;
