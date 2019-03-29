@@ -163,7 +163,76 @@
             <!-- 文章右侧内容 -->
             <div class="main-right">
                 <!-- 课程安排 -->
-                <section class=""></section>
+                <section class="course">
+                    <h5>我在阿里8年的成长历程</h5>
+                    <div class="course-msg">
+                        <p>已有2450人加入</p>
+                        <span>¥288/年</span>
+                    </div>
+                    <div class="course-introduce">
+                        <div>专题介绍</div>
+                        <p>阅览圈子</p>
+                    </div>
+                    <div class="introduce-msg">你将收获什么？UI设计的干货，从基础到深入的复盘，老胡在各大实际项目中的所遇见的坑分析，互动答疑疑问。每周1/3/5带领大家一起动起手来学习。</div>
+                    <div class="add-introduce">立即加入专题圈</div>
+                    <div class="introduce-plan">
+                        <span>已更新25章</span>
+                        <font>|</font>
+                        <p>每周1/3/5更新</p>
+                    </div>
+                    <div class="line-bottom"></div>
+                    <section class="course-catalogue">
+                        <ul>
+                            <li v-for="(item,index) in 5" :key="index">
+                                <div>
+                                    <img src="@/assets/images/temp/QR-code.png" >
+                                    <p>支付宝01246版中遇见的坑</p>
+                                </div>
+                                <div>
+                                    <p>03.10</p>
+                                    <img src="@/assets/images/temp/QR-code.png" >
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div class="linght">公开</div>
+                                    <p>支付宝01246版中遇见的坑</p>
+                                </div>
+                                <div> 
+                                    <img src="@/assets/images/temp/QR-code.png" >
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <div>公开</div>
+                                    <p>支付宝01246版中遇见的坑</p>
+                                </div>
+                                <div>
+                                    <img src="@/assets/images/temp/QR-code.png" >
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="line-bottom"></div>
+                    <ul class="paging">
+                        <li></li>
+                        <li class="linght-page">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>...</li>
+                        <li>15</li>
+                        <li></li>
+                    </ul>
+                </section>
+                <!-- 课程目录 -->
+                
+                <!-- 合作伙伴2 -->
+                <!-- partner -->
+                <ul class="index-partner">
+                    <li>
+                        <img src="@/assets/images/temp/Group20.png" >
+                    </li>
+                </ul>
             </div>
         </section>
     </div>
@@ -185,7 +254,7 @@ export default {
     background:rgba(243,245,247,1);
     padding-top: 20px;
     .article-main{
-        width:1100px;
+        width:@wapArticle;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -202,7 +271,7 @@ export default {
                     font-size:22px;
                     font-family:PingFangSC-Medium;
                     font-weight:500;
-                    color:rgba(51,51,51,1);
+                    color:#333333;
                     line-height:22px;
                     margin-bottom: 30px;
                 }
@@ -258,6 +327,7 @@ export default {
                         >dd>div{
                             display: flex;
                             >div{
+                                margin-left: 10px;
                                 display: flex;
                                 align-items: center;
                                 >img{
@@ -280,6 +350,7 @@ export default {
                 }
             }
             .article-comment{
+                background: #fff;
                 padding: 20px;
                 >h5{
                     font-size:18px;
@@ -304,10 +375,7 @@ export default {
                 }
             }
         }
-        .main-right{
-            width: 290px;
-            
-        }
+        
     }
     .article-push{
         background: #fff;
@@ -455,4 +523,241 @@ export default {
         margin: 95px auto 0;
     }
 }
+// 右侧内容
+.BanLin{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.main-right{
+    width: 290px;
+    .course{
+        padding: 30px;
+        background: #fff;
+        >h5{
+            width: 100%;
+            font-size:20px;
+            font-family:PingFangSC-Medium;
+            font-weight:500;
+            color:rgba(51,51,51,1);
+            line-height:20px;
+            .BanLin();
+        }
+        .course-msg{
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            border-bottom:1px solid rgba(239,239,239,1);
+            >p{
+                font-size:12px;
+                font-family:PingFangSC-Medium;
+                font-weight:500;
+                color:rgba(102,102,102,1);
+                line-height:18px;
+            }
+            >span{
+                font-size:18px;
+                font-family:PingFangSC-Medium;
+                font-weight:500;
+                color:rgba(255,147,0,1);
+                line-height:18px;
+            }
+        }
+        .course-introduce{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            >div{
+                font-size:12px;
+                font-family:PingFangSC-Medium;
+                font-weight:500;
+                color:rgba(51,51,51,1);
+                line-height:12px;
+                position: relative;
+                padding-left: 10px;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width:5px;
+                    height:12px;
+                    background:rgba(84,120,235,1);
+                    border-radius:4px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0;
+                }
+            }
+            >p{
+                font-size:12px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(84,120,235,1);
+                line-height:12px;
+            }
+        }
+        .introduce-msg{
+            font-size:12px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+            line-height:18px;
+        }
+        .add-introduce{
+            width:100%;
+            height:36px;
+            background:rgba(255,147,0,1);
+            border-radius:38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size:16px;
+            font-family:PingFangSC-Medium;
+            font-weight:500;
+            color:rgba(255,255,255,1);
+            line-height:36px;
+            margin: 20px 0 30px;
+        }
+        .introduce-plan{
+            padding-bottom: 20px;
+            //border-bottom:1px solid rgba(244,246,247,1);
+            vertical-align: middle;
+            >span{
+                font-size:14px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(102,102,102,1);
+                line-height:14px;
+            }
+            >font{
+                display: inline-block;
+                color:rgba(151,151,151,.22);
+                margin: 0 10px;
+                font-size: 14px;
+            }
+            >p{
+                display: inline-block;
+                font-size:14px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(153,153,153,1);
+                line-height:14px;
+            }
+            
+        }
+        .course-catalogue{
+            padding: 5px 0 0;
+            >ul{
+                
+                >li{
+                    padding: 15px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom:1px solid rgba(239,239,239,1);
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                    >div{
+                        display: flex;
+                        display: flex;
+                        align-items: center;
+                        >img{
+                            width: 12px;
+                            height: 12px;
+                            display: block;
+                        }
+                        >p{
+                            font-size: 12px;
+                            max-width: 146px;
+                            display: block;
+                            .BanLin();
+                        }
+                        >div{
+                            width:41px;
+                            height:20px;
+                            background:rgba(51,51,51,0.1);
+                            border-radius:12px;
+                            font-size:12px;
+                            font-family:PingFangSC-Regular;
+                            font-weight:400;
+                            color:rgba(51,51,51,1);
+                            line-height:20px;
+                            text-align: center;
+                            margin-right: 5px;
+                        }
+                        .linght{
+                            background:rgba(105,136,238,1);
+                            color: #fff;
+                        }
+                        &:nth-child(1){
+                            >img{
+                                margin-right: 5px;
+                            }
+                            >p{
+                                color:rgba(51,51,51,1);
+                            }
+                        }
+                        &:nth-child(2){
+                            >img{
+                                margin-left: 5px;
+                            }
+                            >p{
+                                color:rgba(153,153,153,1);
+                            }
+                        }
+                    }
+                    
+                    
+                }
+            }
+        }
+        .paging{
+            padding-top: 28px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            >li:first-child{
+                width: 8px;
+                height: 10px;
+                background: #B4B4B4;
+            }
+            >li:last-child{
+                width: 8px;
+                height: 10px;
+                background: #B4B4B4;
+            }
+            >li{
+                font-size:12px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(153,153,153,1);
+                line-height:12px;
+                margin-right: 15px;
+            }
+            .linght-page{
+                color: #333333;
+            }
+            
+        }
+
+    }
+    .line-bottom{
+        width: 290px;
+        margin-left: -30px;
+        height: 2px;
+        background: #F4F6F7;
+    }
+    >.index-partner{
+        >li{
+            >img{
+                width: 100%;
+                height: 285px;
+                border-radius: @bradius; 
+                margin-top: 20px;
+            } 
+        }
+    }
+    
+}
+    
 </style>
