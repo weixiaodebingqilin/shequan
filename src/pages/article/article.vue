@@ -185,7 +185,7 @@ export default {
     background:rgba(243,245,247,1);
     padding-top: 20px;
     .article-main{
-        width:1100px;
+        width:@wapArticle;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
