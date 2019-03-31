@@ -181,13 +181,14 @@
     </div>
 </template>
 <script>
-import textHd from '@/components/atomy/text-hd.vue'
-import cardArtical from '@/components/molecule/card-artical.vue'
+// import cardArtical from '@/components/molecule/card-artical.vue'
+import molecule from '@/components/molecule/mixins.js'
+import atomy from '@/components/atomy/mixins.js'
 export default {
     name: 'index',
     components: {
-        textHd,
-        cardArtical
+        cardArtical: molecule.cardArtical,
+        textHd: atomy.textHd
     },
     data() {
         return {

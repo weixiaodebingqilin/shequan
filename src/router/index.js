@@ -34,6 +34,11 @@ export default new Router({
                     name: 'category',
                     component: _import('category/category'),
                 },
+                {
+                    path: '/combat',
+                    name: 'combat',
+                    component: _import('combat/combat'),
+                },
 
             ]
         }

@@ -11,9 +11,6 @@
                     <router-link to="/index">首页</router-link>
                 </li>
                 <li>
-                    <router-link to="/">新手自学</router-link>
-                </li>
-                <li>
                     <router-link to="/article">文章页</router-link>
                 </li>
                 <li>
@@ -21,6 +18,9 @@
                 </li>
                 <li>
                     <router-link to="/challenge">挑战</router-link>
+                </li>
+                <li>
+                    <router-link to="/combat">实战</router-link>
                 </li>
             </ul>
             <!-- 搜索 -->

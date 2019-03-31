@@ -28,11 +28,12 @@
     </li>
 </template>
 <script>
-import textHd from '@/components/atomy/text-hd.vue'
+// import textHd from '@/components/atomy/text-hd.vue'
+import atomy from '@/components/atomy/mixins.js'
 export default {
     name: 'card-artical',
     components: {
-        textHd
+        textHd: atomy.textHd
     },
 }
 </script>
