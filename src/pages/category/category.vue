@@ -174,6 +174,85 @@
 			</div>
 		</div>
 		
+		<!-- 目录 -->
+		<div class="main-wrap">
+			<section class="catalogue">
+				<h1 style="text-align: center;margin:100px 0 0;">目录</h1>
+				<ul class="catalogue-wrap">
+					<li v-for="(item,index) in 10" :key="index">
+						<div>
+							<span>最新</span>
+							<font>03-01</font>
+							<p>今天这篇文章是我经常用在实际项目中的方法</p>
+						</div>
+						<dl>
+							<img src="@/assets/images/ot/img/slices/图1(3).png" >
+							<div>
+								<h5>产品设计师是什么？</h5>
+								<p>介绍产品设计师是什么，与普通UI的区别，以及如何晋升。前段时间有朋友来询问，产品设计师是一个什么样的岗位，要负责哪些工作？我其实是比较奇怪的，这个概念已经兴起了一两年了，从阿里的全链路设计师到产品设计师。本以为...</p>
+								<ol>
+									<li>
+										<img src="@/assets/images/ot/img/slices/图1(3).png" >
+										<span>23</span>
+									</li>
+									<li>
+										<img src="@/assets/images/ot/img/slices/图1(3).png" >
+										<span>23</span>
+									</li>
+									<li>
+										<img src="@/assets/images/ot/img/slices/图1(3).png" >
+										<span>6548</span>
+									</li>
+								</ol>
+							</div>
+						</dl>
+					</li>
+				</ul>
+			</section>
+			<section class="main-right">
+				<div class="share">
+					<div class="card-info">您已打卡<span>32</span>天，每天进步一点点，加油！</div>
+					<div class="card-but">
+						<p>立即打卡</p>
+						<span>2019.3.21</span>
+					</div>
+					<div class="card-msg">
+						<span>已结束</span>
+						<div>
+							<span>12</span>
+							<font>/15</font>
+						</div>
+						<span>即将开始</span>
+					</div>
+					<div class="card-version">
+						<span></span>
+						<p>到截止日之前，打卡超过15天，并分享至朋友圈，将抽取20位圈友，获得老胡推荐的大厂面试机会，然后造化看个人了哦</p>
+						<div>
+							<span>活动时间</span>
+							<span>3.20-4.30</span>
+							<span>分享至朋友圈生效</span>
+						</div>
+					</div>
+				</div>
+				<div class="author-wrap">
+					<img src="@/assets/images/ot/img/slices/图1(3).png" >
+					<div class="author-msg">
+						<div>
+							<p>胡凌</p>
+							<span>圈主</span>
+						</div>
+						<div>
+							<p>32W</p>
+							<span>人气</span>
+						</div>
+					</div>
+					<h6>阿里巴巴资深设计师，曾主导过支付宝，天猫等项目</h6>
+					<p>在这里我将带领大家，每天让自己进步一点点，积累行业知识。用我8年的从业的过程中无数大大小小的坑，为大家填上。</p>
+					<div class="author-more">查看主页</div>
+				</div>
+				<img src="@/assets/images/ot/img/slices/图1(3).png" >
+			</section>
+		</div>
     </div>
 </template>
 <script>
@@ -182,6 +261,8 @@ export default {
 }
 </script>
 <style lang="less">
+@import '~@/assets/style/glob.less';
+
 #category{
     .nav{
 	width: 1080px;
@@ -629,8 +710,347 @@ export default {
 
 
 
+.main-wrap{
+	width: @wap;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+	.main-right{
+		width: 280px;
+	}
+}
+//目录
+.catalogue-wrap{
+	width: 749px;
+	>li{
+		padding-bottom:15px;
+		border-bottom:1px solid rgba(242,242,242,1);
+		>div{
+			display: flex;
+			align-items: center;
+			padding: 15px 0;
+			>span{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width:56px;
+				height:24px;
+				background:rgba(3,191,140,1);
+				border-radius:13px;
+				font-size:12px;
+				font-family:PingFangSC-Medium;
+				font-weight:500;
+				color:rgba(255,255,255,1);
+				margin-right: 10px;
+			}
+			>font{
+				font-size:18px;
+				font-family:PingFangSC-Medium;
+				font-weight:500;
+				color:rgba(102,102,102,1);
+			}
+			>p{
+				font-size:12px;
+				font-family:PingFangSC-Regular;
+				font-weight:400;
+				color:rgba(153,153,153,1);
+				line-height:24px;
+				position: relative;
+				padding-left: 23px;
+				&::before{
+					content: '';
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					left: 10px;
+					width:3px;
+					height:3px;
+					background:rgba(153,153,153,1);
+					border-radius: 50%;
+				}
+			}
+		}
+		>dl{
+			display: flex;
+			>img{
+				width: 180px;
+				height: 120px;
+				border-radius:3px; 
+			}
+			>div{
+				flex: 1;
+				padding-left: 15px; 
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				>h5{
+					font-size:18px;
+					font-family:PingFangSC-Medium;
+					font-weight:500;
+					color:rgba(51,51,51,1);
+					line-height:24px;
+					margin-bottom: 2px;
+				}
+				>p{
+					font-size:12px;
+					font-family:PingFangSC-Regular;
+					font-weight:400;
+					color:rgba(102,102,102,1);
+					line-height:24px;
+					overflow: hidden;
+					-webkit-line-clamp: 3;
+					-webkit-box-orient: vertical;
+					display: -webkit-box;
+					height: 72px;
+				}
+				>ol{
+					display: flex;
+					align-items: center;
+					margin-top: 8px;
+					>li{
+						display: flex;
+						align-items: center;
+						>img{
+							display: block;
+							width: 12px;
+							height: 12px;
+						}
+						>span{
+							font-size:12px;
+							font-family:PingFangSC-Regular;
+							font-weight:400;
+							color:rgba(153,153,153,1);
+							line-height:14px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
+// 右侧内容
 
+.main-right{
+	.share{
+		.card-info{
+			margin: 38px 0 30px;
+			display: flex;
+			align-items: flex-end;
+			font-size:12px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:#666666;
+			>span{
+				font-size:32px;
+			}
+		}
+		.card-but{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width:280px;
+			height:48px;
+			background:rgba(84,120,235,1);
+			border-radius:8px;
+			border:1px solid rgba(84,120,235,0.4);
+			margin: 0 auto;
+			>p{
+				font-size:18px;
+				font-family:PingFangSC-Medium;
+				font-weight:500;
+				color:rgba(255,255,255,1);
+				line-height:18px;
+			}
+			>span{
+				display: block;
+				font-size:18px;
+				font-family:PingFangSC-Light;
+				font-weight:300;
+				color:rgba(255,255,255,1);
+				padding-left: 16px;
+				border-left: 1px solid rgba(255,255,255,0.2);
+				margin-left: 15px;
+			}
+		}
+		.card-msg{
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			padding: 30px 0 24px;
+			>span{
+				font-size:12px;
+				font-family:PingFangSC-Regular;
+				font-weight:400;
+				color:rgba(102,102,102,1);
+				line-height:12px;
+			}
+			>div{
+				margin: 0 60px;
+				>span{
+					font-size:24px;
+					font-family:PingFangSC-Medium;
+					font-weight:500;
+					color:rgba(84,120,235,1);
+					line-height:24px;
+				}
+				>font{
+					font-size:12px;
+					font-family:PingFangSC-Medium;
+					font-weight:500;
+					color:#666666;
+				}
+			}
+		}
+		.card-version{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 26px 16px 0;
+			height:189px;
+			box-sizing: border-box;
+			width: 100%;
+			border-radius:8px;
+			border:4px solid rgba(84,120,235,0.2);
+			position: relative;
+			>span{
+				position: absolute;
+				width:12px;
+				height:12px;
+				background:rgba(3,191,140,1);
+				left: 50%;
+				transform: translateX(-50%);
+				top: -9px;
+				border-radius: 50%;
+				border:2px solid rgba(3,191,140,0.2);
+				
+			}
+			&::before{
+				content: '';
+				position: absolute;
+				left: 30px;
+				top: -8px;
+				width:10px;
+				height:10px;
+				border-radius: 50%;
+				background:rgba(153,153,153,1);
+
+			}
+			&::after{
+				content: '';
+				border-radius: 50%;
+				position: absolute;
+				right: 30px;
+				top: -8px;
+				width:10px;
+				height:10px;
+				background:rgba(84,120,235,1);
+			}
+			>p{
+				font-size:12px;
+				font-family:PingFangSC-Regular;
+				font-weight:400;
+				color:rgba(51,51,51,1);
+				line-height:24px;
+			}
+			>div{
+				padding: 15px 0;
+				display: flex;
+				>span{
+					font-size:12px;
+					font-family:PingFangSC-Regular;
+					font-weight:400;
+					color:rgba(153,153,153,1);
+					line-height:12px;
+					//transform: scale(0.8);
+					&:last-child{
+						margin-right: 0;
+						padding-left: 8px;
+						border-left:1px solid rgba(239,239,239,1);
+					}
+				}
+			}
+		}
+	}
+	.author-wrap{
+		padding: 66px 30px 30px;
+		background:rgba(248,249,255,1);
+		border-radius:2px;
+		margin-top: 80px;
+		position: relative;
+		>img{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			display: block;
+			left: 50%;
+			top: 0;
+			transform: translate(-50%,-50%);
+			
+		}
+		.author-msg{
+			display: flex;
+			justify-content: center;
+			>div{
+				&:last-child{
+					padding-right: 10px;
+					margin-right: 10px;
+					border-right:1px solid rgba(239,239,239,1);
+				}
+				display: flex;
+				align-items: flex-end;
+				>p{
+					font-size:18px;
+					font-family:PingFangSC-Medium;
+					font-weight:500;
+					color:#333333;
+					line-height:18px;
+				}
+				>span{
+					font-size:12px;
+					font-family:PingFangSC-Medium;
+					color:#999999;
+				}
+			}
+		}
+		>h6{
+			font-size:12px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(51,51,51,1);
+			line-height:24px;
+			padding-bottom: 10px;
+			border-bottom:1px solid rgba(239,239,239,1);
+			margin: 15px 0 10px;
+		}
+		>p{
+			font-size:12px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(102,102,102,1);
+			line-height:24px;
+		}
+		.author-more{
+			height:32px;
+			background:rgba(84,120,235,1);
+			border-radius:2px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size:12px;
+			font-family:PingFangSC-Medium;
+			font-weight:500;
+			color:rgba(255,255,255,1);
+			line-height:32px;
+			margin-top: 30px;
+		}
+	}
+	>img{
+		width: 100%;
+		margin-top: 20px;
+	}
+}
 
 
 
