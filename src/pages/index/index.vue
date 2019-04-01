@@ -1,5 +1,6 @@
 <template>
     <div id="index">
+        <test></test>
         <div class="index-native">
             <ul >
                 <li>加入圈子</li>
@@ -188,7 +189,8 @@ export default {
     name: 'index',
     components: {
         cardArtical: molecule.cardArtical,
-        textHd: atomy.textHd
+        textHd: atomy.textHd,
+        test: atomy.test
     },
     data() {
         return {
