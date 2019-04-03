@@ -273,6 +273,7 @@
 
 		<!-- 弹框 -->
 		<div class="mask" v-show="maskShow"></div>
+		<!-- 分享至微信弹框 -->
 		<div class="QR-wrap" v-show="maskShow">
 			<div>
 				<h6>用微信扫描二维码将链接分享至微信朋友圈</h6>
@@ -285,8 +286,71 @@
 				</div>
 				<img class="close" @click="close" src="@/assets/images/temp/close-but.png">
 			</div>
-			
 		</div>
+		<!-- 支付二维码弹框 -->
+		<div class="QR-code" style="display:none">
+			<div>
+				<img class="code-close" src="@/assets/images/temp/code-close.png">
+				<p>微信支付￥266.00</p>
+				<img class="code-img" src="@/assets/images/temp/QR-code.png">
+				<span>使用微信扫描二维码进行支付</span>
+			</div>
+		</div>
+
+		<!-- 结算中 -->
+		<section class="settlement-wrap">
+			<div class="settlement">
+				<h5>结算中</h5>
+				<div class="settlement-msg">
+					<div>
+						<h6>我在阿里做UI的8年成长历程</h6>
+						<div>
+							<div>专题圈 | 限时优惠</div>
+							<p>￥299.00/年</p>
+							<span>￥399.00</span>
+						</div>
+					</div>
+					<p>加入圈子，你将获得加入之日前圈主所有的文章，以及往后一年内更新的所有文章，你将可以和优秀的设计师们一起学习交流，和圈主一起每天比别人多进步一点。</p>
+				</div>
+
+				<div class="settlement-way">
+					<div class="user-msg">
+						<img src="@/assets/images/temp/QR-code.png">
+						<div>
+							<div>微笑的冰欺凌</div>
+							<p>我的余额： <span>￥56</span></p>
+						</div>
+						<p>使用余额</p>
+					</div>
+
+					<div class="pay-way">
+						<p>请选择支付方式</p>
+						<dl>
+							<dt>
+								<img src="@/assets/images/temp/QR-code.png">
+								<span>微信支付</span>
+							</dt>
+							<dt>
+								<img src="@/assets/images/temp/QR-code.png">
+								<span>支付宝</span>
+							</dt>
+							<dd>
+								支付倒计时
+								<span>59</span>分
+								<span>23</span>秒
+							</dd>
+						</dl>
+						<div>
+							<p></p>
+							<div>
+								<p>应付金额：<font>￥243.00</font></p>
+								<div>立即支付</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
     </div>
 </template>
 <script>
@@ -1199,7 +1263,255 @@ export default {
 			}
 		}
 	}
+	//支付码
+	.QR-code{
+		position: fixed;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 200px;
+		width:320px;
+		height: 346px;
+		background: #fff;
+		>div{
+			position: relative;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.code-close{
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			cursor: pointer;
+		}
+		.code-img{
+			margin: 20px 0 15px;
+			width: 160px;
+			height: 160px;
+			
+		}
+		>p{
+			font-size:16px;
+			font-family:PingFangSC-Medium;
+			font-weight:500;
+			color:rgba(102,102,102,1);
+			line-height:16px;
+		}
+		>span{
+			font-size:12px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(0,0,0,1);
+			line-height:12px;
+		}
+	}
 
+
+	// <section class="settlement-wrap">
+	// 	<div class="settlement">
+	// 		<h5>结算中</h5>
+	// 		<div class="settlement-msg">
+	// 			<div>
+	// 				<h6>我在阿里做UI的8年成长历程</h6>
+	// 				<div>
+	// 					<div>专题圈 | 限时优惠</div>
+	// 					<p>￥299.00/年</p>
+	// 					<span>￥399.00</span>
+	// 				</div>
+	// 			</div>
+	// 			<p>加入圈子，你将获得加入之日前圈主所有的文章，以及往后一年内更新的所有文章，你将可以和优秀的设计师们一起学习交流，和圈主一起每天比别人多进步一点。</p>
+	// 		</div>
+
+	// 		<div class="settlement-way">
+	// 			<div class="user-msg">
+	// 				<img src="@/assets/images/temp/QR-code.png">
+	// 				<div>
+	// 					<div>微笑的冰欺凌</div>
+	// 					<p>我的余额： <span>￥56</span></p>
+	// 				</div>
+	// 				<p>使用余额</p>
+	// 			</div>
+
+	// 			<div class="pay-way">
+	// 				<p>请选择支付方式</p>
+	// 				<dl>
+	// 					<dt>
+	// 						<img src="@/assets/images/temp/QR-code.png">
+	// 						<span>微信支付</span>
+	// 					</dt>
+	// 					<dt>
+	// 						<img src="@/assets/images/temp/QR-code.png">
+	// 						<span>支付宝</span>
+	// 					</dt>
+	// 					<dd>
+	// 						支付倒计时
+	// 						<span>59</span>分
+	// 						<span>23</span>秒
+	// 					</dd>
+	// 				</dl>
+	// 				<div>
+	// 					<p></p>
+	// 					<div>
+	// 						<p>应付金额：<font>￥243.00</font></p>
+	// 						<div>立即支付</div>
+	// 					</div>
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	</div>
+	// </section>
+
+	//结算中
+	.settlement-wrap{
+		background:rgba(248,249,255,1);
+		padding: 30px 0 60px;
+		.settlement{
+			margin: 0 auto;
+			width: @wap;
+			>h5{
+				font-size:24px;
+				font-family:PingFangSC-Regular;
+				font-weight:400;
+				color:rgba(153,153,153,1);
+				line-height:24px;
+				padding-bottom: 15px;
+				border-bottom:1px solid rgba(239,239,239,1);
+				margin-bottom: 15px;
+			}
+			.settlement-msg{
+				display: flex;
+				align-items: center;
+				padding: 30px;
+				>div{
+					width: 416px;
+					border-right:1px solid rgba(239,239,239,1);
+					margin-right: 30px;
+					>h6{
+						font-size:24px;
+						font-family:PingFangSC-Medium;
+						font-weight:500;
+						color:rgba(51,51,51,1);
+						line-height:24px;
+						margin-bottom: 30px;
+					}
+					>div{
+						display: flex;
+						align-items: center;
+						>div{
+							height: 24px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							padding: 0 12px;
+							font-size:12px;
+							font-family:PingFangSC-Medium;
+							font-weight:500;
+							color:rgba(255,147,0,1);
+							line-height:12px;
+							border-radius:15px;
+							border:1px solid rgba(255,147,0,0.7);
+						}
+						>p{
+							font-size:18px;
+							font-family:PingFangSC-Regular;
+							font-weight:400;
+							color:rgba(255,147,0,1);
+							line-height:18px;
+							margin: 0 15px;
+						}
+						>span{
+							font-size:18px;
+							font-family:PingFangSC-Regular;
+							font-weight:400;
+							color:rgba(153,153,153,1);
+							line-height:18px;
+						}
+					}
+					
+				}
+				>p{
+					font-size:12px;
+					font-family:PingFangSC-Regular;
+					font-weight:400;
+					color:rgba(102,102,102,1);
+					line-height:24px;
+					width: 375px;
+				}
+			}
+
+		}
+
+		.settlement-way{
+			padding: 30px;
+			.user-msg{
+				display: flex;
+				padding-bottom: 12px;
+				border-bottom:1px solid rgba(239,239,239,1);
+				>img{
+					width: 68px;
+					height: 68px;
+					margin-right: 10px;
+				}
+				>div{
+					div{
+						font-size:16px;
+						font-family:PingFangSC-Medium;
+						font-weight:500;
+						color:rgba(51,51,51,1);
+						line-height:16px;
+					}
+					>p{
+						margin-top: 15px;
+						font-size:14px;
+						font-family:PingFangSC-Regular;
+						font-weight:400;
+						color:rgba(102,102,102,1);
+						line-height:14px;
+						>span{
+							color: #FF9300;
+						}
+					}
+				}
+				>p{
+					position: relative;
+					padding-left: 25px;
+					margin-left: 700px;
+					font-size:14px;
+					height: 14px;
+					font-family:PingFangSC-Medium;
+					font-weight:500;
+					color:rgba(84,120,235,1);
+					line-height:14px;
+					&::before{
+						position: absolute;
+						content: '';
+						width: 8px;
+						height: 8px;
+						left: 4px;
+						top: 50%;
+						transform: translateY(-50%);
+						background:rgba(84,120,235,1);
+						border-radius: 50%;
+					}
+					&::after{
+						position: absolute;
+						content: '';
+						width:14px;
+						height:14px;
+						border:1px solid rgba(84,120,235,1);
+						left: 0;
+						top: 50%;
+						transform: translateY(-50%);
+						border-radius: 50%;
+					}
+				}
+			}
+		}
+	}
 }
 
 </style>
