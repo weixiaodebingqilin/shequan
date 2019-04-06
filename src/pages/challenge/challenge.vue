@@ -3,7 +3,7 @@
         <div class="main">
             <section class="challenge-top">
                 <div class="challenge-banner">
-                    <img src="@/assets/images/temp/challenge-banner.png" >
+                    <img src="@/assets/images/temp/challenge-banner.png" />
                     <span>挑战</span>
                 </div>
                 <dl class="top-cont">
@@ -35,8 +35,90 @@
                             <img src="@/assets/images/icon/challenge-day.png" >
                             <p>30</p>
                         </div>
+                        <div class="chanlenge-money">
+                            <dl>
+                                <dt>￥99.00</dt>
+                                <dd>保证金</dd>
+                            </dl>
+                            <p>
+                                截止日期：
+                                <span>2019年4月20日</span>
+                            </p>
+                        </div>
+                        <div class="chanllenge-join">
+                            <img src="@/assets/images/icon/join-right.png" >
+                        </div>
                     </dd>
                 </dl>
+            </section>
+            <!-- cont -->
+            <section class="challenge-cont">
+                <div class="challenge-left">
+                    <nav class="challenge-cont-nav">
+                        <table-native :clounms="kindNative" @tableMoveIndex="tableMoveIndex"></table-native>
+                    </nav>
+                    <section class="chanllenge-contBox">
+                        <!-- 日程 -->
+                        <ul class="chanllenge-schedule">
+                            <!-- status 状态：['今日','今日已完成','已完成','未完成'] -->
+                            <li class="today">
+                                <dl>
+                                    <dt></dt>
+                                    <dd>
+                                        <nav>
+                                            <span>今天</span>
+                                            <p>请在明日9:30之前提交练习作业</p>
+                                        </nav>
+                                        <section>
+                                            
+                                            <div>
+                                                <h3>
+                                                   <span></span> 
+                                                   情感化设计教程
+                                                </h3>
+                                                <text-hd :line='3'>
+                                                    前几天在电影《设圈》中，看见了几个非常有意思的创意，今天就来分析一下几个字体，从零到完工的全部过程。
+                                                </text-hd>
+                                                <div class="show-star-box">
+                                                    <show-star :nums='23'></show-star>
+                                                    <show-star :nums='23'></show-star>
+                                                </div>
+                                            </div>
+                                            <img src="@/assets/images/temp/kind-native.png" />
+                                        </section>
+                                    </dd>
+                                </dl>
+                            </li>
+                            <li class="had">
+                                <dl>
+                                    <dt></dt>
+                                    <dd>
+                                        <section>
+                                            
+                                            <div>
+                                                <h3>
+                                                   <span></span> 
+                                                   情感化设计教程
+                                                </h3>
+                                                <text-hd :line='3'>
+                                                    前几天在电影《设圈》中，看见了几个非常有意思的创意，今天就来分析一下几个字体，从零到完工的全部过程。
+                                                </text-hd>
+                                                <div class="show-star-box">
+                                                    <show-star :nums='23'></show-star>
+                                                    <show-star :nums='23'></show-star>
+                                                </div>
+                                            </div>
+                                            <img src="@/assets/images/temp/kind-native.png" />
+                                        </section>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ul>
+                        <!-- 挑战圈 -->
+                        <div class=""></div>
+                    </section>
+                </div>
+                <div class="challenge-right"></div>
             </section>
         </div>
     </div>
@@ -46,8 +128,22 @@ import atomy from '@/components/atomy/mixins.js'
 export default {
     name: 'challenge',
     components: {
-        textHd: atomy.textHd
+        textHd: atomy.textHd,
+        tableNative: atomy.tableNative,
+        showStar: atomy.showStar
     },
+    data(){
+        return{
+            kindNative: ['日程','挑战圈']
+        }
+    },
+    methods: {
+        tableMoveIndex(index){
+
+        }
+    }
+
+    
 }
 </script>
 
@@ -89,7 +185,10 @@ export default {
             
             }
             >dd{
-
+                width: 200px;
+                margin-left: 30px;
+                padding-left: 45px;
+                border-left: 1px solid rgba(239,239,239,1);
             }
         }
         .challenge-careful{
@@ -153,6 +252,138 @@ export default {
             position: relative;
             z-index: 2;
             margin: 30px 0 0 30px;
+        }
+    }
+    .challenge-day{
+        width: 135px;
+        height: 90px;
+        margin: 0 auto;
+        position: relative;
+        > img{
+            width: 135px;
+            height: 90px;
+        }
+        > p{
+            height:48px;
+            line-height:48px;
+            font-size:48px;
+            font-weight:800;
+            text-align: center;
+            color:rgba(255,147,0,1);
+            letter-spacing:1px;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .chanlenge-money{
+        >dl{
+            display: flex;
+            font-weight:500;
+            margin:10px auto 15px;
+            height:24px;
+            line-height:24px;
+            vertical-align: bottom;
+            justify-content: center;
+            >dt{
+                font-size:24px;                                
+                color:rgba(255,147,0,1);
+                margin-right:10px;
+            }
+            >dd{ 
+                display: inline-block;               
+                vertical-align: text-bottom;
+                font-size:14px;                                
+                color:rgba(153,153,153,1);
+                
+            }
+        }
+        >p{
+            height:12px;
+            line-height:12px;
+            font-size:12px;
+            color:rgba(153,153,153,1);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    }
+    .chanllenge-join{
+        width: 177px;
+        height: 82px;
+        margin: 0 auto;
+        cursor: pointer;
+        >img{
+            width: 177px;
+            height: 82px;
+        }
+    }
+    // cont
+    .challenge-cont-nav{
+        display: flex;
+    }
+    ul.chanllenge-schedule{
+        >li{
+            display: flex;
+            margin-top: 30px;
+            &.today{
+                nav{
+                    display: flex;
+                    line-height: 24px;
+                    font-size: 16px;
+                    margin-bottom: 19px;
+                    >span{
+                        width: 64px;
+                        height:24px;
+                        text-align: center;
+                        color: #fff;
+                        background:rgba(3,191,140,1);
+                        border-radius:11px;
+                        margin-right: 15px;
+                    }
+                    >p{
+                        color:rgba(153,153,153,1);
+                    }
+                }
+                section{
+                    width: 692px;
+                    border-radius:8px;
+                    padding: 15px;
+                    border-color: rgba(3,191,140,1);
+                    flex-direction: row-reverse;
+                    >img{
+                        margin:0 15px 0 0;
+                    }
+                }
+            }
+            section{
+                width:707px;
+                height:120px;
+                padding: 15px 0 15px 15px;
+                border:1px solid transparent;
+                display: flex;
+                
+                >img{
+                    width: 180px;
+                    height: 120px;
+                    border-radius: @bradius;
+                    margin:0 0 0 15px ;
+                }
+                >div{
+                    flex: 1;
+                    >h3{
+                        height:24px;
+                        line-height:24px;
+                        font-size:18px;
+                        color:rgba(51,51,51,1);
+                        margin-bottom: 2px;
+                    }
+                    .show-star-box{
+                        display: flex;
+                        margin-top: 8px;
+                    }
+                }
+            }
         }
     }
 }

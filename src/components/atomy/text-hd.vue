@@ -9,27 +9,17 @@ export default {
     props:{
         line: {
             type: Number,
+            default: 2
         },
-        height:{
-            type: [Number,String],
-        }
     },
-    data(){
-        return{
-            
-        }
-    },
+    /**
+     * @codereview by heytoo 20190406
+     */
     computed: {
         boxHeigth(){
-            let height = this.height
-            if(!height) return '48px'
-            if(typeof height === "number" || height.indexOf('%') < 0 || height.indexOf('px') < 0){
-                return height + 'px'
-            }
-            return height 
+            return this.line * 24 + 'px'
         },
         boxLine(){
-            if(!this.line) return {'-webkit-line-clamp':2}
             return {'-webkit-line-clamp':this.line}
         }
     },

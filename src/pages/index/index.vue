@@ -18,15 +18,8 @@
                     <img src="@/assets/images/temp/Group.png">
                 </div>
                 <!-- kind-native -->
-                <dl class="kind-native">
-                    <dt :style="kindStyle"></dt>
-                    <dd v-for="(item,index) in kindNative" :key="index"
-                        :class="{active: index === kindIndex}" 
-                        @click="kindMove(index,$event)"
-                    >{{item}}</dd>
-                </dl>
+                <table-native :clounms="kindNative" @tableMoveIndex="tableMoveIndex"></table-native>
                 <ul class="kind-box">
-                    
                     <card-artical></card-artical>
                 </ul>
                 <!-- 专题 special -->
@@ -190,13 +183,12 @@ export default {
     components: {
         cardArtical: molecule.cardArtical,
         textHd: atomy.textHd,
-        test: atomy.test
+        test: atomy.test,
+        tableNative: atomy.tableNative
     },
     data() {
         return {
             kindNative: ['最新发现','最新分享','专题圈','圈主'], ///
-            kindIndex: 0, // 
-            kindStyle: {},
         }
     },
     // 组件的生命周期
@@ -205,13 +197,9 @@ export default {
     },
     // 我们要写的一些方法
     methods: {
-        kindMove(index,event){
-            let elem = event.target
-            this.kindIndex = index
-            this.kindStyle = Object.assign({},this.kindStyle,{
-                left: elem.offsetLeft + 'px',
-                width: elem.offsetWidth + 'px'
-            })
+        // 导航栏切换后的回调
+        tableMoveIndex(index){
+            
         }
     }
 }
@@ -268,39 +256,7 @@ export default {
             width: 100%;
         }
     }
-    dl.kind-native{
-        display: flex;
-        padding: 30px 0 14px;
-        border-bottom: 1px solid rgba(239,239,239,1);
-        position: relative;
-        >dt{
-            width: 66px;
-            height:2px;
-            background:rgba(84,120,235,1);
-            border-radius:@bradius;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            transition: all @transTime;
-        }
-        >dd{
-            width: auto;
-            height: 22px;
-            line-height: 22px;
-            margin-right: 50px;
-            font-size:16px;
-            color:rgba(153,153,153,1);
-            text-shadow: -4px 1px 3px  rgba(89, 125, 243, 0);
-            cursor: pointer;
-            transition: all @transTime;
-            &.active{
-                color:rgba(84,120,235,1);
-                // font-weight: bold;
-                text-shadow: 2px 1px 3px  rgba(89, 125, 243, 0.4);
-            }
-
-        }
-    }
+    
     
     .index-special{
         height: 166px;
