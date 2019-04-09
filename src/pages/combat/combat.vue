@@ -47,6 +47,10 @@
             </div>
             <ul class="combat-projects">
                 <li v-for="(item,index) in 20" :key="index">
+                    <div class="projects-timer">
+                        <span>30天</span>
+                        <span>实战</span>
+                    </div>
                     <img src="@/assets/images/temp/Group2.png" >
                     <div class="projects-msg">
                         <h2>插画30天挑战计划</h2>
@@ -204,6 +208,7 @@ export default {
             display: flex;
             flex-wrap: wrap;
             >li{
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 width: 255px;
@@ -223,8 +228,33 @@ export default {
                     height: 120px;
                     display: block;
                 }
+                >.projects-timer{
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    display: flex;
+                    padding: 0 10px;
+                    height:24px;
+                    background:rgba(0,0,0,0.5);
+                    border-radius:12px;
+                    border:1px solid rgba(68,68,68,1);
+                    align-items: center;
+                    >span{
+                        font-size:14px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        color:rgba(181,181,181,1);
+                        line-height:14px;
+                        &:nth-child(1){
+                            border-right:1px solid rgba(68,68,68,1);
+                            padding-right: 7px;
+                            margin-right: 7px;
+                        }
+                    }
+                }
                 >.projects-msg{
-                    padding: 0 20px 15px 20px;
+                    margin:  0 20px;
+                    padding-bottom: 15px;
                     border-bottom:1px solid rgba(239,239,239,1);
                     flex: 1;
                     >h2{
@@ -251,7 +281,7 @@ export default {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
-                    padding: 0 20px;
+                    margin: 0 20px;
                     flex: 1;
                     >div{
                         display: flex;

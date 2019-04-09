@@ -341,7 +341,7 @@
 							</dd>
 						</dl>
 						<div>
-							<p></p>
+							<p>商品为虚拟内容，购买后不支持退换、转让</p>
 							<div>
 								<p>应付金额：<font>￥243.00</font></p>
 								<div>立即支付</div>
@@ -1383,6 +1383,8 @@ export default {
 				margin-bottom: 15px;
 			}
 			.settlement-msg{
+				background: #fff;
+				margin-bottom: 30px;
 				display: flex;
 				align-items: center;
 				padding: 30px;
@@ -1447,6 +1449,7 @@ export default {
 
 		.settlement-way{
 			padding: 30px;
+			background: #fff;
 			.user-msg{
 				display: flex;
 				padding-bottom: 12px;
@@ -1455,6 +1458,7 @@ export default {
 					width: 68px;
 					height: 68px;
 					margin-right: 10px;
+					border-radius: 50%;
 				}
 				>div{
 					div{
@@ -1463,6 +1467,7 @@ export default {
 						font-weight:500;
 						color:rgba(51,51,51,1);
 						line-height:16px;
+						margin: 10px 0 15px;
 					}
 					>p{
 						margin-top: 15px;
@@ -1477,6 +1482,10 @@ export default {
 					}
 				}
 				>p{
+					// flex: 1;
+					// display: flex;
+					// justify-content: flex-end;
+					align-self: center;
 					position: relative;
 					padding-left: 25px;
 					margin-left: 700px;
@@ -1507,6 +1516,122 @@ export default {
 						top: 50%;
 						transform: translateY(-50%);
 						border-radius: 50%;
+					}
+				}
+			}
+
+			.pay-way{
+				>p{
+					padding: 21px 0 23px;
+					font-size:14px;
+					font-weight:500;
+					color:rgba(51,51,51,1);
+					line-height:14px;
+				}
+				>dl{
+					padding-bottom: 30px;
+					border-bottom:1px solid rgba(239,239,239,1);
+					display: flex;
+					>dt{
+						display: flex;
+						width:180px;
+						height:62px;
+						background:rgba(255,255,255,1);
+						border-radius:2px;
+						border:1px solid rgba(239,239,239,1);;
+						box-sizing: border-box;
+						padding-left: 30px;
+						align-items: center;
+						margin-right: 30px;
+						>img{
+							display: block;
+							margin-right: 10px;
+							width:32px;
+							height: 32px; 
+						}
+						>span{
+							font-size:16px;
+							font-weight:500;
+							color:rgba(51,51,51,1);
+							line-height:16px;
+						}
+					}
+					.active-pay{
+						border:1px solid rgba(255,147,0,1);
+					}
+					>dd{
+						flex: 1;
+						padding-bottom: 5px;
+						align-self: flex-end;
+						justify-content: flex-end;
+						font-size:16px;
+						font-weight:400;
+						color:rgba(153,153,153,1);
+						line-height:16px;
+						display: flex;
+						align-items: center;
+						>span{
+							margin: 0 10px;
+							&:nth-child(2){
+								width:24px;
+								height:24px;
+								background:rgba(252,64,17,1);
+								border-radius:2px;
+								font-size:16px;
+								font-weight:500;
+								color:rgba(255,255,255,1);
+								line-height:16px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+							}
+						}
+					}
+				}
+				>div{
+					display: flex;
+					justify-content: space-between;
+					padding-top: 30px;
+					>p{
+						font-size:12px;
+						font-family:PingFangSC-Regular;
+						font-weight:400;
+						color:rgba(153,153,153,1);
+						line-height:17px;
+					}
+					>div{
+						>p{
+							display: flex;
+							align-items: flex-end;
+							font-size:16px;
+							font-family:PingFangSC-Regular;
+							font-weight:400;
+							color:rgba(51,51,51,1);
+							line-height:16px;
+							>font{
+								font-size:24px;
+								font-family:PingFangSC-Medium;
+								font-weight:500;
+								color:rgba(255,147,0,1);
+								line-height:24px;
+								margin-left: 10px;
+							}
+						}
+						>div{
+							margin-top: 30px;
+							width:204px;
+							height:48px;
+							background:linear-gradient(139deg,rgba(255,186,0,1) 0%,rgba(255,147,0,1) 100%);
+							border-radius:24px;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							font-size:18px;
+							font-family:PingFangSC-Medium;
+							font-weight:500;
+							color:rgba(255,255,255,1);
+							line-height:18px;
+						}
 					}
 				}
 			}
