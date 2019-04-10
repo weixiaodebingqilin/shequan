@@ -39,6 +39,11 @@ export default new Router({
                     name: 'combat',
                     component: _import('combat/combat'),
                 },
+                {
+                    path: '/homework',
+                    name: 'homework',
+                    component: _import('homework/homework'),
+                },
 
             ]
         }
