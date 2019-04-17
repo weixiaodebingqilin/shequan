@@ -45,163 +45,14 @@
 		<!-- tab内容 -->
 		<div class="main-wrap">
 			<section class="catalogue">
-				<dl class="kind-native">
-                    <dt :style="kindStyle"></dt>
-                    <dd v-for="(item,index) in kindNative" :key="index"
-                        :class="{active: index === kindIndex}" 
-                        @click="kindMove(index,$event)"
-                    >{{item}}</dd>
-                </dl>
+				
+				<table-native :clounms="kindNative" @tableMoveIndex="kindMove" :initIndex='kindIndex'></table-native>
 				<!-- 圈子 -->
-				<div class="circle"  v-if="kindIndex === 0 ">
-					<!-- 评论 -->
-					<section class="palte-comment">
-						<!-- 功能区--我发表评论 -->
-						<div class="function-discuss">
-							<div class="textarea-text">
-								<textarea name=""  cols="30" rows="10"></textarea>
-								<p><span>30</span> / 500</p>
-							</div>
-							<dl>
-								<dt>取消评论</dt>
-								<dd>评论</dd>
-							</dl>
-						</div>
-						<div class="show-comment-box">
-							<ul class="show-comment">
-								<li class="comment-list">
-									<img src="@/assets/images/temp/header.png" >
-									<section>
-										<dl>
-											<dt>作者名字<span>02.24 14:02</span></dt>
-											<dd>
-												<p>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</p>
-												<div>
-													<img src="@/assets/images/temp/challenge-item.png">
-													<img src="@/assets/images/temp/challenge-item.png">
-													<img src="@/assets/images/temp/challenge-item.png">
-													<img src="@/assets/images/temp/challenge-item.png">
-												</div>
-											</dd>
-											<dd>
-												<p><span></span>回复</p>
-												<p><span></span>举报</p>
-											</dd>    
-										</dl>
-										<ul class="show-comment">
-											<li class="comment-list">
-												<img src="@/assets/images/temp/header.png" >
-												<section>
-													<dl>
-														<dt>作者名字<span>02.24 14:02</span></dt>
-														<dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
-														<dd>
-															<p><span></span>回复</p>
-															<p><span></span>举报</p>
-														</dd>    
-													</dl>
-												</section>
-											</li>
-											<li class="comment-list">
-												<img src="@/assets/images/temp/header.png" >
-												<section>
-													<dl>
-														<dt>作者名字<span>02.24 14:02</span></dt>
-														<dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
-														<dd>
-															<p><span></span>回复</p>
-															<p><span></span>举报</p>
-														</dd>    
-													</dl>
-												</section>
-											</li>
-										</ul>
-									</section>
-								</li>
-								<li class="comment-list">
-									<img src="@/assets/images/temp/header.png" >
-									<section>
-										<dl>
-											<dt>作者名字<span>02.24 14:02</span></dt>
-											<dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
-											<dd>
-												<p><span></span>回复</p>
-												<p><span></span>举报</p>
-											</dd>    
-										</dl>
-										<ul class="show-comment">
-											<li class="comment-list">
-												<img src="@/assets/images/temp/header.png" >
-												<section>
-													<dl>
-														<dt>作者名字<span>02.24 14:02</span></dt>
-														<dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
-														<dd>
-															<p><span></span>回复</p>
-															<p><span></span>举报</p>
-														</dd>    
-													</dl>
-												</section>
-											</li>
-											<li class="comment-list">
-												<img src="@/assets/images/temp/header.png" >
-												<section>
-													<dl>
-														<dt>作者名字<span>02.24 14:02</span></dt>
-														<dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
-														<dd>
-															<p><span></span>回复</p>
-															<p><span></span>举报</p>
-														</dd>    
-													</dl>
-												</section>
-											</li>
-										</ul>
-									</section>
-								</li>
-								
-							</ul>
-							<div class="comment-addmore">
-								<span>更多评论</span>
-							</div>
-						</div>
-						
-
-					</section>
-				</div>
+				<category-circle v-if="kindIndex === 0 "></category-circle>
 				<!-- 目录 -->
-				<ul class="catalogue-wrap" v-if="kindIndex === 1 ">
-					<li v-for="(item,index) in 10" :key="index">
-						<div>
-							<span>最新</span>
-							<font>03-01</font>
-							<p>今天这篇文章是我经常用在实际项目中的方法</p>
-						</div>
-						<dl>
-							<img src="@/assets/images/ot/img/slices/图1(3).png" >
-							<div>
-								<h5>产品设计师是什么？</h5>
-								<p>介绍产品设计师是什么，与普通UI的区别，以及如何晋升。前段时间有朋友来询问，产品设计师是一个什么样的岗位，要负责哪些工作？我其实是比较奇怪的，这个概念已经兴起了一两年了，从阿里的全链路设计师到产品设计师。本以为...</p>
-								<ol>
-									<li>
-										<img src="@/assets/images/ot/img/slices/图1(3).png" >
-										<span>23</span>
-									</li>
-									<li>
-										<img src="@/assets/images/ot/img/slices/图1(3).png" >
-										<span>23</span>
-									</li>
-									<li>
-										<img src="@/assets/images/ot/img/slices/图1(3).png" >
-										<span>6548</span>
-									</li>
-								</ol>
-							</div>
-						</dl>
-					</li>
-				</ul>
+				<category-wrap v-if="kindIndex === 1 "></category-wrap>
 				<!-- 挑战／抗魔计划 -->
-				<div class="challenge" v-if="kindIndex === 2 ">
+				<!-- <div class="challenge" v-if="kindIndex === 2 ">
 					<ul>
 						<li v-for="(item,index) in 4" :key="index">
 							<img src="@/assets/images/temp/challenge-item.png">
@@ -219,7 +70,8 @@
 							</dl>
 						</li>
 					</ul>
-				</div>
+				</div> -->
+				<category-challenge v-if="kindIndex === 2 "></category-challenge>
 				
 			</section>
 			<section class="main-right">
@@ -251,7 +103,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="author-wrap">
+				<!-- <div class="author-wrap">
 					<img src="@/assets/images/ot/img/slices/图1(3).png" >
 					<div class="author-msg">
 						<div>
@@ -266,7 +118,8 @@
 					<h6>阿里巴巴资深设计师，曾主导过支付宝，天猫等项目</h6>
 					<p>在这里我将带领大家，每天让自己进步一点点，积累行业知识。用我8年的从业的过程中无数大大小小的坑，为大家填上。</p>
 					<div class="author-more">查看主页</div>
-				</div>
+				</div> -->
+				<author-wrap></author-wrap>
 				<img src="@/assets/images/ot/img/slices/图1(3).png" >
 			</section>
 		</div>
@@ -354,8 +207,20 @@
     </div>
 </template>
 <script>
+import atomy from '@/components/atomy/mixins.js'
+import molecule from '@/components/molecule/mixins.js'
+import categoryCircle from './component/circle'
+import categoryWrap from './component/wrap'
+import categoryChallenge from './component/challenge' 
 export default {
-    name: 'category',
+	name: 'category',
+	components: {
+		tableNative: atomy.tableNative,
+		authorWrap: molecule.authorWrap,
+		categoryCircle: categoryCircle,
+		categoryWrap: categoryWrap,
+		categoryChallenge: categoryChallenge,
+    },
     data() {
         return {
             kindNative: ['圈子','目录','挑战／抗魔计划'], ///
@@ -371,12 +236,8 @@ export default {
     // 我们要写的一些方法
     methods: {
         kindMove(index,event){
-            let elem = event.target
             this.kindIndex = index
-            this.kindStyle = Object.assign({},this.kindStyle,{
-                left: elem.offsetLeft + 'px',
-                width: elem.offsetWidth + 'px'
-            })
+            
 		},
 		open(){
 			this.maskShow=true;
@@ -564,381 +425,14 @@ export default {
 		.main-right{
 			width: 280px;
 		}
-		.kind-native{
-			display: flex;
-			padding: 30px 0 14px;
-			border-bottom: 1px solid #EFEFEF;
-			position: relative;
-			>dt{
-				width: 32px;
-				height:4px;
-				background:rgba(84,120,235,1);
-				border-radius:3px;
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				transition: all @transTime;
-			}
-			>dd{
-				width: auto;
-				height: 22px;
-				line-height: 22px;
-				margin-right: 50px;
-				font-size:16px;
-				color:rgba(153,153,153,1);
-				text-shadow: -4px 1px 3px  rgba(89, 125, 243, 0);
-				cursor: pointer;
-				transition: all @transTime;
-				&.active{
-					color:rgba(84,120,235,1);
-					// font-weight: bold;
-					text-shadow: 2px 1px 3px  rgba(89, 125, 243, 0.4);
-				}
-
-			}
-		}
+		
 	}
 	//圈子
-	.circle{
-		.palte-comment{
-			padding-top: 20px ;
-			margin-bottom: 20px;
-			background-color: #fff;
-			.function-discuss{
-				>dl{
-					display: flex;
-					justify-content: flex-end;
-					margin-top: 10px;
-					>dt{
-						height:28px;
-						font-size:14px;
-						color:rgba(153,153,153,1);
-						line-height:28px;
-						margin-right: 20px;
-					}
-					>dd{
-						width:85px;
-						height:28px;
-						line-height: 28px;
-						text-align: center;
-						border-radius:@bradius;
-						border:1px solid rgba(151,151,151,.8);
-						cursor: pointer;
-					}
-				}
-			}
-			.textarea-text{
-				position: relative;
-				>textarea{
-					width: 100%;
-					height: 96px;
-					padding: 10px;
-					box-sizing: border-box;
-					line-height:24px;
-					font-size:14px;
-					color:rgba(51,51,51,1);
-					
-				}
-				>p{
-					position: absolute;
-					bottom: 10px;
-					right: 10px;
-					>span{
-					color:  #FF6C47;
-					}
-				}
-			}
-		}
-		// 评论
-		.show-comment-box{
-			position: relative;
-		}
-		.show-comment{
-			li.comment-list{
-				display: flex;
-				margin-bottom: 10px;
-				padding-bottom: 10px;
-				border-bottom: 1px solid rgba(242,242,242,1);
-				&:last-child{
-					border-bottom: none;
-				}
-				>img{
-					width: 40px;
-					height: 40px;
-					border-radius: 50%;
-					margin-right: 10px;
-				}
-				section{
-					flex: 1;
-					>dl{
-						>dt{
-							height:14px;
-							font-size:14px;
-							line-height:14px;
-							font-weight:500;
-							color:rgba(51,51,51,1);
-							margin-bottom: 5px;
-							>span{
-								margin-left: 14px;
-								font-size:12px;
-								color:rgba(189,189,189,1);
-							}
-						}
-						>dd{
-							font-size:14px;
-							line-height:28px;
-							color:rgba(51,51,51,1);
-							margin: 15px 0;
-							>p{
-								font-size:14px;
-								line-height:28px;
-								color:rgba(51,51,51,1);
-							}
-							>div{
-								display: flex;
-								flex-wrap: wrap;
-								>img{
-									width: 100px;
-									height: 100px;
-									margin: 0 10px 10px 0;
-								}
-							}
-							&:last-child{
-								height: 18px;
-								line-height:18px;
-								font-size: 12px;
-								display: flex;
-								justify-content: space-between;
-								align-content: center;
-								>p{
-									cursor: pointer;
-									>span{
-										display: inline-block;
-										width: 14px;
-										height: 14px;
-										background: rgba(151,151,151,.8);
-										margin-right:5px;
-									}
-								}
-								
-							}
-						}
-
-					}
-				}
-				.show-comment{
-					padding: 15px;
-					background:rgba(246,246,246,1);
-					border-radius:2px;
-				}
-				
-			}
-		}
-		.comment-addmore{
-			width: 100%;
-			height: 160px;
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			background: linear-gradient(to bottom, transparent 10%, rgba(255,255,255,.9) 30%, white);
-			>span{
-				display: block;
-				width: 150px;
-				height: 34px;
-				line-height: 34px;
-				text-align: center;
-				font-size:12px;
-				color:rgba(153,153,153,1);
-				border: 1px solid rgba(153,153,153,.6);
-				border-radius: 17px;
-				margin: 95px auto 0;
-			}
-		}
-	}
+	
 
 	.catalogue{
 		width: 749px;
-		//目录
-		.catalogue-wrap{
-			>li{
-				padding-bottom:15px;
-				border-bottom:1px solid rgba(242,242,242,1);
-				>div{
-					display: flex;
-					align-items: center;
-					padding: 15px 0;
-					>span{
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						width:56px;
-						height:24px;
-						background:rgba(3,191,140,1);
-						border-radius:13px;
-						font-size:12px;
-						font-family:PingFangSC-Medium;
-						font-weight:500;
-						color:rgba(255,255,255,1);
-						margin-right: 10px;
-					}
-					>font{
-						font-size:18px;
-						font-family:PingFangSC-Medium;
-						font-weight:500;
-						color:rgba(102,102,102,1);
-					}
-					>p{
-						font-size:12px;
-						font-family:PingFangSC-Regular;
-						font-weight:400;
-						color:rgba(153,153,153,1);
-						line-height:24px;
-						position: relative;
-						padding-left: 23px;
-						&::before{
-							content: '';
-							position: absolute;
-							top: 50%;
-							transform: translateY(-50%);
-							left: 10px;
-							width:3px;
-							height:3px;
-							background:rgba(153,153,153,1);
-							border-radius: 50%;
-						}
-					}
-				}
-				>dl{
-					display: flex;
-					>img{
-						width: 180px;
-						height: 120px;
-						border-radius:3px; 
-					}
-					>div{
-						flex: 1;
-						padding-left: 15px; 
-						display: flex;
-						flex-direction: column;
-						justify-content: space-between;
-						>h5{
-							font-size:18px;
-							font-family:PingFangSC-Medium;
-							font-weight:500;
-							color:rgba(51,51,51,1);
-							line-height:24px;
-							margin-bottom: 2px;
-						}
-						>p{
-							font-size:12px;
-							font-family:PingFangSC-Regular;
-							font-weight:400;
-							color:rgba(102,102,102,1);
-							line-height:24px;
-							overflow: hidden;
-							-webkit-line-clamp: 3;
-							-webkit-box-orient: vertical;
-							display: -webkit-box;
-							height: 72px;
-						}
-						>ol{
-							display: flex;
-							align-items: center;
-							margin-top: 8px;
-							>li{
-								display: flex;
-								align-items: center;
-								>img{
-									display: block;
-									width: 12px;
-									height: 12px;
-								}
-								>span{
-									font-size:12px;
-									font-family:PingFangSC-Regular;
-									font-weight:400;
-									color:rgba(153,153,153,1);
-									line-height:14px;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		//挑战／抗魔计划
-		.challenge{
-			>ul{
-				>li{
-					display: flex;
-					padding: 15px 0;
-					>img{
-						width: 340px;
-						height: 160px;
-						border-radius: 3px;
-					}
-					>dl{
-						flex: 1;
-						padding-left: 20px;
-						>dt{
-							display: flex;
-							align-items: center;
-							margin-bottom: 10px;
-							>img{
-								width: 24px;
-								height: 24px;
-								margin-right: 10px;
-							}
-							>h5{
-								font-size:18px;
-								font-family:PingFangSC-Medium;
-								font-weight:500;
-								color:rgba(51,51,51,1);
-								line-height:24px;
-							}
-						}
-						>dd{
-							font-size:14px;
-							font-family:PingFangSC-Regular;
-							font-weight:400;
-							color:rgba(102,102,102,1);
-							line-height:28px;
-							height: 84px;
-							overflow: hidden;
-							-webkit-line-clamp: 3;
-							-webkit-box-orient: vertical;
-							display: -webkit-box;
-						}
-						>div{
-							margin-top: 20px;
-							display: flex;
-							align-items: center;
-							>p{
-								font-size:14px;
-								font-family:PingFangSC-Regular;
-								font-weight:400;
-								color:rgba(84,120,235,0.7);
-								line-height:14px;
-								padding-right: 10px;
-								border-right: 1px solid rgba(239,239,239,1);
-							}
-							>img{
-								width: 15px;
-								height: 10px;
-								margin: 0 9px 0 15px;
-							}
-							>span{
-								font-size:12px;
-								font-family:PingFangSC-Regular;
-								font-weight:400;
-								color:rgba(153,153,153,1);
-								line-height:24px;
-							}
-						}
-					}
-				}
-			}
-		}
+		
 
 	}
 	// 右侧内容
@@ -1094,6 +588,7 @@ export default {
 				>div{
 					padding: 15px 0;
 					display: flex;
+					border-top:1px solid rgba(239,239,239,1);
 					>span{
 						font-size:12px;
 						font-family:PingFangSC-Regular;
@@ -1110,80 +605,7 @@ export default {
 				}
 			}
 		}
-		.author-wrap{
-			padding: 66px 30px 30px;
-			background:rgba(248,249,255,1);
-			border-radius:2px;
-			margin-top: 80px;
-			position: relative;
-			>img{
-				position: absolute;
-				width: 100px;
-				height: 100px;
-				border-radius: 50%;
-				display: block;
-				left: 50%;
-				top: 0;
-				transform: translate(-50%,-50%);
-				
-			}
-			.author-msg{
-				display: flex;
-				justify-content: center;
-				>div{
-					&:last-child{
-						padding-right: 10px;
-						margin-right: 10px;
-						border-right:1px solid rgba(239,239,239,1);
-					}
-					display: flex;
-					align-items: flex-end;
-					>p{
-						font-size:18px;
-						font-family:PingFangSC-Medium;
-						font-weight:500;
-						color:#333333;
-						line-height:18px;
-					}
-					>span{
-						font-size:12px;
-						font-family:PingFangSC-Medium;
-						color:#999999;
-					}
-				}
-			}
-			>h6{
-				font-size:12px;
-				font-family:PingFangSC-Regular;
-				font-weight:400;
-				color:rgba(51,51,51,1);
-				line-height:24px;
-				padding-bottom: 10px;
-				border-bottom:1px solid rgba(239,239,239,1);
-				margin: 15px 0 10px;
-			}
-			>p{
-				font-size:12px;
-				font-family:PingFangSC-Regular;
-				font-weight:400;
-				color:rgba(102,102,102,1);
-				line-height:24px;
-			}
-			.author-more{
-				height:32px;
-				background:rgba(84,120,235,1);
-				border-radius:2px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-size:12px;
-				font-family:PingFangSC-Medium;
-				font-weight:500;
-				color:rgba(255,255,255,1);
-				line-height:32px;
-				margin-top: 30px;
-			}
-		}
+		
 		>img{
 			width: 100%;
 			margin-top: 20px;

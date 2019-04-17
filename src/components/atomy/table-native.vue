@@ -71,7 +71,7 @@ dl.table-native{
         position: absolute;
         bottom: 0;
         left: 0;
-        transition: all @transTime;
+        transition: all .4s;
     }
     >dd{
         width: auto;
@@ -85,8 +85,8 @@ dl.table-native{
         transition: all @transTime;
         &.active{
             color:rgba(84,120,235,1);
-            // font-weight: bold;
-            text-shadow: 2px 1px 3px  rgba(89, 125, 243, 0.4);
+            font-weight: bold;
+            // text-shadow: 2px 1px 3px  rgba(89, 125, 243, 0.4);
         }
 
     }

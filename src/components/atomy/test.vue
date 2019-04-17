@@ -41,7 +41,30 @@ export default {
     },
     data(){
         return{
-            param: 'sss'
+            param: 'sss',
+            mywat: {
+                name: 'hu',
+                age: 18
+            },
+            mydeep: {
+                one: {
+                    target: 0
+                }
+            }
+        }
+    },
+    watch: {
+        param: function(val,oldVal){
+
+        },
+        'mywat.name': function(val,oldVal){
+
+        },
+        mydeep:{
+            handler: function(val,oldVal){
+
+            },
+            deep: true
         }
     }
 }
