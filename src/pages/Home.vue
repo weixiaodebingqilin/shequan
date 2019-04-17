@@ -22,6 +22,9 @@
                 <li>
                     <router-link to="/combat">实战</router-link>
                 </li>
+                <li>
+                    <router-link to="/homework">批改作业</router-link>
+                </li>
             </ul>
             <!-- 搜索 -->
             <div class="top-search"></div>

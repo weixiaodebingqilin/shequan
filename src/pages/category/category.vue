@@ -732,61 +732,6 @@ export default {
 		}
 	}
 
-
-	// <section class="settlement-wrap">
-	// 	<div class="settlement">
-	// 		<h5>结算中</h5>
-	// 		<div class="settlement-msg">
-	// 			<div>
-	// 				<h6>我在阿里做UI的8年成长历程</h6>
-	// 				<div>
-	// 					<div>专题圈 | 限时优惠</div>
-	// 					<p>￥299.00/年</p>
-	// 					<span>￥399.00</span>
-	// 				</div>
-	// 			</div>
-	// 			<p>加入圈子，你将获得加入之日前圈主所有的文章，以及往后一年内更新的所有文章，你将可以和优秀的设计师们一起学习交流，和圈主一起每天比别人多进步一点。</p>
-	// 		</div>
-
-	// 		<div class="settlement-way">
-	// 			<div class="user-msg">
-	// 				<img src="@/assets/images/temp/QR-code.png">
-	// 				<div>
-	// 					<div>微笑的冰欺凌</div>
-	// 					<p>我的余额： <span>￥56</span></p>
-	// 				</div>
-	// 				<p>使用余额</p>
-	// 			</div>
-
-	// 			<div class="pay-way">
-	// 				<p>请选择支付方式</p>
-	// 				<dl>
-	// 					<dt>
-	// 						<img src="@/assets/images/temp/QR-code.png">
-	// 						<span>微信支付</span>
-	// 					</dt>
-	// 					<dt>
-	// 						<img src="@/assets/images/temp/QR-code.png">
-	// 						<span>支付宝</span>
-	// 					</dt>
-	// 					<dd>
-	// 						支付倒计时
-	// 						<span>59</span>分
-	// 						<span>23</span>秒
-	// 					</dd>
-	// 				</dl>
-	// 				<div>
-	// 					<p></p>
-	// 					<div>
-	// 						<p>应付金额：<font>￥243.00</font></p>
-	// 						<div>立即支付</div>
-	// 					</div>
-	// 				</div>
-	// 			</div>
-	// 		</div>
-	// 	</div>
-	// </section>
-
 	//结算中
 	.settlement-wrap{
 		background:rgba(248,249,255,1);
