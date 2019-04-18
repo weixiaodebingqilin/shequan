@@ -59,7 +59,7 @@
                     </nav>
                     <section class="chanllenge-contBox">
                         <!-- 日程 -->
-                        <ul class="chanllenge-schedule">
+                        <ul class="chanllenge-schedule" v-if="tableIndex===0">
                             <!-- status 状态：['今日','今日已完成','已完成','未完成'] -->
                             <timeTaskAxis isToday>
                                 <nav>
@@ -71,10 +71,102 @@
                             <timeTaskAxis ></timeTaskAxis>
                         </ul>
                         <!-- 挑战圈 -->
-                        <div class=""></div>
+                        <div class="chanllenge-circle" v-if="tableIndex===1">
+                            <ul class="circle-nav">
+                                <li class="screen-active">全部</li>
+                                <li>作业</li>
+                                <li>精选</li>
+                                <li>红名单</li>
+                            </ul>
+                            <ul class="circle-comment">
+                                <li v-for="(item,index) in 5" :key="index">
+                                    <img src="@/assets/images/temp/challenge-head.png" >
+                                    <section>
+                                        <h6>KIM_会飞的鱼 <span>刚刚</span></h6>
+                                        <p><span>＃作业 </span> 嗯，圈主教的太好了！</p>
+                                        <div class="comment-img">
+                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                        </div>
+                                        <dl>
+                                            <dt class="green">
+                                                <img src="@/assets/images/temp/challenge-comment.png" >
+                                                <span>已批改</span>
+                                            </dt>
+                                            <dd class="dd-green">来！我把我把画笔给你，你来做圈主！</dd>
+                                        </dl>
+                                        <div class="comment-browse">
+                                            <div>
+                                                <img src="@/assets/images/temp/challenge-comment.png" >
+                                                <span>320</span>
+                                            </div>
+                                            <div>
+                                                <img src="@/assets/images/temp/challenge-comment.png" >
+                                            </div>
+                                        </div>
+                                        <ol>
+                                            <li>
+                                                <img src="@/assets/images/temp/challenge-head.png" >
+                                                <section>
+                                                    <h6>胡凌 <span> 02.20 14:23</span></h6>
+                                                    <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
+                                                    <div>
+                                                        <div>
+                                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                                            <span>320</span>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </li>
+                                            <li>
+                                                <img src="@/assets/images/temp/challenge-head.png" >
+                                                <section>
+                                                    <h6>胡凌 <span> 02.20 14:23</span></h6>
+                                                    <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
+                                                    <div>
+                                                        <div>
+                                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                                            <span>320</span>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </li>
+                                            <li>
+                                                <img src="@/assets/images/temp/challenge-head.png" >
+                                                <section>
+                                                    <h6>胡凌 <span> 02.20 14:23</span></h6>
+                                                    <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
+                                                    <div>
+                                                        <div>
+                                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                                            <span>320</span>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </li>
+                                            <button>展开更多评论</button>
+                                        </ol>
+                                    </section>
+                                </li>
+                            </ul>
+
+                            <ul class="projects-page">
+                                <li>1</li>
+                                <li class="page-active">2</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>···</li>
+                                <li>100</li>
+                            </ul>
+                        </div>
                     </section>
                 </div>
-                <div class="challenge-right"></div>
+                <div class="challenge-right">
+                    <author-wrap></author-wrap>
+                </div>
             </section>
         </div>
     </div>
@@ -89,15 +181,18 @@ export default {
         tableNative: atomy.tableNative,
         showStar: atomy.showStar,
         timeTaskAxis: molecule.timeTaskAxis,
+        authorWrap: molecule.authorWrap,
+
     },
     data(){
         return{
-            kindNative: ['日程','挑战圈']
+            kindNative: ['日程','挑战圈'],
+            tableIndex:0,
         }
     },
     methods: {
         tableMoveIndex(index){
-
+            this.tableIndex=index;
         }
     }
 
@@ -110,6 +205,277 @@ export default {
 #challenge{
     padding-top: 30px;
     background: #F8F9FF;
+    .challenge-left{
+        width: 749px;
+    }
+    .challenge-right{
+        width: 280px;
+    }
+    // 挑战圈
+    .chanllenge-circle{
+        .circle-nav{
+            padding: 30px 0;
+            display: flex;
+            >li{
+                padding: 0 12px;
+                height:28px;
+                display: flex;
+                align-items: center;
+                font-size:14px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(102,102,102,1);
+                line-height:14px;
+                border-radius:14px;
+                margin-right: 26px;
+            }
+            .screen-active{
+                background:rgba(84,120,235,0.1);
+                color:rgba(84,120,235,1);
+                font-weight: bold;
+            }
+        }
+        .circle-comment{
+            >li{
+                padding: 15px 0;
+                display: flex;
+                border-bottom:1px solid rgba(242,242,242,1);
+                >img{
+                    width: 40px;
+                    height: 40px;
+                    display: block;
+                    margin-right: 10px;
+                }
+                >section{
+                    flex: 1;
+                    >h6{
+                        padding: 2px 0 10px;
+                        font-size:14px;
+                        font-family:PingFangSC-Medium;
+                        font-weight:500;
+                        color:rgba(51,51,51,1);
+                        line-height:14px;
+                        >span{
+                            font-size:12px;
+                            font-family:PingFangSC-Medium;
+                            font-weight:500;
+                            color:rgba(189,189,189,1);
+                            line-height:14px;
+                            padding-left: 11px;
+                        }
+                    }
+                    >p{
+                        font-size:14px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        color:#333333;
+                        line-height:28px;
+                        >span{
+                            color:rgba(3,191,140,1);
+                        }
+                        margin-bottom: 15px;
+
+                    }
+                    .comment-img{
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-bottom: 15px;
+                        >img{
+                            width: 100px;
+                            height: 100px;
+                            display: block;
+                            margin-right: 10px;
+                        }
+                    }
+                    >dl{
+                        >dt{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width:88px;
+                            height:24px;
+                            border-radius:13px;
+                            margin-bottom: 10px;
+                            >img{
+                                width: 10px;
+                                height: 10px;
+                                display: flex;
+                                margin-right: 10px;
+                            }
+                            >span{
+                                font-size:12px;
+                                font-family:PingFangSC-Medium;
+                                font-weight:500;
+                                line-height:12px;
+                            }
+                        }
+                        .green{
+                            background:rgba(3,191,140,0.1);
+                            border:1px solid rgba(3,191,140,0.4);
+                            >span{
+                                color:#03BF8C; 
+                            }
+                        }
+                        .red{
+                            background:rgba(252,64,17,0.1);
+                            border:1px solid rgba(252,64,17,0.4);
+                            >span{
+                                color: #FC4011;
+                            }
+                        }
+                        >dd{
+                            font-size:12px;
+                            font-family:PingFangSC-Regular;
+                            font-weight:400;
+                            color:#888888;
+                            line-height:17px;
+                            padding: 15px;
+                            display: inline-block;
+                            margin-bottom: 15px;
+                            border-radius:2px;
+                        }
+                        .dd-green{
+                            background:rgba(3,191,140,0.1);
+                        }
+                        .dd-red{
+                            background:rgba(252,64,17,0.1);
+                        }
+                    }
+                    .comment-browse{
+                        display: flex;
+                        align-items: center;
+                        padding-bottom: 15px;
+                        >div{
+                            display: flex;
+                            align-items: center;
+                            margin-right: 15px;
+                            >img{
+                                width: 14px;
+                                height: 14px;
+                                margin-right: 6px;
+                            }
+                            >span{
+                                font-size:12px;
+                                font-family:PingFangSC-Regular;
+                                font-weight:400;
+                                color:rgba(102,102,102,1);
+                                line-height:14px;
+                            }
+                        }
+                    }
+                    >ol{
+                        padding:5px  15px 0;
+                        background: #EFF0FA;
+                        >li{
+                            display: flex;
+                            border-bottom:1px solid rgba(233,233,233,1);
+                            &:last-child{
+                                border-bottom:none;
+                            }
+                            >img{
+                                width: 30px;
+                                height: 30px;
+                                display: flex;
+                                margin-right: 10px;
+                            }
+                            >section{
+                                flex: 1;
+                                >h6{
+                                    padding-top: 9px;
+                                    padding-bottom: 5px;
+                                    font-size:12px;
+                                    font-family:PingFangSC-Medium;
+                                    font-weight:500;
+                                    color:rgba(51,51,51,1);
+                                    line-height:12px;
+                                    >span{
+                                        padding-left: 10px;
+                                        font-size:12px;
+                                        font-family:PingFangSC-Medium;
+                                        font-weight:500;
+                                        color:rgba(189,189,189,1);
+                                    }
+                                }
+                                >p{
+                                    font-size:14px;
+                                    font-family:PingFangSC-Regular;
+                                    font-weight:400;
+                                    color:rgba(51,51,51,1);
+                                    line-height:28px;
+                                    margin-bottom: 10px;
+                                }
+                                >div{
+                                    display: flex;
+                                    align-items: center;
+                                    >div{
+                                        display: flex;
+                                        align-items: center;
+                                        margin-right: 15px;
+                                        >img{
+                                            width: 14px;
+                                            height: 14px;
+                                            margin-right: 6px;
+                                        }
+                                        >span{
+                                            font-size:12px;
+                                            font-family:PingFangSC-Regular;
+                                            font-weight:400;
+                                            color:rgba(102,102,102,1);
+                                            line-height:14px;
+                                        }
+                                    }
+                                    padding-bottom: 10px;
+                                }
+                            }
+                        }
+                        >button{
+                            padding: 0 0 15px;
+                            margin: 0;
+                            border: none;
+                            background: transparent;
+                            font-size:12px;
+                            font-family:PingFangSC-Medium;
+                            font-weight:500;
+                            color:rgba(189,189,189,1);
+                            line-height:17px;
+                            outline: none;
+                            margin-left: 40px;
+                        }
+                    }
+
+                }
+
+            }
+        }
+        .projects-page{
+            display: flex;
+            justify-content: center;
+            padding: 60px 0;
+            >li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:39px;
+                height:39px;
+                background:rgba(232,232,232,1);
+                border-radius: 50%;
+                font-size:14px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(153,153,153,1);
+                line-height:20px;
+                margin-right: 20px;
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+            .page-active{
+                background: #5478EB;
+                color: #fff;
+            }
+        }
+    }
+    // 挑战圈 end
     .main{
         width: @wap;
         margin: 0 auto;
@@ -280,11 +646,17 @@ export default {
     .challenge-cont-nav{
         display: flex;
     }
+    .challenge-cont{
+        display: flex;
+        justify-content: space-between;
+    }
     .chanllenge-contBox{
         overflow: hidden;
     }
     ul.chanllenge-schedule{
         margin: 30px 0 30px;
     }
+
+
 }
 </style>
