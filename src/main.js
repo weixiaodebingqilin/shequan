@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router/index.js'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+// import './components/componentRegister.js'
 // 全局样式
 import './assets/style/base.css'
 Vue.use(ElementUI, {size: 'mini'})

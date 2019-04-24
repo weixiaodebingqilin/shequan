@@ -147,7 +147,6 @@
     </div>
 </template>
 <script>
-import molecule from '@/components/molecule/mixins.js'
 import atomy from '@/components/atomy/mixins.js'
 import hotFind from './component/hot-find'
 import indexCategory from './component/category'
@@ -155,7 +154,6 @@ import indexKnowledge from './component/knowledge'
 export default {
     name: 'index',
     components: {
-        textHd: atomy.textHd,
         test: atomy.test,
         tableNative: atomy.tableNative,
         hotFind: hotFind,
