@@ -144,6 +144,7 @@
                 
             </div>
         </section>
+        <button @click="test">点击我试试看</button>
     </div>
 </template>
 <script>
@@ -151,6 +152,7 @@ import atomy from '@/components/atomy/mixins.js'
 import hotFind from './component/hot-find'
 import indexCategory from './component/category'
 import indexKnowledge from './component/knowledge'
+import {regist,getCode} from '@/api/user.js'
 export default {
     name: 'index',
     components: {
@@ -175,6 +177,15 @@ export default {
         // 导航栏切换后的回调
         tableMoveIndex(index){
             this.kindIndex = index
+        },
+        ///
+        test(){
+            getCode('13820381757').then(res => {
+                console.log('res： ',res)
+            })
+        },
+        regist(){
+            regist()
         }
     }
 }

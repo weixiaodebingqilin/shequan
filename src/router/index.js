@@ -44,8 +44,15 @@ export default new Router({
                     name: 'homework',
                     component: _import('homework/homework'),
                 },
+                
 
             ]
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: _import('login/login'),
+            meta: { title: '登陆' },
         }
 
     ]
