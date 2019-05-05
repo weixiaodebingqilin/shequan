@@ -53,7 +53,14 @@ export default new Router({
             name: 'login',
             component: _import('login/login'),
             meta: { title: '登陆' },
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: _import('login/register'),
+            meta: { title: '注册' },
         }
+
 
     ]
 })
