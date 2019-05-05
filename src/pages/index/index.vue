@@ -180,7 +180,7 @@ export default {
 }
 </script>
 <style lang="less">
-@import '~@/assets/style/glob.less';
+
 #index{
     .index-native{
         height:60px;

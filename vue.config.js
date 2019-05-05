@@ -16,12 +16,31 @@ module.exports = {
         
     },
     // 配置less
-    pluginOptions: {
-        'style-resources-loader': {
-          preProcessor: 'less',
+    chainWebpack: config => {
+      const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+      types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+    },
+
+    css: {
+      loaderOptions: {
+        less: {
+          modifyVars: {
+            'primary-color': '#1DA57A',
+            'link-color': '#1DA57A',
+            'border-radius-base': '2px',
+          },
+          javascriptEnabled: true
+        }
+      }
+    }
+}
+function addStyleResource(rule) {
+  rule.use('style-resource')
+      .loader('style-resources-loader')
+      .options({
           patterns: [
-            path.resolve(__dirname, './src/assets/style/glob.less'),
+              path.resolve(__dirname, 'src/assets/style/glob.less'), // 需要全局导入的less
+              // path.resolve(__dirname, 'src/styles/mixin.less'),
           ],
-        },
-      },
+      })
 }
