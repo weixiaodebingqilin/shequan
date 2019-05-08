@@ -120,7 +120,8 @@ export default {
         align-items: center;
         >input{
             width: 90px;
-            height: 30px;
+            height: 20px;
+            margin-right: 6px; 
             background: transparent;
             border: 1px solid transparent;
             transition: all .3s ease-out;
@@ -135,8 +136,10 @@ export default {
         >div{
             display: flex;
             cursor: pointer;
+            align-items: center;
             img{
                 width: 14px;
+                height: 14px;
                 margin-right:10px;
             }
             span{

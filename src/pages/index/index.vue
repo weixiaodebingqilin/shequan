@@ -142,7 +142,7 @@
                     </dd>
                 </dl>
                 
-            </div>
+            </div> 
         </section>
         <button @click="test">点击我试试看</button>
     </div>
@@ -494,7 +494,7 @@ export default {
         >dt{
             display: flex;
             padding-bottom:15px;
-            border: 1px solid rgba(242,242,242,1);
+            border-bottom: 1px solid rgba(242,242,242,1);
             >img{
                 width: 18px;
                 height: 18px;
