@@ -20,8 +20,9 @@
                 <!-- kind-native -->
                 <table-native :clounms="kindNative" @tableMoveIndex="tableMoveIndex" :initIndex='kindIndex'></table-native>
                 <div>
-                    <hot-find v-if="kindIndex === 1"></hot-find> 
                     <index-knowledge v-if="kindIndex === 0"></index-knowledge>
+                    <hot-find v-if="kindIndex === 1"></hot-find> 
+                    <newest-share  v-if="kindIndex === 2"></newest-share>
                     <index-category v-if="kindIndex === 3"></index-category>
                 </div>
                 
@@ -151,6 +152,7 @@
 import atomy from '@/components/atomy/mixins.js'
 import hotFind from './component/hot-find'
 import indexCategory from './component/category'
+import newestShare from './component/share'
 import indexKnowledge from './component/knowledge'
 import {regist,getCode} from '@/api/user.js'
 export default {
@@ -160,7 +162,8 @@ export default {
         tableNative: atomy.tableNative,
         hotFind: hotFind,
         indexCategory: indexCategory,
-        indexKnowledge: indexKnowledge
+        indexKnowledge: indexKnowledge,
+        newestShare:newestShare
     },
     data() {
         return {
