@@ -8,7 +8,7 @@
                     <div class="article-user">
                         <h5>Icon设计的法则</h5>
                         <div class="user-msg">
-                            <img src="@/assets/images/temp/QR-code.png">
+                            <img src="@/assets/images/temp/header.png">
                             <dl>
                                 <dt><font>胡凌</font><span>关注</span></dt>
                                 <dd>

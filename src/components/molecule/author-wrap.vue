@@ -1,6 +1,6 @@
 <template>
     <div class="author-wrap">
-        <img src="@/assets/images/ot/img/slices/图1(3).png" >
+        <img src="@/assets/images/temp/header.png" >
         <div class="author-msg">
             <div>
                 <p>胡凌</p>
@@ -43,7 +43,7 @@ export default {
         display: flex;
         justify-content: center;
         >div{
-            &:last-child{
+            &:first-child{
                 padding-right: 10px;
                 margin-right: 10px;
                 border-right:1px solid rgba(239,239,239,1);
@@ -61,6 +61,8 @@ export default {
                 font-size:12px;
                 font-family:PingFangSC-Medium;
                 color:#999999;
+                line-height: 12px;
+                margin-left: 10px;
             }
         }
     }

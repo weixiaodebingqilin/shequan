@@ -26,16 +26,16 @@
 						<dl class="clearfix">
 							<dt>
 								<ul>
-									<li>32篇文章更新</li>
-									<li>32459位成员</li>
-									<li>20W人气</li>
+									<li>32<span>篇文章更新</span></li>
+									<li>32459<span>位成员</span></li>
+									<li>20W<span>人气</span></li>
 								</ul>
 							</dt>
 							<dd>有效期至：2020.03.12</dd>
 						</dl>
 					</div>
 					<div class="msg">
-						<p>最近更新   支付宝01246版中遇到的坑   3小时前</p>
+						<p>最近更新<span>支付宝01246版中遇到的坑</span>3小时前</p>
 					</div>
 				</div>
 				
@@ -120,7 +120,7 @@
 					<div class="author-more">查看主页</div>
 				</div> -->
 				<author-wrap></author-wrap>
-				<img src="@/assets/images/ot/img/slices/图1(3).png" >
+				<img src="@/assets/images/temp/author-bottom.png" >
 			</section>
 		</div>
 
@@ -168,7 +168,7 @@
 
 				<div class="settlement-way">
 					<div class="user-msg">
-						<img src="@/assets/images/temp/QR-code.png">
+						<img src="@/assets/images/temp/header.png">
 						<div>
 							<div>微笑的冰欺凌</div>
 							<p>我的余额： <span>￥56</span></p>
@@ -180,11 +180,11 @@
 						<p>请选择支付方式</p>
 						<dl>
 							<dt>
-								<img src="@/assets/images/temp/QR-code.png">
+								<img src="@/assets/images/temp/weChat-pay.png">
 								<span>微信支付</span>
 							</dt>
 							<dt>
-								<img src="@/assets/images/temp/QR-code.png">
+								<img src="@/assets/images/temp/ali-pay.png">
 								<span>支付宝</span>
 							</dt>
 							<dd>
@@ -353,8 +353,8 @@ export default {
 		margin: 0 auto;
 		background: white;
 		border: 0px solid white;
-		transform: translate(-10px,-84px);
-		box-shadow: 0px 3px 2px rgba(0,0,0,0.3),0 0 5px rgba(0,0,0,0.1 )inset;
+		transform: translate(0,-84px);
+		box-shadow:0px 4px 12px 0px rgba(84,120,235,0.1);
 	}
 	.main>.banner>dl{
 		position: relative;
@@ -368,10 +368,12 @@ export default {
 		font-weight: 600;
 		color: #333333;
 		text-align: center;
+		background:rgba(185,202,255,0.1);
+		border-radius:2px 2px 0 0;
 	}
 	.main>.banner>dl>dd{
 		position: absolute;
-		width: 37px;
+		padding: 0 10px;
 		height: 24px;
 		line-height: 24px;
 		top: 50%;
@@ -381,6 +383,8 @@ export default {
 		color: #5478EB;
 		border: 1px solid #5478EB;
 		border-radius: 12px;
+		background:rgba(84,120,235,0.1);
+
 	}
 	.shop{
 		float: left;
@@ -389,31 +393,92 @@ export default {
 	}
 	.shop>.user>img{
 		float: left;
+		width: 46px;
+		height: 46px;
+		margin-right: 10px;
+		border-radius: 50%;
 	}
 	.shop>.user>dl{
 		float: left;
 		margin-left: 3px;
+		>dt{
+			font-size:14px;
+			font-family:PingFangSC-Medium;
+			font-weight:500;
+			color:rgba(51,51,51,1);
+			line-height:20px;
+			padding: 2px 0 10px;
+		}
+		>dd{
+			font-size:12px;
+			font-family:PingFangSC-Regular;
+			font-weight:400;
+			color:rgba(153,153,153,1);
+			line-height:12px;
+		}
 	}
 	.shop>.summary>p{
 		float: left;
 		margin-top: 30px;
+		font-size:14px;
+		font-family:PingFangSC-Regular;
+		font-weight:400;
+		color:rgba(51,51,51,1);
+		line-height:28px;
+		padding-right: 30px;
 	}
 	.shop>.tool{
 		border-bottom: 1px solid #EFEFEF;
 		padding-bottom: 20px;
+		padding-right: 30px;
 	}
 	.tool>dl>dt>ul>li{
 		float: left;
 		margin-top: 40px;
-		font-size: 24px;
+		font-size:24px;
+		font-family:PingFangSC-Medium;
+		font-weight:500;
+		color:rgba(51,51,51,1);
+		line-height:24px; 
+		padding-right: 16px;
+		margin-right: 16px;
+		position: relative;
+		&::after{
+			content: ' ';
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			height: 20px;
+			width: 2px;
+			background:rgba(151,151,151,0.2);
+		}
+		>span{
+			font-size: 14px;
+			color: #999;
+			padding-left: 10px;
+		}
 	}
 	.tool>dl>dd{
 		float: right;
 		margin-top: 50px;
-		margin-right: 15px;
+		font-size:12px;
+		font-family:PingFangSC-Regular;
+		font-weight:400;
+		color:rgba(153,153,153,1);
+		line-height:17px;
 	}
 	.msg>p{
 		padding-top: 20px;
+		font-size:14px;
+		font-family:PingFangSC-Medium;
+		font-weight:500;
+		color:rgba(153,153,153,1);
+		line-height:14px;
+		>span{
+			color: #5478EB;
+			padding: 0 15px;
+		}
 	}
 	
 	//tab内容
