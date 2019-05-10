@@ -1,7 +1,10 @@
 <template>
     <section id="login">
         <header>
-            <img src="@/assets/images/login/design.png" >
+            <!-- <img src="@/assets/images/login/design.png" > -->
+            <svg class="icon logo" aria-hidden="true">
+                <use xlink:href="#iconlogo"></use>
+            </svg>
             <p>欢迎来到属于设计师的圈子，和优秀的设计师们一起学习成长</p>
         </header>
         <div class="main">
@@ -90,7 +93,7 @@ export default {
         width: @wd;
         margin: 130px auto 60px;
         text-align: center;
-        img{
+        img,.logo{
             width: 130px;
             height: 40px;
             margin-bottom: 20px;

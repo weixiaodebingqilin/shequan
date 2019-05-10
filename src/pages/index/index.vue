@@ -1,7 +1,7 @@
 <template>
     <div id="index">
         <test></test>
-        <div class="index-native">
+        <!-- <div class="index-native">
             <ul >
                 <li>加入圈子</li>
                 <li>视频教程</li>
@@ -9,7 +9,7 @@
                 <li>求职推荐</li>
                 <li>职业规划</li>
             </ul>
-        </div>
+        </div> -->
         <section>
             <!-- 左边 -->
             <div class="warp-left">

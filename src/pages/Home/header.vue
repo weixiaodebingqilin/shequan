@@ -3,7 +3,8 @@
     <section>
             <!-- logo -->
         <div class="top-logo">
-            <img src="@/assets/images/icon/logo.png" >
+            <img src="@/assets/images/icon/logo.png" />
+            
             <dl>
                 <dt>设圈</dt>
                 <dd>高效学习</dd>
