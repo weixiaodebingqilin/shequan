@@ -13,7 +13,22 @@ export const regist = (code, data) => service.post(`${prev}/user/register/${code
 /**
  * getCode 获取短信验证码
  * @param {[String,Number]} mobile 
- * 
  * @return {Object} res 
  */
-export const getCode = (mobile) => service.post(`${prev}/user/sendsms/${mobile}`);
+export const getCode = (mobile,type) => service.post(`${prev}/user/sendsms/${mobile}?type=${type}`);
+
+
+/**
+ * loginMessage 短信验证码登陆
+ * @param {[String,Number]} code 
+ * @param {Object} data 
+ * @return {Object} res 
+ */
+export const loginMessage = (code,data) => service.post(`${prev}/user/login?code=${code}`,data);
+
+/**
+ * loginPassword 短信验证码登陆
+ * @param {Object} data 
+ * @return {Object} res 
+ */
+export const loginPassword = (data) => service.post(`${prev}/user/login`,data);
