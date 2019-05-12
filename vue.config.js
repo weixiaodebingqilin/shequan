@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     // production(打包环境);   development(开发环境)
-    publicPath: process.env.NODE_ENV === 'production' ? 'http://39.96.35.240:9012' : '/',
+    publicPath: './',
     // 配置 webpack-dev-server 行为。
     devServer: {
         proxy: {

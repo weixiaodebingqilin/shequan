@@ -6,7 +6,7 @@ import ElementUI from 'element-ui'
  * 创建axios实例
  */
 // axios.defaults.baseURL = 'http://114.116.11.4:8080'
-axios.defaults.baseURL = '/sell/'
+axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? '/sell/' : 'http://39.96.35.240:9012'
 const service = axios.create({
     timeout: 60000 // 请求超时时间
 })

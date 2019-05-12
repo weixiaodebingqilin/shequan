@@ -65,7 +65,13 @@ export default new Router({
             name: 'register',
             component: _import('login/register'),
             meta: { title: '注册' },
-        }
+        },
+        {
+            path: '/forgot',
+            name: 'forgot',
+            component: _import('login/forgot'),
+            meta: { title: '忘记密码' },
+        },
 
 
     ]

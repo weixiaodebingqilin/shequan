@@ -13,14 +13,14 @@
             <ul  >
                 <li class="input-item">
                     <div>
-                        <input  type="number" name="mobile"  placeholder="手机号码" 
+                        <input  type="text" name="mobile"  placeholder="手机号码" 
                             v-model="mobile" :class="{error: !mobileState}"
                             max="11" maxlength="11" @blur="validateMoblie"
                         />    
                     </div> 
                     
                 </li>
-                <li class="input-item" v-if="kindeIndex === 0">
+                <li class="input-item" v-show="kindeIndex === 0">
                     <div>
                         <input type="password" name="password" 
                             v-model="password"
@@ -28,7 +28,12 @@
                     </div>
                     
                 </li>
-                <li class="input-item" v-if="kindeIndex === 1">
+                <li class="input-item" v-show="kindeIndex === 1">
+                    <div class="hidde-inpt">
+                        <input type="tel"
+                          placeholder="请输入短信验证码"
+                        >
+                    </div>
                     <div>
                         <input type="tel"
                          max="6" maxlength="6"
@@ -62,12 +67,19 @@
                 </dt>
                 <dd>
                     <p><router-link to="/register">注册</router-link></p>
-                    <!-- <p><router-link to="/login">忘记密码</router-link></p> -->
-                    <p>忘记密码</p>
+                    <p><router-link to="/forgot">忘记密码</router-link></p>
+                    <!-- <p>忘记密码</p> -->
                 </dd>
             </dl>
             <p class="sbmt can" @click="loginto">登陆</p>
-            
+            <ul class="third-login">
+                <li>
+                    <div>
+                        <i class="icon"></i>
+                        <p>微信登陆</p>
+                    </div>
+                </li>
+            </ul>
         </div>
         <footer>京ICP备14007358号-1 \ 京公网安备11010802014104号 \ Powered by @ 2009-2019 shequanpro.com</footer>
     </section>
@@ -101,6 +113,7 @@ export default {
     },
     methods: {
         tableMoveIndex(index){
+            this.code = ''
             this.kindeIndex = index
         },
         loginto(){
@@ -142,8 +155,13 @@ export default {
         },
         // 验证码登陆
         loginMsg(_data){
+            if(!this.code){
+                console.log('验证码不能为空')
+                return
+            }
             loginMessage(this.code,_data).then(res => {
-                console.log('resmgs: ', res)
+                console.log('resmgs: ', res)  
+                this.$router.push({path: '/'})
             });
         },
         // 密码登陆
@@ -176,147 +194,8 @@ export default {
 }
 </script>
 <style lang="less" >
-@wd: 400px;
+@import url('./login.less');
 
-#login{
-    width: @wap;
-    height: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    >header{
-        width: @wd;
-        margin: 130px auto 60px;
-        text-align: center;
-        img,.logo{
-            width: 130px;
-            height: 40px;
-            margin-bottom: 20px;
-        }
-        p{
-            height:14px;
-            line-height:14px;
-            font-size:14px;
-            color:rgba(51,51,51,1);
-            
-        }
-    }
-    >.main{
-        width: @wd;
-        margin: 0 auto;
-        text-align: center;
-        dl.table-native{
-            margin-bottom: 40px;
-        }
-        dl.table-native > dt{
-            background: #333;
-        }
-        dl.table-native > dd.active{
-            color: #333;
-        }
-
-    }
-    >footer{
-        text-align: center;
-    }
-    dl.remember{
-        display: flex;
-        justify-content: space-between;
-        color:rgba(153,153,153,1);
-        font-size:12px;
-        dt{
-            display: flex;
-            cursor: pointer;
-            img{
-                width: 16px;
-                height: 16px;
-                margin-right: 10px;
-            }
-        }
-        dd{
-            display: flex;
-            cursor: pointer;
-            p{
-                &:nth-child(1){
-                    padding-right: 5px;
-                    border-right: 1px solid rgba(153,153,153,0.2);
-                    margin-right: 5px
-                }
-                a{
-                    color:rgba(153,153,153,1);
-                }
-            }
-            
-        }
-    }
-    .sbmt{
-        width:@wd;
-        height:48px;
-        line-height: 48px;
-        text-align: center;
-        font-size:16px;
-        color: #fff;
-        margin: 40px auto 50px;
-        
-        box-shadow:0px 1px 6px 0px rgba(1,10,38,0.1),0px 1px 4px 0px rgba(84,120,235,0.1);
-        border-radius:2px;
-        &.can{
-            background:linear-gradient(135deg,rgba(84,120,235,1) 0%,rgba(118,150,253,1) 100%);
-            cursor: pointer;
-        }
-    }
-}
-.input-item{
-    height:44px;
-    line-height: 44px;
-    border-radius:2px;
-    margin-bottom: 30px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-around;
-    >div{
-        flex: 1;
-        width: 100%;
-        position: relative;
-        >input{
-            width: 100%;
-            height: 46px;
-            padding: 0 15px;
-            position: absolute;
-            top: -2px;
-            left:  -2px;
-            background:rgba(242,243,246,1);
-            font-size:16px;
-            color: #9396AB;
-            box-sizing: border-box;
-            border: 1px solid rgba(221,221,221,1);
-            border-radius: 2px;
-            &.error{
-                border-bottom-color: red;
-            }
-        }
-    }
-    >p{
-        width:140px;
-        height:44px;
-        line-height: 44px;
-        text-align: center;
-        font-size:14px;
-        color:rgba(153,153,153,1);
-        background:rgba(239,239,239,0.7);
-        border-radius:2px;
-        margin-left: 10px;
-        cursor: not-allowed;
-        &.canget{
-            cursor: pointer;
-            color:rgba(255,255,255,1);
-            background:rgba(84,120,235,0.7);
-        }
-        &.waite{
-            cursor: wait;
-        }
-    }
-    
-}
 </style>
 
 

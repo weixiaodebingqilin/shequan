@@ -45,8 +45,8 @@
             <p>加入主题</p>
             <!-- 登陆注册 -->
             <dl>
-                <dt>登陆</dt>
-                <dd>注册</dd>
+                <dt><router-link to="/login">登陆</router-link></dt>
+                <dd><router-link to="/register">注册</router-link></dd>
             </dl>
         </div>
     </section>
@@ -179,9 +179,15 @@ export default {
                     transform: translateY(-50%);
                     color: #fff;
                 }
+                >a{
+                    color: #fff;
+                }
             }
             >dd{
                 cursor: pointer;
+                >a{
+                    color: #fff;
+                }
             }
         }
     }

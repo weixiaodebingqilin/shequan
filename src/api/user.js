@@ -32,3 +32,11 @@ export const loginMessage = (code,data) => service.post(`${prev}/user/login?code
  * @return {Object} res 
  */
 export const loginPassword = (data) => service.post(`${prev}/user/login`,data);
+
+/**
+ * restPassword 重置密码
+ * @param {[String,Number]} code 
+ * @param {Object} data 
+ * @return {Object} res 
+ */
+export const restPassword = (code,data) => service.post(`${prev}/user/reset?code=${code}`,data);
