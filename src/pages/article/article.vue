@@ -235,14 +235,18 @@
                 </ul>
             </div>
         </section>
+        <!-- 作业 -->
+        <home-work></home-work>
     </div>
 </template>
 <script>
 import cardArtical from '@/components/molecule/card-artical.vue'
+import homeWork from './component/home-work'
 export default {
     name: 'articles',
     components: {
-        cardArtical
+        cardArtical,
+        homeWork:homeWork
     },
 }
 </script>
