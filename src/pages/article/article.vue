@@ -67,7 +67,23 @@
                 </div>
                 <!-- 作者信息 -->
                 <div class="article-author">
-                    
+                    <div class="user-msg">
+                        <img src="@/assets/images/temp/header.png">
+                        <dl>
+                            <dt><font>胡凌</font><span>关注</span></dt>
+                            <dd>
+                                <ul class="author-popularity">
+                                    <li>专题 <span>2</span></li>
+                                    <li>文章 <span>62</span></li>
+                                    <li>总人气 <span>60W</span></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                        <div class="author-works">
+                            <img src="@/assets/images/temp/kind-native.png">
+                            <img src="@/assets/images/temp/author-works2.png">
+                        </div>
+                    </div>
                 </div>
                 <!-- 评论 -->
                 <section class="palte-comment">
@@ -256,6 +272,7 @@
                         <img src="@/assets/images/temp/Group20.png" >
                     </li>
                 </ul>
+                
             </div>
         </section>
         <!-- 作业 -->
@@ -302,48 +319,73 @@ export default {
                     line-height:22px;
                     margin-bottom: 30px;
                 }
-                .article-user .user-msg{
+                
+            }
+            .article-user .user-msg, .article-author .user-msg{
+                display: flex;
+                >img{
+                    width: 46px;
+                    height: 46px;
+                    border-radius: 50%;
+                    display: block;
+                    margin-right: 10px;
+                }
+                >dl{
                     display: flex;
-                    >img{
-                        width: 46px;
-                        height: 46px;
-                        border-radius: 50%;
-                        display: block;
-                        margin-right: 10px;
-                    }
-                    >dl{
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 100%;
+                    >dt{
+                        padding-top: 2px;
                         display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        width: 100%;
-                        >dt{
-                            padding-top: 2px;
+                        >font{
+                            font-size:14px;
+                            font-family:PingFangSC-Medium;
+                            font-weight:500;
+                            color:rgba(51,51,51,1);
+                            line-height:20px;
+                            margin-right:10px; 
+                        }
+                        >span{
                             display: flex;
-                            >font{
-                                font-size:14px;
-                                font-family:PingFangSC-Medium;
-                                font-weight:500;
-                                color:rgba(51,51,51,1);
-                                line-height:20px;
-                                margin-right:10px; 
+                            width: 55px;
+                            height: 22px;
+                            box-sizing: border-box;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius:11px;
+                            border:1px solid rgba(84,120,235,1);
+                            color: #5478EB;
+                            font-size: 12px;
+                        }
+                    }
+                    >dd{
+                        display: flex;
+                        justify-content: space-between;
+                        >p{
+                            font-size:12px;
+                            font-family:PingFangSC-Regular;
+                            font-weight:400;
+                            color:rgba(153,153,153,1);
+                            line-height:12px;
+                        }
+                    }
+                    >dd>div{
+                        display: flex;
+                        >div{
+                            &:first-child>span{
+                                color:rgba(153,153,153,.5);
+                            }
+                            margin-left: 10px;
+                            display: flex;
+                            align-items: center;
+                            >img{
+                                // width: 12px;
+                                // height: 12px;
+                                display: block;
+                                margin-right: 5px;
                             }
                             >span{
-                                display: flex;
-                                width: 55px;
-                                height: 22px;
-                                box-sizing: border-box;
-                                justify-content: center;
-                                align-items: center;
-                                border-radius:11px;
-                                border:1px solid rgba(84,120,235,1);
-                                color: #5478EB;
-                                font-size: 12px;
-                            }
-                        }
-                        >dd{
-                            display: flex;
-                            justify-content: space-between;
-                            >p{
                                 font-size:12px;
                                 font-family:PingFangSC-Regular;
                                 font-weight:400;
@@ -351,33 +393,9 @@ export default {
                                 line-height:12px;
                             }
                         }
-                        >dd>div{
-                            display: flex;
-                            >div{
-                                &:first-child>span{
-                                    color:rgba(153,153,153,.5);
-                                }
-                                margin-left: 10px;
-                                display: flex;
-                                align-items: center;
-                                >img{
-                                    // width: 12px;
-                                    // height: 12px;
-                                    display: block;
-                                    margin-right: 5px;
-                                }
-                                >span{
-                                    font-size:12px;
-                                    font-family:PingFangSC-Regular;
-                                    font-weight:400;
-                                    color:rgba(153,153,153,1);
-                                    line-height:12px;
-                                }
-                            }
-                        }
                     }
-                    
                 }
+                
             }
             .article-comment{
                 background: #fff;
@@ -461,6 +479,47 @@ export default {
                                 border-left:1px solid rgba(255,255,255,.1);
                             }
                         }
+                    }
+                }
+                
+            }
+            .article-author{
+                padding: 23px 20px 17px;
+                background:rgba(171,181,212,.1);
+                box-shadow:0px 4px 12px 0px rgba(84,120,235,0.1);
+                border-radius:2px;
+                margin-bottom: 23px;
+                .user-msg{
+                    align-items: center;
+                }
+                .author-popularity{
+                    margin-top: 7px;
+                    display: flex;
+                    >li{
+                        font-size:14px;
+                        font-family:PingFangSC-Medium;
+                        font-weight:500;
+                        color:rgba(153,153,153,1);
+                        line-height:14px;
+                        border-right: 1px solid rgba(151,151,151,.2);
+                        margin-right: 10px;
+                        &:last-child{
+                            border-right: none;
+                        }
+                        >span{
+                            font-family:PingFangSC-Medium;
+                            font-weight:500;
+                            color:rgba(102,102,102,1);
+                            line-height:14px;
+                            padding: 0 10px;
+                        }
+                    }
+                }
+                .author-works{
+                    display: flex;
+                    >img{
+                        display: block;
+                        margin-left: 10px;
                     }
                 }
             }
