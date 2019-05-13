@@ -14,9 +14,12 @@
             <!-- 左边 -->
             <div class="warp-left">
                 <!-- 轮播 -->
-                <div class="index-swiper">
-                    <img src="@/assets/images/temp/Group.png">
-                </div>
+                <lazy-com>
+                    <div class="index-swiper">
+                        <img src="@/assets/images/temp/Group.png">
+                    </div>
+                </lazy-com>
+                
                 <!-- kind-native -->
                 <table-native :clounms="kindNative" @tableMoveIndex="tableMoveIndex" :initIndex='kindIndex'></table-native>
                 <div>
