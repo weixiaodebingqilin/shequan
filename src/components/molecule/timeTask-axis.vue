@@ -61,7 +61,6 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import '~@/assets/style/glob.less';
 .timeTask-axis{
     &:last-child{
         .timeTask{

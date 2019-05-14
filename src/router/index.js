@@ -55,23 +55,32 @@ export default new Router({
             component: _import('test/directive'),
         },
         {
-            path: '/login',
-            name: 'login',
-            component: _import('login/login'),
-            meta: { title: '登陆' },
+            path: '/logins',
+            name: 'logins',
+            component: _import('login/loginIndex'),
+            redirect: '/login',
+            children: [
+                {
+                    path: '/login',
+                    name: 'login',
+                    component: _import('login/login'),
+                    meta: { title: '登陆' },
+                },
+                {
+                    path: '/register',
+                    name: 'register',
+                    component: _import('login/register'),
+                    meta: { title: '注册' },
+                },
+                {
+                    path: '/forgot',
+                    name: 'forgot',
+                    component: _import('login/forgot'),
+                    meta: { title: '忘记密码' },
+                },
+            ]
         },
-        {
-            path: '/register',
-            name: 'register',
-            component: _import('login/register'),
-            meta: { title: '注册' },
-        },
-        {
-            path: '/forgot',
-            name: 'forgot',
-            component: _import('login/forgot'),
-            meta: { title: '忘记密码' },
-        },
+        
 
 
     ]

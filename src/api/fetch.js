@@ -1,5 +1,5 @@
 import axios from 'axios'
-import ElementUI from 'element-ui'
+
 // import router from '@/router/index.js'
 
 /**
@@ -39,12 +39,10 @@ service.interceptors.response.use(
         const status = error.response.status
         // 401没权限时 重定向进入登录页面
         if(+status === 401){
-            ElementUI.Message.warning('token失效')
             // router.replace({ path: '/login'})
             return
         }
         // 其余状态时 仅报错提示
-        ElementUI.Message.warning(errorStatus[status])
         return Promise.reject(error)
     }
 )

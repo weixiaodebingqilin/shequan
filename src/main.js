@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-chalk/index.css'
 import './utils/directive.js'
 // import './components/componentRegister.js'
 // 全局样式
 import './assets/style/base.css'
-Vue.use(ElementUI, {size: 'mini'})
+// Vue.use(ElementUI, {size: 'mini'})
 // const lazyCom = require('./components/publick/lazy-com/lazy-com.js')
 import lazyCom from './components/publick/lazy-com/lazy-com.js'
 Vue.use(lazyCom)

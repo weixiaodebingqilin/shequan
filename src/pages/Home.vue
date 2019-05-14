@@ -16,6 +16,15 @@ export default {
     }
 }
 </script>
+<style lang="less">
+@import url('./Home/home.less');
+@import url('./category/category.less');
+@import url('./homework/homework.less');
+@import url('./combat/combat.less');
+@import url('./challenge/challenge.less');
+@import url('./article/article.less');
+</style>
+
 
 
 

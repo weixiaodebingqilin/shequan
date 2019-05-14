@@ -1,4 +1,5 @@
 const path = require('path');
+
 module.exports = {
     // production(打包环境);   development(开发环境)
     publicPath: './',
@@ -20,19 +21,8 @@ module.exports = {
       const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
       types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
     },
-
-    css: {
-      loaderOptions: {
-        less: {
-          modifyVars: {
-            'primary-color': '#1DA57A',
-            'link-color': '#1DA57A',
-            'border-radius-base': '2px',
-          },
-          javascriptEnabled: true
-        }
-      }
-    }
+    // 提取css到单个文件
+    
 }
 function addStyleResource(rule) {
   rule.use('style-resource')

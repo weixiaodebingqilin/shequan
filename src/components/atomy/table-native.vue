@@ -57,7 +57,6 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import '~@/assets/style/glob.less';
 dl.table-native{
     display: flex;
     padding: 30px 0 14px;

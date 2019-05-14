@@ -1,0 +1,458 @@
+/**challenge*/
+#challenge{
+    padding-top: 30px;
+    background: #F8F9FF;
+    .challenge-left{
+        width: 749px;
+    }
+    .challenge-right{
+        width: 280px;
+    }
+    // 挑战圈
+    .chanllenge-circle{
+        .circle-nav{
+            padding: 30px 0;
+            display: flex;
+            >li{
+                padding: 0 12px;
+                height:28px;
+                display: flex;
+                align-items: center;
+                font-size:14px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(102,102,102,1);
+                line-height:14px;
+                border-radius:14px;
+                margin-right: 26px;
+            }
+            .screen-active{
+                background:rgba(84,120,235,0.1);
+                color:rgba(84,120,235,1);
+                font-weight: bold;
+            }
+        }
+        .circle-comment{
+            >li{
+                padding: 15px 0;
+                display: flex;
+                border-bottom:1px solid rgba(242,242,242,1);
+                >img{
+                    width: 40px;
+                    height: 40px;
+                    display: block;
+                    margin-right: 10px;
+                }
+                >section{
+                    flex: 1;
+                    >h6{
+                        padding: 2px 0 10px;
+                        font-size:14px;
+                        font-family:PingFangSC-Medium;
+                        font-weight:500;
+                        color:rgba(51,51,51,1);
+                        line-height:14px;
+                        >span{
+                            font-size:12px;
+                            font-family:PingFangSC-Medium;
+                            font-weight:500;
+                            color:rgba(189,189,189,1);
+                            line-height:14px;
+                            padding-left: 11px;
+                        }
+                    }
+                    >p{
+                        font-size:14px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        color:#333333;
+                        line-height:28px;
+                        >span{
+                            color:rgba(3,191,140,1);
+                        }
+                        margin-bottom: 15px;
+
+                    }
+                    .comment-img{
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-bottom: 15px;
+                        >img{
+                            width: 100px;
+                            height: 100px;
+                            display: block;
+                            margin-right: 10px;
+                        }
+                    }
+                    >dl{
+                        >dt{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width:88px;
+                            height:24px;
+                            border-radius:13px;
+                            margin-bottom: 10px;
+                            >img{
+                                width: 10px;
+                                height: 10px;
+                                display: flex;
+                                margin-right: 10px;
+                            }
+                            >span{
+                                font-size:12px;
+                                font-family:PingFangSC-Medium;
+                                font-weight:500;
+                                line-height:12px;
+                            }
+                        }
+                        .green{
+                            background:rgba(3,191,140,0.1);
+                            border:1px solid rgba(3,191,140,0.4);
+                            >span{
+                                color:#03BF8C; 
+                            }
+                        }
+                        .red{
+                            background:rgba(252,64,17,0.1);
+                            border:1px solid rgba(252,64,17,0.4);
+                            >span{
+                                color: #FC4011;
+                            }
+                        }
+                        >dd{
+                            font-size:12px;
+                            font-family:PingFangSC-Regular;
+                            font-weight:400;
+                            color:#888888;
+                            line-height:17px;
+                            padding: 15px;
+                            display: inline-block;
+                            margin-bottom: 15px;
+                            border-radius:2px;
+                        }
+                        .dd-green{
+                            background:rgba(3,191,140,0.1);
+                        }
+                        .dd-red{
+                            background:rgba(252,64,17,0.1);
+                        }
+                    }
+                    .comment-browse{
+                        display: flex;
+                        align-items: center;
+                        padding-bottom: 15px;
+                        >div{
+                            display: flex;
+                            align-items: center;
+                            margin-right: 15px;
+                            >img{
+                                width: 14px;
+                                height: 14px;
+                                margin-right: 6px;
+                            }
+                            >span{
+                                font-size:12px;
+                                font-family:PingFangSC-Regular;
+                                font-weight:400;
+                                color:rgba(102,102,102,1);
+                                line-height:14px;
+                            }
+                        }
+                    }
+                    >ol{
+                        padding:5px  15px 0;
+                        background: #EFF0FA;
+                        >li{
+                            display: flex;
+                            border-bottom:1px solid rgba(233,233,233,1);
+                            &:last-child{
+                                border-bottom:none;
+                            }
+                            >img{
+                                width: 30px;
+                                height: 30px;
+                                display: flex;
+                                margin-right: 10px;
+                            }
+                            >section{
+                                flex: 1;
+                                >h6{
+                                    padding-top: 9px;
+                                    padding-bottom: 5px;
+                                    font-size:12px;
+                                    font-family:PingFangSC-Medium;
+                                    font-weight:500;
+                                    color:rgba(51,51,51,1);
+                                    line-height:12px;
+                                    >span{
+                                        padding-left: 10px;
+                                        font-size:12px;
+                                        font-family:PingFangSC-Medium;
+                                        font-weight:500;
+                                        color:rgba(189,189,189,1);
+                                    }
+                                }
+                                >p{
+                                    font-size:14px;
+                                    font-family:PingFangSC-Regular;
+                                    font-weight:400;
+                                    color:rgba(51,51,51,1);
+                                    line-height:28px;
+                                    margin-bottom: 10px;
+                                }
+                                >div{
+                                    display: flex;
+                                    align-items: center;
+                                    >div{
+                                        display: flex;
+                                        align-items: center;
+                                        margin-right: 15px;
+                                        >img{
+                                            width: 14px;
+                                            height: 14px;
+                                            margin-right: 6px;
+                                        }
+                                        >span{
+                                            font-size:12px;
+                                            font-family:PingFangSC-Regular;
+                                            font-weight:400;
+                                            color:rgba(102,102,102,1);
+                                            line-height:14px;
+                                        }
+                                    }
+                                    padding-bottom: 10px;
+                                }
+                            }
+                        }
+                        >button{
+                            padding: 0 0 15px;
+                            margin: 0;
+                            border: none;
+                            background: transparent;
+                            font-size:12px;
+                            font-family:PingFangSC-Medium;
+                            font-weight:500;
+                            color:rgba(189,189,189,1);
+                            line-height:17px;
+                            outline: none;
+                            margin-left: 40px;
+                        }
+                    }
+
+                }
+
+            }
+        }
+        .projects-page{
+            display: flex;
+            justify-content: center;
+            padding: 60px 0;
+            >li{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width:39px;
+                height:39px;
+                background:rgba(232,232,232,1);
+                border-radius: 50%;
+                font-size:14px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(153,153,153,1);
+                line-height:20px;
+                margin-right: 20px;
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+            .page-active{
+                background: #5478EB;
+                color: #fff;
+            }
+        }
+    }
+    // 挑战圈 end
+    .main{
+        width: @wap;
+        margin: 0 auto;
+    }
+    .challenge-top{
+        box-shadow: 0px 4px 12px 0px rgba(84,120,235,0.1);
+        .top-cont{
+            padding: 30px ;
+            display: flex;
+            >dt{
+                flex: 1;
+                >h2{
+                    height:32px;
+                    line-height:32px; 
+                    font-size:24px;
+                    font-weight:500;
+                    color:rgba(51,51,51,1);
+                    margin-bottom: 25px;
+                    span{
+                        display: inline-block;
+                        height:30px;
+                        line-height:30px; 
+                        padding: 0 15px;
+                        font-size:14px;
+                        color:rgba(3,191,140,1);
+                        border-radius:16px;
+                        border:1px solid rgba(3,191,140,1);
+                        margin-left: 15px;
+                    }
+                }
+            
+            }
+            >dd{
+                width: 200px;
+                margin-left: 30px;
+                padding-left: 45px;
+                border-left: 1px solid rgba(239,239,239,1);
+            }
+        }
+        .challenge-careful{
+            display: flex;
+            width: 720px;
+            padding: 15px;
+            margin: 15px auto 30px;
+            background:rgba(246,246,246,1);
+            dt{
+                width:43px;
+                height:24px;
+                line-height:24px;
+                font-size:14px;
+                color:rgba(255,147,0,1); 
+            }
+            dd{
+                flex: 1;
+            }
+        }
+        .challenge-popularity{
+            display: flex;
+            li{
+                height:20px;
+                line-height:20px;
+                font-size:20px;
+                font-weight:500;
+                color:rgba(102,102,102,1);
+                padding-right: 28px;
+                margin-left: 16px;
+                &:first-child{
+                    border-right: 2px solid rgba(151,151,151,1);
+                }
+                span{
+                    color: #999999;
+                    font-size: 12px;
+                }
+            }
+        }
+    } 
+    .challenge-banner{
+        position: relative;
+        width: 100%;
+        height: 260px;
+        overflow: hidden;
+        >img{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        >span{
+            display: inline-block;
+            height: 38px;
+            line-height: 38px;
+            padding: 0 29px;
+            border-radius: 20px;
+            font-size:18px;
+            color:rgba(255,255,255,1);
+            background:rgba(0,20,84,0.7);
+            position: relative;
+            z-index: 2;
+            margin: 30px 0 0 30px;
+        }
+    }
+    .challenge-day{
+        width: 135px;
+        height: 90px;
+        margin: 0 auto;
+        position: relative;
+        > img{
+            width: 135px;
+            height: 90px;
+        }
+        > p{
+            height:48px;
+            line-height:48px;
+            font-size:48px;
+            font-weight:800;
+            text-align: center;
+            color:rgba(255,147,0,1);
+            letter-spacing:1px;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .chanlenge-money{
+        >dl{
+            display: flex;
+            font-weight:500;
+            margin:10px auto 15px;
+            height:24px;
+            line-height:24px;
+            vertical-align: bottom;
+            justify-content: center;
+            >dt{
+                font-size:24px;                                
+                color:rgba(255,147,0,1);
+                margin-right:10px;
+            }
+            >dd{ 
+                display: inline-block;               
+                vertical-align: text-bottom;
+                font-size:14px;                                
+                color:rgba(153,153,153,1);
+                
+            }
+        }
+        >p{
+            height:12px;
+            line-height:12px;
+            font-size:12px;
+            color:rgba(153,153,153,1);
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    }
+    .chanllenge-join{
+        width: 177px;
+        height: 82px;
+        margin: 0 auto;
+        cursor: pointer;
+        >img{
+            width: 177px;
+            height: 82px;
+        }
+    }
+    // cont
+    .challenge-cont-nav{
+        display: flex;
+    }
+    .challenge-cont{
+        display: flex;
+        justify-content: space-between;
+    }
+    .chanllenge-contBox{
+        overflow: hidden;
+    }
+    ul.chanllenge-schedule{
+        margin: 30px 0 30px;
+    }
+
+
+}
