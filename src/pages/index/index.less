@@ -1,5 +1,12 @@
 /*index*/
 #index{
+    .loadUp{
+        animation: loadUp .3s ease-out;
+    }
+    @keyframes loadUp{
+        from {transform: translate(10px,50px);opacity: 0}
+        to {transform: translate(0,0);opacity: 1}
+    }
     .index-native{
         height:60px;
         background:rgba(255,255,255,1);
@@ -855,5 +862,6 @@
             }
         }
     }
+    
 }
 

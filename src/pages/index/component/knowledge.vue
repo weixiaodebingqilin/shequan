@@ -1,5 +1,5 @@
 <template>
-    <section class="index-knowledge">
+    <section class="index-knowledge loadUp">
         <ul class="knowledge-wrap">
             <li v-for="(item,index) in 20" :key="index">
                 <lazy-com >

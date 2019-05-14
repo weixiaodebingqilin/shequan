@@ -1,5 +1,5 @@
 <template>
-    <section class="newest-share">
+    <section class="newest-share loadUp">
        <ul>
            <li v-for="(item,index) in 3" :key="index">
                <dl class="share-head">
