@@ -1,5 +1,5 @@
 <template>
-    <section class="index-category">
+    <section class="index-category loadUp">
         <ul class="theme-wrap">
             <li v-for="(item,index) in 8" :key="index">
                 <div class="theme-img">

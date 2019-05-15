@@ -1,5 +1,5 @@
 <template>
-    <section class="hot-find">
+    <section class="hot-find loadUp">
         <ul class="kind-box">
             <card-artical></card-artical>
         </ul>

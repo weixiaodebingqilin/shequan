@@ -1,5 +1,12 @@
 /*index*/
 #index{
+    .loadUp{
+        animation: loadUp .3s ease-out;
+    }
+    @keyframes loadUp{
+        from {transform: translate(10px,50px);opacity: 0}
+        to {transform: translate(0,0);opacity: 1}
+    }
     .index-native{
         height:60px;
         background:rgba(255,255,255,1);
@@ -577,7 +584,7 @@
         >li{
             >div{
                 border-bottom:1px solid rgba(242,242,242,1);
-                >h5{
+                h5{
                     font-size:18px;
                         font-family:PingFangHK-Medium;
                         font-weight:500;
@@ -599,8 +606,8 @@
                         display: flex;
                         align-items: center;
                         >img{
-                            width: 24rpx;
-                            height: 24rpx;
+                            width: 24px;
+                            height: 24px;
                             border-radius: 50%;
                             margin-right: 10px;
                         }
@@ -855,5 +862,6 @@
             }
         }
     }
+    
 }
 
