@@ -5,7 +5,7 @@
             <!-- 左边 -->
             <div class="warp-left">
                 <!-- 轮播 -->
-                <lazy-com :timeout="3000">
+                <lazy-com :timeout="3000" class="com-transition">
                     <div class="index-swiper">
                         <img src="@/assets/images/temp/Group.png">
                     </div>
@@ -21,9 +21,19 @@
                         </ul>
                     </section>
                 </lazy-com>
-                <div>
-                    <index-knowledge ></index-knowledge>
-                    <lazy-com>
+                <div v-for='i in [1,2,3]' :key="i">
+                    <lazy-com  class="com-transition">
+                        <index-knowledge ></index-knowledge> 
+                        <section class="knowledge-skeletion" slot='skeleton'>
+                            <ul class="main">
+                                <li class="big"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </section>
+                    </lazy-com>
+                    
+                    <lazy-com  class="com-transition">
                         <hot-find ></hot-find> 
                         <section class="knowledge-skeletion" slot='skeleton'>
                             <ul class="main">
@@ -33,7 +43,7 @@
                             </ul>
                         </section>
                     </lazy-com>
-                    <lazy-com >
+                    <lazy-com  class="com-transition">
                         <newest-share  ></newest-share> 
                         <section class="knowledge-skeletion" slot='skeleton'>
                             <ul class="main">
@@ -43,7 +53,7 @@
                             </ul>
                         </section>
                     </lazy-com>
-                    <lazy-com :timeout='4000'>
+                    <lazy-com :timeout='4000' class="com-transition">
                         <index-category ></index-category>
                         <section class="knowledge-skeletion" slot='skeleton'>
                             <ul class="main">

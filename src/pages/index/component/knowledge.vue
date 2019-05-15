@@ -1,7 +1,7 @@
 <template>
     <section class="index-knowledge">
         <ul class="knowledge-wrap">
-            <li v-for="(item,index) in 20" :key="index">
+            <li v-for="(item,index) in 2" :key="index">
                 <lazy-com >
                     <div>
                         <h5>8分钟学会LOGO的设计语言？</h5>

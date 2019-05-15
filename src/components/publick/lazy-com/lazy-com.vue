@@ -5,7 +5,7 @@
     @after-enter="(el) => $emit('after-enter', el)"
     @after-leave="(el) => $emit('after-leave', el)"
   >
-    <div v-if="isInit" key="component">
+    <div v-if="isInit" key="com">
       <slot :loading="loading"></slot>
     </div>
     <div v-else-if="$slots.skeleton" key="skeleton">
@@ -139,4 +139,34 @@
     }
   }
 </script>
+<style>
+.com-transition .lazy-com-enter {
+  opacity: 0;
+  transform: scale(0.4) translate(100%);
+}
+
+.com-transition .lazy-com-enter-to {
+  opacity: 1;
+}
+
+.com-transition .lazy-com-enter-active {
+  transition: all 0.5s;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.com-transition .lazy-com-leave {
+  opacity: 1;
+}
+
+.com-transition .lazy-com-leave-to {
+  opacity: 0;
+  transform: scale(0.4) translate(-100%);
+}
+
+.com-transition .lazy-com-leave-active {
+  transition: all 0.5s;
+}
+</style>
 
