@@ -35,6 +35,11 @@ export default new Router({
                     component: _import('category/category'),
                 },
                 {
+                    path: '/category-create',
+                    name: 'category-create',
+                    component: _import('category/category-create'),
+                },
+                {
                     path: '/combat',
                     name: 'combat',
                     component: _import('combat/combat'),
@@ -44,8 +49,8 @@ export default new Router({
                     name: 'homework',
                     component: _import('homework/homework'),
                 },
-                
-                
+
+
 
             ]
         },
@@ -80,7 +85,7 @@ export default new Router({
                 },
             ]
         },
-        
+
 
 
     ]

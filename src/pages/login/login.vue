@@ -73,11 +73,13 @@
             </ul> -->
             <dl class="remember">
                 <dt v-show="mobileState">
-                    <img src="@/assets/images/icon/sure-gray.png" alt="记住用户名">
+                    <img src="@/assets/images/icon/sure-gray.png"
+                         alt="记住用户名">
                     <p>记住用户名</p>
                 </dt>
                 <dt v-show="!mobileState">
-                    <svg class="icon icon-error" aria-hidden="true">
+                    <svg class="icon icon-error"
+                         aria-hidden="true">
                         <use xlink:href="#iconcuowu"></use>
                     </svg>
                     <span>帐号或密码输入错误,请重新输入</span>
@@ -112,102 +114,102 @@ import { getCode, loginMessage, loginPassword } from "@/api/user.js";
 import { reg } from "@/utils/validate.js";
 import { cutDwon } from "./utils.js";
 export default {
-    name: "login",
-    components: {
-        tableNative: atomy.tableNative
+  name: "login",
+  components: {
+    tableNative: atomy.tableNative
+  },
+  data() {
+    return {
+      kindNative: ["密码登陆", "短信登陆"],
+      initIndex: 0, //
+      kindeIndex: 0,
+      mobile: "",
+      code: "",
+      password: "",
+      mobileState: true, // 手机号状态（
+      inputType: "password", // 密码框 input的属性
+      outtime: "获取短信验证码", // 获取短信验证码显示内容
+      outText: "获取短信验证码",
+      times: 60, // 倒计时时间
+      getCodeType: "smslogin" // 短信验证码type
+    };
+  },
+  methods: {
+    tableMoveIndex(index) {
+      this.code = "";
+      this.kindeIndex = index;
     },
-    data() {
-        return {
-            kindNative: ["密码登陆", "短信登陆"],
-            initIndex: 0, //
-            kindeIndex: 0,
-            mobile: "",
-            code: "",
-            password: "",
-            mobileState: true, // 手机号状态（
-            inputType: "password", // 密码框 input的属性
-            outtime: "获取短信验证码", // 获取短信验证码显示内容
-            outText: "获取短信验证码",
-            times: 60, // 倒计时时间
-            getCodeType: "smslogin" // 短信验证码type
-        };
+    loginto() {},
+    validateMoblie() {
+      this.mobileState = reg.phone.test(this.mobile);
     },
-    methods: {
-        tableMoveIndex(index) {
-            this.code = "";
-            this.kindeIndex = index;
-        },
-        loginto() {},
-        validateMoblie() {
-            this.mobileState = reg.phone.test(this.mobile);
-        },
 
-        // 短信验证码
-        getCode(e) {
-            this.validateMoblie();
-            if (!reg.phone.test(this.mobile)) return;
-            if (this.outtime !== this.outText) return;
-            this.outtime = this.times + "s";
-            cutDwon(this.times, {
-                doing: res => (this.outtime = res + "s"),
-                end: res => (this.outtime = this.outText)
-            });
+    // 短信验证码
+    getCode(e) {
+      this.validateMoblie();
+      if (!reg.phone.test(this.mobile)) return;
+      if (this.outtime !== this.outText) return;
+      this.outtime = this.times + "s";
+      cutDwon(this.times, {
+        doing: res => (this.outtime = res + "s"),
+        end: res => (this.outtime = this.outText)
+      });
 
-            getCode(this.mobile, this.getCodeType).then(res => {
-                let msg = "发送失败,请重新获取";
-                if (+res.status === 200) {
-                    msg = res.data.message;
-                    console.log("短信验证码为：", res.data.data);
-                }
-                console.log("msg", msg);
-            });
-        },
-        loginto() {
-            this.validateMoblie();
-            if (!reg.phone.test(this.mobile)) return;
-            let _data = {
-                mobile: this.mobile
-            };
-            let fn = [this.loginPswd, this.loginMsg][this.kindeIndex];
-            fn(_data);
-        },
-        // 验证码登陆
-        loginMsg(_data) {
-            if (!this.code) {
-                console.log("验证码不能为空");
-                return;
-            }
-            loginMessage(this.code, _data).then(res => {
-                console.log("resmgs: ", res);
-                this.$router.push({ path: "/" });
-            });
-        },
-        // 密码登陆
-        loginPswd(_data) {
-            if (!this.password) {
-                console.log("密码不能为空");
-                return;
-            }
-            _data.password = this.password;
-            loginPassword(_data).then(res => {
-                if (+res.status === 200) {
-                    res = res.data;
-                    console.log("密码登陆： ", res.message);
-                    if (res.data && res.data.token) {
-                        localStorage.setItem("token", res.data.token);
-                        this.$router.push({ path: "/" });
-                    }
-                }
-            });
+      getCode(this.mobile, this.getCodeType).then(res => {
+        let msg = "发送失败,请重新获取";
+        if (+res.status === 200) {
+          msg = res.data.message;
+          console.log("短信验证码为：", res.data.data);
         }
+        console.log("msg", msg);
+      });
     },
-    watch: {
-        mobile(nwe) {
-            // console.log(nwe.length)
-            nwe.length > 11 && (this.mobile = this.mobile.slice(0, 11));
-            this.mobileState = true;
+    loginto() {
+      this.validateMoblie();
+      if (!reg.phone.test(this.mobile)) return;
+      let _data = {
+        mobile: this.mobile
+      };
+      let fn = [this.loginPswd, this.loginMsg][this.kindeIndex];
+      fn(_data);
+    },
+    // 验证码登陆
+    loginMsg(_data) {
+      if (!this.code) {
+        console.log("验证码不能为空");
+        return;
+      }
+      loginMessage(this.code, _data).then(res => {
+        console.log("resmgs: ", res);
+        this.$router.push({ path: "/" });
+      });
+    },
+    // 密码登陆
+    loginPswd(_data) {
+      if (!this.password) {
+        console.log("密码不能为空");
+        return;
+      }
+      _data.password = this.password;
+      loginPassword(_data).then(res => {
+        if (+res.status === 200) {
+          res = res.data;
+          console.log("密码登陆： ", res.message);
+          if (res.data && res.data.token) {
+            localStorage.setItem("token", res.data.token);
+            this.$router.push({ path: "/" });
+          }
         }
+      });
     }
+  },
+  watch: {
+    mobile(nwe) {
+      // console.log(nwe.length)
+      nwe.length > 11 && (this.mobile = this.mobile.slice(0, 11));
+      this.mobileState = true;
+    }
+  }
 };
 </script>
 

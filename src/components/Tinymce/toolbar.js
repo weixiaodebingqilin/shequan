@@ -3,16 +3,15 @@
 
 //fontselect
 const toolbar = [
-    'bold italic underline strikethrough alignleft aligncenter alignright outdent indent  blockquote undo redo removeformat subscript superscript code codesample', 
-    'hr bullist numlist link image charmap preview anchor pagebreak insertdatetime media table emoticons',
-    'fontsizeselect forecolor backcolor fullscreen'
+    'formatselect bold italic underline strikethrough fontsizeselect alignleft aligncenter alignright link image undo redo ',
+
 ]
 
 export default toolbar
 
 
 /**
- * 
+ *
 bold    粗体
 italic  斜体
 underline  下划线
@@ -33,12 +32,12 @@ codesample 插入/编辑代码例
 
  */
 
- /**
+/**
 hr 分割线
 bullist 无序列表
 numlist 有序列表
 link 插入/编辑链接
-image 插入/编辑图片 
+image 插入/编辑图片
 charmap 可覆盖字符的映射
 preview 预览
 anchor 锚点
@@ -51,4 +50,4 @@ forecolor 文字颜色
 backcolor 背景色
 fullscreen 全屏
 
-  */
+ */
