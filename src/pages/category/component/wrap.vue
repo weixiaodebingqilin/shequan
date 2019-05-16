@@ -1,5 +1,5 @@
 <template>
-    <ul class="category-erap">
+    <ul class="category-erap loadUp">
         <li v-for="(item,index) in 10" :key="index">
             <div>
                 <span>最新</span>
