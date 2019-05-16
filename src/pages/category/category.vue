@@ -45,8 +45,10 @@
 		<!-- tab内容 -->
 		<div class="main-wrap">
 			<section class="catalogue">
+				<div class="catalogue-native">
+					<table-native :clounms="kindNative" @tableMoveIndex="kindMove" :initIndex='kindIndex'></table-native>
+				</div>
 				
-				<table-native :clounms="kindNative" @tableMoveIndex="kindMove" :initIndex='kindIndex'></table-native>
 				<!-- 圈子 -->
 				<category-circle v-if="kindIndex === 0 "></category-circle>
 				<!-- 目录 -->

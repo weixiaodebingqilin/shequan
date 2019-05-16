@@ -1,5 +1,5 @@
 <template>
-    <div class="category-challenge" >
+    <div class="category-challenge loadUp" >
         <ul>
             <li v-for="(item,index) in 4" :key="index">
                 <img src="@/assets/images/temp/challenge-item.png">
