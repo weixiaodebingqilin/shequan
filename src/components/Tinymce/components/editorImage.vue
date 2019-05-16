@@ -2,7 +2,7 @@
      <!-- 富文本上传扩展 -->
     <div class="upload-container">
         <!-- 上传图片按钮 -->
-        <el-button 
+        <!-- <el-button 
             :style="{background:color,borderColor:color}" 
             icon="el-icon-upload" 
             size="mini" 
@@ -10,9 +10,9 @@
             @click=" 
             dialogVisible=true">
             上传图片
-        </el-button>
+        </el-button> -->
         <!-- dialog -->
-        <el-dialog  :modal-append-to-body='false' :visible.sync="dialogVisible">
+        <!-- <el-dialog  :modal-append-to-body='false' :visible.sync="dialogVisible"> -->
             <!-- 文件展示 -->
             <div class="ready-show">
                 <div class="img-box" 
@@ -27,7 +27,7 @@
                     </div>
                     <!-- 上传动画 -->
                     <div class="wrapper" style='z-index:10' v-if='item.showProgress && item.statu === "ready"'  >
-                        <el-progress :width="70" type="circle" :percentage="item.percentage"></el-progress>
+                        <!-- <el-progress :width="70" type="circle" :percentage="item.percentage"></el-progress> -->
                     </div>
                     <!-- 图片 -->
                     <div class="img-row" >
@@ -43,15 +43,15 @@
             </div>  
             <!-- 选取文件 -->
             <div class="el-upload--picture-card">
-                <el-button type="primary" @click='chooseFile'>
+                <!-- <el-button type="primary" @click='chooseFile'>
                     <span>点击上传</span>    
                     <input  type="file" :accept='accept' ref='fileInput' style="display:none" @change="getFileInfo($event)" />                       
-                </el-button>
+                </el-button> -->
             </div>
             <!-- dialog按钮 -->
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="handleSubmit">确 定</el-button>
-        </el-dialog>        
+            <!-- <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="handleSubmit">确 定</el-button> -->
+        <!-- </el-dialog>         -->
     </div>
 </template>
 
