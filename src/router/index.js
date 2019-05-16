@@ -52,7 +52,7 @@ export default new Router({
         {
             path: '/test',
             name: 'test',
-            component: _import('test/directive'),
+            component: _import('test/test'),
         },
         {
             path: '/logins',

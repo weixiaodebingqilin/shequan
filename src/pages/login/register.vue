@@ -1,7 +1,9 @@
 <template>
     <section id="login">
         <header>
-            <img src="@/assets/images/login/design.png" >
+            <svg class="icon logo" aria-hidden="true">
+                <use xlink:href="#iconlogo"></use>
+            </svg>
             <p>欢迎来到属于设计师的圈子，和优秀的设计师们一起学习成长</p>
         </header>
         <div class="main">
@@ -62,7 +64,8 @@
                 </dt>
                 
             </dl> -->
-            <p class="sbmt can" @click="regist">注册</p>
+            <p v-if="!mobileState" class="tips-error">错误</p>
+            <p :class="['sbmt can',{cant: !mobileState}]" @click="regist">注册</p>
             <section class="has-account">已有账号?<router-link to="/login">登陆</router-link></section>
         </div>
         <footer>京ICP备14007358号-1 \ 京公网安备11010802014104号 \ Powered by @ 2009-2019 shequanpro.com</footer>
@@ -110,9 +113,9 @@ export default {
             this.validateMoblie()
             if(!this.mobileState) return
             if(this.outtime !== this.outText) return
-            this.outtime = this.times + 's'
+            this.outtime = this.times + 's后重新获取'
             cutDwon(this.times,{
-                doing: res => this.outtime = res + 's',
+                doing: res => this.outtime = res + 's后重新获取',
                 end: res => this.outtime = this.outText    
             })
             getCode(this.mobile, this.getCodeType).then(res => {

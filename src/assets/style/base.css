@@ -1,12 +1,11 @@
 /* 这里是全局样式 */
 html{
-    font-family: "Verdana,Arial,Helvetica,AppleGothic,sans-serif";
-    font-weight: 400;
     font-size: 14px;
     color: #333;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
 }
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; } 
-body{background:#fff;color:#333;font-size:12px; font-family:"微软雅黑";}
+body{background:#fff;color:#333;font-size:12px;}
 address, cite, dfn, em, var { font-style:normal; } 
 code, kbd, pre, samp { font-family:couriernew, courier, monospace; } 
 small{ font-size:12px; } 
@@ -86,4 +85,8 @@ outline:none;
 .icon-arrow{
     width: 10px;
     height: 18px;
+}
+.icon-error{
+    width: 16px;
+    height: 16px;
 }

@@ -61,9 +61,15 @@
                 </li>
             </ul> -->
             <dl class="remember">
-                <dt>
+                <dt v-show="mobileState">
                     <img src="@/assets/images/icon/sure-gray.png" alt="记住用户名">
                     <p>记住用户名</p>
+                </dt>
+                <dt v-show="!mobileState">
+                    <svg class="icon icon-error" aria-hidden="true">
+                        <use xlink:href="#iconcuowu"></use>
+                    </svg>
+                    <span>帐号或密码输入错误,请重新输入</span>
                 </dt>
                 <dd>
                     <p><router-link to="/register">注册</router-link></p>
