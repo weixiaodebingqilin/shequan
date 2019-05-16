@@ -43,9 +43,7 @@ export default {
     name: 'hot-find',
     components: {
         cardArtical: molecule.cardArtical,
-        textHd: atomy.textHd,
-        test: atomy.test,
-        tableNative: atomy.tableNative
+        textHd: atomy.textHd
     },
 }
 </script>
