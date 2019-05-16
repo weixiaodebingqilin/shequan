@@ -14,8 +14,8 @@ const duckReg = {
     isIdentityCard: /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/,
     isResidence: /^[a-zA-Z0-9]{3,21}$/,
     passport: /^[A-Z][0-9A-Z]{6,8}$/,
-    wrokCard: '',
-  }
-  module.exports = {
+    wrokCard: ''
+}
+module.exports = {
     reg: duckReg
-  }
+}

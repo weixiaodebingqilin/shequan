@@ -4,6 +4,6 @@
     </div>
 </template>
 <style lang="less">
-@import url('./login.less');
+@import url("./login.less");
 </style>
 
