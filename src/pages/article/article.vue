@@ -6,6 +6,7 @@
                 <!-- //文章内 容 -->
                 <div class="article-content">
                     <div class="article-user">
+                        <div class="article-user-sum">阅读收获<span>80</span>分</div> 
                         <h5>Icon设计的法则</h5>
                         <div class="user-msg">
                             <img src="@/assets/images/temp/header.png">
@@ -19,15 +20,21 @@
                                             <span>2019-03-18</span>
                                         </div>
                                         <div>
-                                            <img src="@/assets/images/icon/browse.png">
+                                            <svg class="icon" aria-hidden="true" style="font-size:14px;">
+                                                <use xlink:href="#iconliulan"></use>
+                                            </svg>
                                             <span>8255</span>
                                         </div>
                                         <div>
-                                            <img src="@/assets/images/icon/collect.png">
+                                            <svg class="icon" aria-hidden="true" style="color:#333;">
+                                                <use xlink:href="#icontuijian1"></use>
+                                            </svg>
                                             <span>102</span>
                                         </div>
                                         <div>
-                                            <img src="@/assets/images/icon/like.png">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use xlink:href="#icondianzan"></use>
+                                            </svg>
                                             <span>646</span>
                                         </div>
                                     </div>
@@ -49,16 +56,25 @@
                         <div>本文由胡凌发布于好设圈未经授权禁止转载</div>
                         <ul>
                             <li class="comment-flow-active">
-                                <img src="@/assets/images/icon/white.png"/>
+                                <!-- <img src="@/assets/images/icon/white.png"/> -->
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icondianzan"></use>
+                                </svg>
                                 <font>赞</font>
                                 <span>42</span>
                             </li>  
                             <li>
-                                <img src="@/assets/images/icon/blue-like.png"/>
+                                <!-- <img src="@/assets/images/icon/blue-like.png"/> -->
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#iconzuoye"></use>
+                                </svg>
                                 <font>作业</font>
                             </li>
                             <li>
-                                <img src="@/assets/images/icon/blue-like.png"/>
+                                <!-- <img src="@/assets/images/icon/blue-like.png"/> -->
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icontuijian1"></use>
+                                </svg>
                                 <font>已收藏</font>
                                 <span>52</span>
                             </li>
@@ -107,37 +123,52 @@
                                         <dt>作者名字<span>02.24 14:02</span></dt>
                                         <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                         <dd>
-                                            <p><span></span>回复</p>
-                                            <p><span></span>举报</p>
+                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
                                         </dd>    
                                     </dl>
-                                    <ul class="show-comment">
+                                </section>
+                            </li>
+                            <li class="comment-list">
+                                <img src="@/assets/images/temp/header.png" >
+                                <section>
+                                    <dl>
+                                        <dt>作者名字<span>02.24 14:02</span></dt>
+                                        <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
+                                        <dd>
+                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
+                                        </dd>    
+                                    </dl>
+                                    <ul class="show-comment show-second">
                                         <li class="comment-list">
-                                            <img src="@/assets/images/temp/header.png" >
+                                            <img class="second-list-img" src="@/assets/images/temp/header.png" >
                                             <section>
                                                 <dl>
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><span></span>回复</p>
-                                                        <p><span></span>举报</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
                                                     </dd>    
                                                 </dl>
                                             </section>
                                         </li>
                                         <li class="comment-list">
-                                            <img src="@/assets/images/temp/header.png" >
+                                            <img  class="second-list-img" src="@/assets/images/temp/header.png" >
                                             <section>
                                                 <dl>
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><span></span>回复</p>
-                                                        <p><span></span>举报</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
                                                     </dd>    
                                                 </dl>
                                             </section>
                                         </li>
+                                        <li><div class="more-comment">展开更多评论</div></li>
+                                        
                                     </ul>
                                 </section>
                             </li>
@@ -148,33 +179,33 @@
                                         <dt>作者名字<span>02.24 14:02</span></dt>
                                         <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                         <dd>
-                                            <p><span></span>回复</p>
-                                            <p><span></span>举报</p>
+                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
                                         </dd>    
                                     </dl>
-                                    <ul class="show-comment">
+                                    <ul class="show-comment show-second">
                                         <li class="comment-list">
-                                            <img src="@/assets/images/temp/header.png" >
+                                            <img  class="second-list-img" src="@/assets/images/temp/header.png" >
                                             <section>
                                                 <dl>
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><span></span>回复</p>
-                                                        <p><span></span>举报</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
                                                     </dd>    
                                                 </dl>
                                             </section>
                                         </li>
                                         <li class="comment-list">
-                                            <img src="@/assets/images/temp/header.png" >
+                                            <img  class="second-list-img" src="@/assets/images/temp/header.png" >
                                             <section>
                                                 <dl>
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><span></span>回复</p>
-                                                        <p><span></span>举报</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
+                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
                                                     </dd>    
                                                 </dl>
                                             </section>
@@ -182,7 +213,6 @@
                                     </ul>
                                 </section>
                             </li>
-                            
                         </ul>
                         <div class="comment-addmore">
                             <span>更多评论</span>
@@ -204,10 +234,11 @@
                 <!-- 课程安排 -->
                 <section class="course">
                     <h5>我在阿里8年的成长历程</h5>
-                    <div class="course-msg">
+                    <!-- <div class="course-msg">
                         <p>已有2450人加入</p>
                         <span>¥288/年</span>
-                    </div>
+                    </div> -->
+
                     <div class="course-introduce">
                         <div>专题介绍</div>
                         <p>阅览圈子</p>

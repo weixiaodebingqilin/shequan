@@ -9,19 +9,19 @@
                 </div>
                 <ul>
                     <li>
-                        <img src="@/assets/images/temp/QR-code.png" >
+                        <img src="@/assets/images/icon/right.png" >
                         <p>最有效的学习方法</p>
                     </li>
                     <li>
-                        <img src="@/assets/images/temp/QR-code.png" >
+                        <img src="@/assets/images/icon/right.png" >
                         <p>最有效的学习</p>
                     </li>
                     <li>
-                        <img src="@/assets/images/temp/QR-code.png" >
+                        <img src="@/assets/images/icon/right.png" >
                         <p>最有效的学习方法</p>
                     </li>
                     <li>
-                        <img src="@/assets/images/temp/QR-code.png" >
+                        <img src="@/assets/images/icon/right.png" >
                         <p>最有效的学习</p>
                     </li>
                 </ul>
