@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>shequanpro</title>
-    
-  </head>
-  <body>
+</head>
+
+<body>
     <noscript>
-      <strong>We're sorry but shequanpro doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        <strong>
+            We're sorry but shequanpro doesn't work properly without JavaScript enabled. Please enable it to continue.
+        </strong>
     </noscript>
     <!-- import cdn js -->
     <% for(var js of htmlWebpackPlugin.options.cdn.js) { %>
-      <script src="<%=js%>"></script>
+    <script src="<%=js%>"></script>
     <% } %>
     <div id="app">
-      <div>你好啊世2222界</div>
+        <div>你好啊世2222界</div>
     </div>
     <!-- built files will be auto injected -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js"></script> -->
     <!-- <script src="https://cdn.bootcss.com/tinymce/5.0.5/tinymce.min.js"></script> -->
     <!-- <script src="./tinymce4.7.5/tinymce.min.js?v=1"></script> -->
     <script src="./font/iconfont.js"></script>
-  </body>
+</body>
+
 </html>
