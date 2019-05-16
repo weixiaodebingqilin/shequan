@@ -474,6 +474,105 @@
             line-height:20px;
             .BanLin();
         }
+        .course-article-title{
+            display: flex;
+            align-items: center;
+            font-size:14px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height:18px;
+            margin: 20px 0;
+            >span{
+                display: block;
+                padding: 4px;
+                margin-right: 4px;
+                border-radius:4px;
+                border:1px solid rgba(3,191,140,1);
+                >font{
+                    font-size:12px;
+                    font-family:PingFangSC-Regular;
+                    font-weight:400;
+                    color:rgba(3,191,140,1);
+                    line-height:10px;
+                    transform: scale(.8);
+                    display: block;
+                }
+            }
+        }
+        .course-article-sum{
+            border-top:1px solid rgba(239,239,239,1);
+            border-bottom:1px solid rgba(239,239,239,1);
+            padding: 20px 0;
+            display: flex;
+            >li{
+                position: relative;
+                text-align: center;
+                flex: 1;
+                >p{
+                    font-size:16px;
+                    font-family:PingFangSC-Medium;
+                    font-weight:500;
+                    color:rgba(102,102,102,1);
+                    line-height:16px;
+                    margin-bottom:5px; 
+                }
+                >span{
+                    font-size:10px;
+                    color:rgba(153,153,153,1);
+                    line-height:12px;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width:1px;
+                    height:22px;
+                    background:rgba(151,151,151,.22);
+                }
+                &:last-child{
+                    &::after{
+                       background: transparent; 
+                    }
+                }
+            }
+        }
+        .course-introduce-pro{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 10px;
+            >p{
+                font-size:14px;
+                font-family:PingFangSC-Medium;
+                font-weight:500;
+                color:rgba(51,51,51,1);
+                line-height:14px;
+                >font{
+                    width:33px;
+                    height:18px;
+                    background:rgba(254,236,232,1);
+                    border-radius:9px;
+                    margin-left: 10px;
+                    display: inline-block;
+                    font-size:12px;
+                    font-family:PingFangSC-Medium;
+                    font-weight:500;
+                    color:rgba(252,64,17,1);
+                    line-height:18px;
+                    text-align: center;
+                }
+            }
+            >span{
+                font-size:12px;
+                font-family:PingFangSC-Regular;
+                font-weight:400;
+                color:rgba(153,153,153,1);
+                line-height:12px;
+            }
+        }
         .course-msg{
             padding: 20px 0;
             display: flex;
@@ -549,6 +648,18 @@
             line-height:36px;
             margin: 20px 0 30px;
         }
+        .add-int-blue{
+            background: #5478EB;
+        }
+        .introduce-plan-pro{
+            font-size:12px;
+            font-family:PingFangSC-Regular;
+            font-weight:400;
+            color:rgba(207,207,207,1);
+            line-height:12px;
+            text-align: center;
+            padding: 15px 0;
+        }
         .introduce-plan{
             padding-bottom: 20px;
             //border-bottom:1px solid rgba(244,246,247,1);
@@ -621,8 +732,20 @@
                             color: #fff;
                         }
                         &:nth-child(1){
-                            >img{
+                            >span{
                                 margin-right: 5px;
+                                padding: 0 10px;
+                                height: 18px;
+                                display: flex;
+                                align-items: center;
+                                border-radius:12px;
+                                border:1px solid rgba(255,147,0,1);
+                                >font{
+                                    font-size: 12px;
+                                    color: #FF9300;
+                                    display: block;
+                                    transform: scale(.83);
+                                }
                             }
                             >p{
                                 color:rgba(51,51,51,1);
