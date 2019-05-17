@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router/index.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import './utils/directive.js'
+import './utils/iconfont.js'
 import { Button, Select, Option, Upload, Input, Radio, Dialog } from 'element-ui'
 
 Vue.prototype.$ELEMENT = { size: 'small' }

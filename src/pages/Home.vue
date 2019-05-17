@@ -9,11 +9,11 @@
 import myFooter from "@/pages/Home/footer.vue";
 import myHeader from "@/pages/Home/header.vue";
 export default {
-  name: "home",
-  components: {
-    myFooter,
-    myHeader
-  }
+    name: "home",
+    components: {
+        myFooter,
+        myHeader
+    }
 };
 </script>
 <style lang="less">
