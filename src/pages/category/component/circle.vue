@@ -65,6 +65,19 @@
                                         </svg>收藏</p>
                                 </dd>
                             </dl>
+                            <div class="comment-reply">
+                                <div class="textarea-text">
+                                    <textarea name=""
+                                              cols="30"
+                                              rows="10"
+                                              placeholder="此刻一些想法.."></textarea>
+                                    <p><span>30</span> / 500</p>
+                                </div>
+                                <div class="comment-reply-button">
+                                    <span>取消评论</span>
+                                    <div>评论</div>
+                                </div>
+                            </div>
                         </section>
                     </li>
                     <li class="comment-list">
@@ -84,14 +97,19 @@
                                 <dd>
                                     <p><svg class="icon"
                                              aria-hidden="true">
+                                            <use xlink:href="#icondianzan"></use>
+                                        </svg>点赞</p>
+                                    <p><svg class="icon"
+                                             aria-hidden="true">
                                             <use xlink:href="#iconhuifu"></use>
                                         </svg>回复</p>
                                     <p><svg class="icon"
                                              aria-hidden="true">
-                                            <use xlink:href="#iconjubao"></use>
-                                        </svg></p>
+                                            <use xlink:href="#icontuijian1"></use>
+                                        </svg>收藏</p>
                                 </dd>
                             </dl>
+
                             <ul class="show-comment show-second">
                                 <li class="comment-list">
                                     <img class="second-list-img"
@@ -109,6 +127,19 @@
                                                     </svg>回复</p>
                                             </dd>
                                         </dl>
+                                        <div class="comment-reply">
+                                            <div class="textarea-text">
+                                                <textarea name=""
+                                                          cols="30"
+                                                          rows="10"
+                                                          placeholder="此刻一些想法.."></textarea>
+                                                <p><span>30</span> / 500</p>
+                                            </div>
+                                            <div class="comment-reply-button">
+                                                <span>取消评论</span>
+                                                <div>评论</div>
+                                            </div>
+                                        </div>
                                     </section>
                                 </li>
                                 <li class="comment-list">
@@ -130,7 +161,7 @@
                                     </section>
                                 </li>
                                 <li>
-                                    <div class="more-comment">展开更多评论</div>
+                                    <div class="more-comment">展开更多评论></div>
                                 </li>
 
                             </ul>
@@ -153,12 +184,16 @@
                                 <dd>
                                     <p><svg class="icon"
                                              aria-hidden="true">
+                                            <use xlink:href="#icondianzan"></use>
+                                        </svg>点赞</p>
+                                    <p><svg class="icon"
+                                             aria-hidden="true">
                                             <use xlink:href="#iconhuifu"></use>
                                         </svg>回复</p>
                                     <p><svg class="icon"
                                              aria-hidden="true">
-                                            <use xlink:href="#iconjubao"></use>
-                                        </svg></p>
+                                            <use xlink:href="#icontuijian1"></use>
+                                        </svg>收藏</p>
                                 </dd>
                             </dl>
                             <ul class="show-comment show-second">
