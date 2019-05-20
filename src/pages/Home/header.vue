@@ -1,10 +1,10 @@
 <template>
     <header id="glob-top">
         <section>
-                <!-- logo -->
+            <!-- logo -->
             <div class="top-logo">
                 <img src="@/assets/images/icon/logo.png" />
-                
+
                 <dl>
                     <dt>设圈</dt>
                     <dd>高效学习</dd>
@@ -33,9 +33,9 @@
             </ul>
             <!-- 搜索 -->
             <div class="top-search">
-                <input type="text"  />
+                <input type="text" />
                 <div>
-                    <img src="@/assets/images/icon/search.png" >
+                    <img src="@/assets/images/icon/search.png">
                     <span>搜索</span>
                 </div>
             </div>
@@ -45,19 +45,26 @@
                 <p>加入主题</p>
                 <!-- 登陆注册 -->
                 <dl>
-                    <dt><router-link to="/login">登陆</router-link></dt>
-                    <dd><router-link to="/register">注册</router-link></dd>
+                    <dt>
+                        <router-link to="/login">登陆</router-link>
+                    </dt>
+                    <dd>
+                        <router-link to="/register">注册</router-link>
+                    </dd>
+                    <dd>
+                        <router-link to="/mine"> / 个人中心</router-link>
+                    </dd>
                 </dl>
             </div>
         </section>
-        
+
     </header>
 </template>
 
 <script>
 export default {
-    name: 'my-header',
-}
+    name: "my-header"
+};
 </script>
 
 

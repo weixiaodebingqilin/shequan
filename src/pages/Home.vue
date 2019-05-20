@@ -23,6 +23,7 @@ export default {
 @import url("./combat/combat.less");
 @import url("./challenge/challenge.less");
 @import url("./article/article.less");
+@import url("./mine/mymine.less");
 </style>
 
 

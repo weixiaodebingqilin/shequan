@@ -8,8 +8,8 @@
         <div class="main clearfix">
             <div class="banner clearfix">
                 <dl>
-                    <dt>我在阿里做UI的8年历程</dt>
-                    <dd>已加入</dd>
+                    <dt>我在阿里做UI的8年历程 <span>已加入</span></dt>
+                    <dd>立即分享赚30元</dd>
                 </dl>
                 <div class="shop clearfix">
                     <div class="user clearfix">
@@ -19,23 +19,17 @@
                             <dd>3分钟前</dd>
                         </dl>
                     </div>
-                    <div class="summary clearfix">
+                    <div class="category-user-msg">
                         <p>今天20点前，围绕“为什么在实际项目中，很少出现概念搞中那些炫酷的交互效果？”提问，将会筛选出5个回答，现金奖励100元红包，和bat内推荐机会。悄悄告诉小秘密：有图有理会更好哦～</p>
-                    </div>
-                    <div class="tool clearfix">
-                        <dl class="clearfix">
-                            <dt>
-                                <ul>
-                                    <li>32<span>篇文章更新</span></li>
-                                    <li>32459<span>位成员</span></li>
-                                    <li>20W<span>人气</span></li>
-                                </ul>
-                            </dt>
-                            <dd>有效期至：2020.03.12</dd>
-                        </dl>
+                        <ul>
+                            <li><span>32</span>篇文章更新</li>
+                            <li><span>34332</span>位成员</li>
+                            <li><span>32W</span>人气</li>
+                        </ul>
                     </div>
                     <div class="msg">
                         <p>最近更新<span>支付宝01246版中遇到的坑</span>3小时前</p>
+                        <div>有效期至：2020.03.12</div>
                     </div>
                 </div>
 
@@ -45,6 +39,57 @@
         <!-- tab内容 -->
         <div class="main-wrap">
             <section class="catalogue">
+                <!-- 发表内容 -->
+                <div class="publish">
+                    <div class="textarea-wrap">
+                        <textarea name=""
+                                  id=""
+                                  cols="30"
+                                  rows="10"
+                                  placeholder="这一刻的想法"></textarea>
+                        <ul>
+                            <li><img src="@/assets/images/temp/circle-banner.png"></li>
+                            <li><img src="@/assets/images/temp/circle-banner.png"></li>
+                            <li><img src="@/assets/images/temp/comment-add.png"></li>
+                        </ul>
+                        <div><span>0</span>/500</div>
+                    </div>
+                    <div class="publish-type">
+                        <ul>
+                            <li class="publish-type-active">
+                                <svg class="icon"
+                                     aria-hidden="true">
+                                    <use xlink:href="#iconremendianping"></use>
+                                </svg>
+                                <span>表情</span>
+                            </li>
+                            <li class="publish-type-active">
+                                <svg class="icon"
+                                     aria-hidden="true">
+                                    <use xlink:href="#iconremendianping"></use>
+                                </svg>
+                                <span>图片</span>
+                            </li>
+                            <li>
+                                <svg class="icon"
+                                     aria-hidden="true">
+                                    <use xlink:href="#iconremendianping"></use>
+                                </svg>
+                                <span>链接</span>
+                            </li>
+                            <li>
+                                <svg class="icon"
+                                     aria-hidden="true">
+                                    <use xlink:href="#iconremendianping"></use>
+                                </svg>
+                                <span>话题</span>
+                            </li>
+                        </ul>
+                        <div>发表</div>
+                    </div>
+                </div>
+
+                <!-- 导航 -->
                 <div class="catalogue-native">
                     <table-native :clounms="kindNative"
                                   @tableMoveIndex="kindMove"
@@ -79,6 +124,24 @@
 
             </section>
             <section class="main-right">
+                <div class="clock-in">
+                    <div class="clock-in-title">
+                        <svg class="icon"
+                             aria-hidden="true">
+                            <use xlink:href="#iconremendianping"></use>
+                        </svg>
+                        <span>以坚持打卡天数</span>
+                    </div>
+                    <ul class="clock-in-date">
+                        <li>31</li>
+                        <li>32</li>
+                        <li>33</li>
+                    </ul>
+                    <p>优秀的你32天都在成长，加油！</p>
+                    <div class="clock-in-button">立即打卡</div>
+                    <div v-show="0"
+                         class="clock-in-button clock-in-button-green">分享</div>
+                </div>
                 <div class="share">
                     <div class="card-info">您已打卡<span>32</span>天，每天进步一点点，加油！</div>
                     <div class="card-share">

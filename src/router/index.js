@@ -49,9 +49,11 @@ export default new Router({
                     name: 'homework',
                     component: _import('homework/homework'),
                 },
-
-
-
+                {
+                    path: '/mine',
+                    name: 'mine',
+                    component: _import('mine/mymine'),
+                },
             ]
         },
         {

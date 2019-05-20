@@ -4,7 +4,7 @@
         <section class="palte-comment">
             <!-- 功能区--我发表评论 -->
             <div class="function-discusss">
-                <div class="textarea-text">
+                <!-- <div class="textarea-text">
                     <textarea name=""
                               cols="30"
                               rows="10"
@@ -20,7 +20,7 @@
                         <div>发表</div>
                     </dd>
 
-                </dl>
+                </dl> -->
                 <ul>
                     <li class="screen-active">全部</li>
                     <li>精选</li>
