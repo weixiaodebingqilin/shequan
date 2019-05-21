@@ -19,36 +19,38 @@
                         <img src="@/assets/images/temp/Group.png">
                     </div>
                 </lazy-com>
-                
+
                 <!-- kind-native -->
-                <table-native :clounms="kindNative" @tableMoveIndex="tableMoveIndex" :initIndex='kindIndex'></table-native>
+                <table-native :clounms="kindNative"
+                              @tableMoveIndex="tableMoveIndex"
+                              :initIndex='kindIndex'></table-native>
                 <div>
                     <index-knowledge v-if="kindIndex === 0"></index-knowledge>
-                    <hot-find v-if="kindIndex === 1"></hot-find> 
-                    <newest-share  v-if="kindIndex === 2"></newest-share>
+                    <hot-find v-if="kindIndex === 1"></hot-find>
+                    <newest-share v-if="kindIndex === 2"></newest-share>
                     <index-category v-if="kindIndex === 3"></index-category>
                 </div>
-                
+
             </div>
             <!-- 右边 -->
             <div class="warp-right">
                 <!-- partner -->
                 <ul class="index-partner">
                     <li>
-                        <img src="@/assets/images/temp/Group20.png" >
+                        <img src="@/assets/images/temp/Group20.png">
                     </li>
                 </ul>
                 <dl class="index-entrance">
                     <dd>
-                        <img src="@/assets/images/temp/plus.png" >
+                        <img src="@/assets/images/temp/plus.png">
                         <span>分享经验</span>
                     </dd>
                     <dd>
-                        <img src="@/assets/images/temp/answer.png" >
+                        <img src="@/assets/images/temp/answer.png">
                         <span>付费答疑</span>
                     </dd>
                     <dt>
-                        <img src="@/assets/images/temp/Group25.png" >
+                        <img src="@/assets/images/temp/Group25.png">
                     </dt>
                 </dl>
                 <!-- myjoin -->
@@ -70,7 +72,7 @@
                                     微笑的冰欺凌：今晚圈子答疑检查作业
                                 </p>
                             </li>
-                        </ul>     
+                        </ul>
                     </dd>
                     <dd>
                         <h3>抗魔计划</h3>
@@ -83,19 +85,19 @@
                                 <h4>动效30天</h4>
                                 <p><span>10</span> / 30</p>
                             </li>
-                        </ul>     
+                        </ul>
                     </dd>
                 </dl>
                 <!-- 推荐圈主 -->
                 <dl class="right-manager">
                     <dt>
-                        <img src="@/assets/images/icon/flag.png" >
+                        <img src="@/assets/images/icon/flag.png">
                         <h3>推荐圈主</h3>
                     </dt>
                     <dd>
                         <ul class="manager-list">
                             <li>
-                                <img src="@/assets/images/temp/header.png" >
+                                <img src="@/assets/images/temp/header.png">
                                 <dl>
                                     <dt>彩云Sky</dt>
                                     <dd>
@@ -107,7 +109,7 @@
                                 <div class="sicon-arrow"></div>
                             </li>
                             <li>
-                                <img src="@/assets/images/temp/header.png" >
+                                <img src="@/assets/images/temp/header.png">
                                 <dl>
                                     <dt>彩云Sky</dt>
                                     <dd>
@@ -125,13 +127,13 @@
                 <!-- partner -->
                 <ul class="index-partner">
                     <li>
-                        <img src="@/assets/images/temp/Group20.png" >
+                        <img src="@/assets/images/temp/Group20.png">
                     </li>
                 </ul>
                 <!-- 热门标签 -->
                 <dl class="hot-tags">
                     <dt>
-                        <img src="@/assets/images/icon/hot-tags.png" >
+                        <img src="@/assets/images/icon/hot-tags.png">
                         <h3>热门标签</h3>
                     </dt>
                     <dd>
@@ -145,56 +147,54 @@
                         </ul>
                     </dd>
                 </dl>
-                
-            </div> 
+
+            </div>
         </section>
         <button @click="test">点击我试试看</button>
     </div>
 </template>
 <script>
-import atomy from '@/components/atomy/mixins.js'
-import hotFind from './component/hot-find'
-import indexCategory from './component/category'
-import newestShare from './component/share'
-import indexKnowledge from './component/knowledge'
-import {regist,getCode} from '@/api/user.js'
+import atomy from "@/components/atomy/mixins.js";
+import hotFind from "./component/hot-find";
+import indexCategory from "./component/category";
+import newestShare from "./component/share";
+import indexKnowledge from "./component/knowledge";
+import { regist, getCode } from "@/api/user.js";
 export default {
-    name: 'index',
+    name: "index",
     components: {
         test: atomy.test,
         tableNative: atomy.tableNative,
         hotFind: hotFind,
         indexCategory: indexCategory,
         indexKnowledge: indexKnowledge,
-        newestShare:newestShare
+        newestShare: newestShare
     },
     data() {
         return {
-            kindNative: ['知识点','热门发现','最新分享','专题圈','关注的'], ///
-            kindIndex: 1, // 
-        }
+            kindNative: ["知识点", "热门发现", "最新分享", "专题圈", "关注的"], ///
+            kindIndex: 1 //
+        };
     },
     // 组件的生命周期
-    created(){
-
-    },
+    created() {},
     // 我们要写的一些方法
     methods: {
         // 导航栏切换后的回调
-        tableMoveIndex(index){
-            this.kindIndex = index
+        tableMoveIndex(index) {
+            this.kindIndex = index;
         },
         ///
-        test(){
-            getCode('13820381757').then(res => {
-                console.log('res： ',res)
-            })
+        test() {
+            getCode("13820381757").then(res => {
+                console.log("res： ", res);
+            });
         },
-        regist(){
-            regist()
+        regist() {
+            regist();
         }
     }
-}
+};
 </script>
 
 
