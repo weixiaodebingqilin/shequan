@@ -44,8 +44,8 @@
                 <div class="article-push loadUp"
                      v-if="kindIndex==2">
                     <ul class="kind-box">
-                        <card-artical></card-artical>
-                        <card-artical></card-artical>
+                        <card-artical v-for="(item,index) in 4"
+                                      :key="index"></card-artical>
                     </ul>
                 </div>
 
@@ -63,7 +63,7 @@
                     <ul class="lately-see-item">
                         <li>
                             <p>如何画一个精致的图标？</p>
-                            <span>十分钟前</span>
+                            <span>10分钟前</span>
                         </li>
                         <li>
                             <p>网也设计中的10大坑－避险</p>
