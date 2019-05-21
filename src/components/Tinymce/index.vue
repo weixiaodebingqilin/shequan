@@ -1,8 +1,10 @@
 <template>
     <!-- 富文本编辑器  -->
-    <div :class="{fullscreen:fullscreen}" class="tinymce-container editor-container">
+    <div :class="{fullscreen:fullscreen}"
+         class="tinymce-container editor-container">
         <!-- 富文本 -->
-        <textarea :id="tinymceId" class="tinymce-textarea"/>
+        <textarea :id="tinymceId"
+                  class="tinymce-textarea" />
         <!-- 上传图片插件 -->
         <div class="editor-custom-btn-container" v-if='ifupimg'>
             <editorImage color="#1890ff" class="editor-upload-btn" @successCBK="imageSuccessCBK"/>
@@ -14,24 +16,25 @@
 // import tinymce from 'tinymce/tinymce'
 // import 'tinymce/themes/modern/theme'
 
-//------- 自拓展上传图片组件  
-import editorImage from './components/editorImage'
+//------- 自拓展上传图片组件
+import editorImage from "./components/editorImage";
 //------- 插件配置
-import plugins from './plugins'
+import plugins from "./plugins";
 //-----  工具栏配置
-import toolbar from './toolbar'
+import toolbar from "./toolbar";
 
 //---- 上传
 
-import axios from 'axios'
+import axios from "axios";
 
+import { debounce, throttle } from "@/utils/util.js";
 export default {
-    name: 'Tinymce',
+    name: "Tinymce",
     components: { editorImage },
     props: {
         id: {
             type: String,
-            default: 'vue-tinymce-' + +new Date()
+            default: "vue-tinymce-" + +new Date()
         },
         //---- 是否启用自封装
         ifupimg: {
@@ -41,27 +44,27 @@ export default {
         //---- 传入值
         value: {
             type: String,
-            default: ''
+            default: ""
         },
         // --- 工具栏
         toolbar: {
             type: Array,
             required: false,
             default() {
-                return []
+                return [];
             }
         },
         // ----- 菜单栏
         menubar: {
             type: String,
-            //文件 编辑 插入 视图 格式话 表格 
-            default: 'file edit insert view format table'
+            //文件 编辑 插入 视图 格式话 表格
+            default: "file edit insert view format table"
         },
         //----- 插件
         plugins: {
             type: Array,
-            default(){
-                return []
+            default() {
+                return [];
             }
         },
         //------ 编辑器高度
@@ -73,11 +76,11 @@ export default {
     },
     data() {
         return {
-            hasChange: false, // 编辑器内容改变 
-            hasInit: false, //编辑器初始化 
-            tinymceId: this.id,//自维护id
-            fullscreen: false,//是否全屏
-        }
+            hasChange: false, // 编辑器内容改变
+            hasInit: false, //编辑器初始化
+            tinymceId: this.id, //自维护id
+            fullscreen: false //是否全屏
+        };
     },
     computed: {},
     watch: {
@@ -86,83 +89,100 @@ export default {
         //----- 当前未生效
         value(val) {
             if (!this.hasChange && this.hasInit) {
-            this.$nextTick(() =>
-                window.tinymce.get(this.tinymceId).setContent(val || ''))
+                this.$nextTick(() =>
+                    window.tinymce.get(this.tinymceId).setContent(val || "")
+                );
             }
-        },
+        }
     },
     mounted() {
-        this.initTinymce()
+        this.initTinymce();
     },
     destroyed() {
-        this.destroyTinymce()
+        this.destroyTinymce();
     },
     methods: {
         //-------------------------- 初始化编辑器
         initTinymce() {
-            const _this = this
-            console.log('tinymce: ',window.tinymce)
+            const _this = this;
+            console.log("tinymce: ", window.tinymce);
             window.tinymce.init({
-                language: 'zh_CN',//加载语言
-                selector: `#${this.tinymceId}`,//容器
-                height: this.height,//编辑区高度 
-                toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar,//工具栏，可自配置
-                menubar: this.menubar,//菜单栏
-                plugins: this.plugins.length > 0 ? this.plugins : plugins ,//插件
+                language: "zh_CN", //加载语言
+                selector: `#${this.tinymceId}`, //容器
+                height: this.height, //编辑区高度
+                toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar, //工具栏，可自配置
+                menubar: this.menubar, //菜单栏
+                plugins: this.plugins.length > 0 ? this.plugins : plugins, //插件
                 fontsize_formats: "8px 10px 12px 14px 18px 24px 36px",
-                default_link_target: '_blank',//添加的链接开网页
-                link_title: false,//禁止链接输入标题
+                default_link_target: "_blank", //添加的链接开网页
+                link_title: false, //禁止链接输入标题
                 nonbreaking_force_tab: true, // 监听tab键是否控制缩进（与表格选项卡切换冲突，取决于插件先后顺序）
-                end_container_on_empty_block: true,//enter键允许分割空元素
-                powerpaste_word_import: 'clean',//控制从word文档粘贴过来的内容 clean保留原有
-                code_dialog_height: 450,//代码对话框可编辑高度
-                code_dialog_width: 1000,//代码对话框可编辑宽度
-                advlist_bullet_styles: 'square',//无序列表标记
-                advlist_number_styles: 'default',//有序列表标记 
-                imagetools_cors_hosts: ['www.tinymce.com', 'codepen.io'],
+                end_container_on_empty_block: true, //enter键允许分割空元素
+                powerpaste_word_import: "clean", //控制从word文档粘贴过来的内容 clean保留原有
+                code_dialog_height: 450, //代码对话框可编辑高度
+                code_dialog_width: 1000, //代码对话框可编辑宽度
+                advlist_bullet_styles: "square", //无序列表标记
+                advlist_number_styles: "default", //有序列表标记
+                imagetools_cors_hosts: ["www.tinymce.com", "codepen.io"],
                 // images_upload_url:goodsUpUrl + '/files/upload',
                 //-------------------------------- 编辑器实例初始化时间执行配置函数
                 init_instance_callback: editor => {
                     if (_this.value) {
-                        editor.setContent(_this.value)
+                        editor.setContent(_this.value);
                     }
-                    _this.hasInit = true
+                    _this.hasInit = true;
                     //----- 实现双向数据绑定
-                    //----- 当编辑宽内容改变时触发的回调 
-                    //----- 事件详情 https://www.tiny.cloud/docs/advanced/events/   
-                    editor.on('NodeChange Change KeyUp SetContent', () => {
-                        this.hasChange = true
-                        this.$emit('input', editor.getContent())
-                    })
+                    //----- 当编辑宽内容改变时触发的回调
+                    //----- 事件详情 https://www.tiny.cloud/docs/advanced/events/
+                    // editor.on("NodeChange Change KeyUp SetContent", () => {
+                    //     this.hasChange = true;
+                    //     this.$emit("input", editor.getContent());
+                    // });
+                    editor.on(
+                        "NodeChange Change KeyUp SetContent",
+                        throttle(function() {
+                            _this.hasChange = true;
+                            _this.$emit("input", editor.getContent());
+                        })
+                    );
                 },
                 /**
                  * his option allows you to specify a callback that will be executed before the TinyMCE editor instance is rendered.
                  */
                 //-------------------------------- 允许在编辑器呈现之前执行回调
                 setup(editor) {
-                    editor.on('FullscreenStateChanged', (e) => {
-                        _this.fullscreen = e.state
-                    })
-                },
-                
-            })
+                    editor.on("FullscreenStateChanged", e => {
+                        _this.fullscreen = e.state;
+                    });
+                }
+            });
         },
-        // ------------------------- 销毁编辑器 
+        // 返回上级
+        pemit() {
+            var _this = this;
+            throttle(function() {
+                _this.hasChange = true;
+                _this.$emit("input", editor.getContent());
+            });
+        },
+        // ------------------------- 销毁编辑器
         destroyTinymce() {
             if (window.tinymce.get(this.tinymceId)) {
-                window.tinymce.get(this.tinymceId).destroy()
+                window.tinymce.get(this.tinymceId).destroy();
             }
         },
-        //-------------------------- 图片上传成功后 
+        //-------------------------- 图片上传成功后
         imageSuccessCBK(arr) {
-            const _this = this
+            const _this = this;
             // console.log('传入富文本中的文件', arr)
             arr.forEach(v => {
-                window.tinymce.get(_this.tinymceId).insertContent(`<img class="wscnph" src="${v.trueUrl}" >`)
-            })
+                window.tinymce
+                    .get(_this.tinymceId)
+                    .insertContent(`<img class="wscnph" src="${v.trueUrl}" >`);
+            });
         }
     }
-}
+};
 /**
  * 图像上传器旨在补充TinyMCE 4.3的新图像编辑功能。
  * 可以使用此功能上载在TinyMCE中编辑的图像。
@@ -197,7 +217,7 @@ export default {
 .tinymce-container {
     position: relative;
 }
-.tinymce-container>>>.mce-fullscreen {
+.tinymce-container >>> .mce-fullscreen {
     z-index: 10000;
 }
 .tinymce-textarea {
