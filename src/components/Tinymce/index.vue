@@ -58,7 +58,8 @@ export default {
         menubar: {
             type: String,
             //文件 编辑 插入 视图 格式话 表格
-            default: "file edit insert view format table"
+            // default: "file edit insert view format table"
+            default: ""
         },
         //----- 插件
         plugins: {
@@ -109,10 +110,13 @@ export default {
             window.tinymce.init({
                 language: "zh_CN", //加载语言
                 selector: `#${this.tinymceId}`, //容器
+                // inline: true, //为true时，编辑工具栏隐藏  报错
                 height: this.height, //编辑区高度
                 toolbar: this.toolbar.length > 0 ? this.toolbar : toolbar, //工具栏，可自配置
                 menubar: this.menubar, //菜单栏
+                // menubar: [], //菜单栏
                 plugins: this.plugins.length > 0 ? this.plugins : plugins, //插件
+                // plugins: [],
                 fontsize_formats: "8px 10px 12px 14px 18px 24px 36px",
                 default_link_target: "_blank", //添加的链接开网页
                 link_title: false, //禁止链接输入标题
@@ -124,6 +128,7 @@ export default {
                 advlist_bullet_styles: "square", //无序列表标记
                 advlist_number_styles: "default", //有序列表标记
                 imagetools_cors_hosts: ["www.tinymce.com", "codepen.io"],
+
                 // images_upload_url:goodsUpUrl + '/files/upload',
                 //-------------------------------- 编辑器实例初始化时间执行配置函数
                 init_instance_callback: editor => {
