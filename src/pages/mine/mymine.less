@@ -6,6 +6,7 @@
     img{
         display: block;
     }
+    //我的资料
     .mymine-topMsg{
         background: #343434;
         .topMsg-wrap{
@@ -70,5 +71,111 @@
             }
         }
     }
-    
+    //主体内容
+    .main-wrap{
+        width: @wap;
+		display: flex;
+		margin: 60px auto 0;
+        justify-content: space-between;
+        .main-left{
+            width: 749px;
+        }
+		.main-right{
+            width: 280px;
+            padding-top: 30px;
+            //最近看过
+            .lately-see-wrap{
+                padding-top: 30px;
+                background:rgba(255,255,255,1);
+                border-radius:2px;
+                border:1px solid rgba(84,120,235,0.1);
+                .lately-see-title,.my-tag{
+                    padding: 0 30px;
+                }
+                .lately-see-title{
+                    .on-flex();
+                    >svg{
+                        font-size: 18px;
+                    }
+                    >span{
+                        font-size:18px;
+                        font-family:PingFangSC-Medium;
+                        font-weight:500;
+                        color:rgba(51,51,51,1);
+                        line-height:18px;
+                        margin-left: 10px;
+                    }
+                }
+                .lately-see-item{
+                    padding: 30px 0;
+                    margin: 0 30px;
+                    border-bottom:1px solid rgba(242,242,242,1);
+                    >li{
+                        .on-flex();
+                        justify-content: space-between;
+                        margin-bottom: 15px;
+                        &:last-of-type{
+                            margin-bottom: 0;
+                        }
+                        .font-p{
+                            font-size:12px;
+                            font-family:PingFangSC-Regular;
+                            font-weight:400;
+                            color:rgba(51,51,51,1);
+                            line-height:12px;
+                        }
+                        >p{
+                            .font-p();
+                            color:rgba(51,51,51,1);
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            max-width: 150px;
+                        }
+                        >span{
+                            .font-p();
+                            color:rgba(153,153,153,1);
+                        }
+                    }
+                }
+                .my-tag{
+                    display: flex;
+                    align-content:flex-start;
+                    flex-wrap: wrap;
+                    min-height: 176px;
+                    padding-top: 15px;
+                    box-sizing: border-box;
+                    >li{
+                        .on-flex();
+                        justify-content: center;
+                        margin-right: 15px;
+                        margin-bottom: 15px;
+                        height: 28px;
+                        padding:0 16px;
+                        background:rgba(89,123,233,.1);
+                        border-radius:14px;
+                        font-size:12px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        color:rgba(102,102,102,1);
+                        line-height:12px;
+                    }
+                }
+                .lately-see-footer{
+                    padding: 40px 0 28px;
+                    background:rgba(243,246,255,.5);
+                    border-radius:0px 0px 4px 4px;
+                    >p{
+                        text-align: center;
+                        font-size:12px;
+                        font-family:PingFangSC-Regular;
+                        font-weight:400;
+                        color:rgba(51,51,51,1);
+                        line-height:17px;
+                    }
+                }
+            }
+        }
+        
+    }
 }
