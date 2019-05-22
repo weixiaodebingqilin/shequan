@@ -3,7 +3,7 @@
 
 //fontselect
 const toolbar = [
-    'formatselect bold italic underline strikethrough fontsizeselect alignleft aligncenter alignright link image undo redo ',
+    'style-p style-h1 style-h2 bold italic underline strikethrough fontsizeselect  alignleft aligncenter alignright link image undo redo ',
 
 ]
 
