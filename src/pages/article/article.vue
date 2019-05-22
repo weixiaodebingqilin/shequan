@@ -6,12 +6,14 @@
                 <!-- //文章内 容 -->
                 <div class="article-content">
                     <div class="article-user">
-                        <div class="article-user-sum">阅读收获<span>80</span>分</div> 
+                        <div class="article-user-sum">阅读收获<span>80</span>分</div>
                         <h5>Icon设计的法则</h5>
                         <div class="user-msg">
                             <img src="@/assets/images/temp/header.png">
                             <dl>
-                                <dt><font>胡凌</font><span>关注</span></dt>
+                                <dt>
+                                    <font>胡凌</font><span>关注</span>
+                                </dt>
                                 <dd>
                                     <p>阿里资深UI设计师，专注设计规则，提升作图效率</p>
                                     <div>
@@ -20,19 +22,24 @@
                                             <span>2019-03-18</span>
                                         </div>
                                         <div>
-                                            <svg class="icon" aria-hidden="true" style="font-size:14px;">
+                                            <svg class="icon"
+                                                 aria-hidden="true"
+                                                 style="font-size:14px;">
                                                 <use xlink:href="#iconliulan"></use>
                                             </svg>
                                             <span>8255</span>
                                         </div>
                                         <div>
-                                            <svg class="icon" aria-hidden="true" style="color:#333;">
+                                            <svg class="icon"
+                                                 aria-hidden="true"
+                                                 style="color:#333;">
                                                 <use xlink:href="#icontuijian1"></use>
                                             </svg>
                                             <span>102</span>
                                         </div>
                                         <div>
-                                            <svg class="icon" aria-hidden="true">
+                                            <svg class="icon"
+                                                 aria-hidden="true">
                                                 <use xlink:href="#icondianzan"></use>
                                             </svg>
                                             <span>646</span>
@@ -40,7 +47,7 @@
                                     </div>
                                 </dd>
                             </dl>
-                            
+
                         </div>
                     </div>
                     <div class="article-details">
@@ -57,22 +64,25 @@
                         <ul>
                             <li class="comment-flow-active">
                                 <!-- <img src="@/assets/images/icon/white.png"/> -->
-                                <svg class="icon" aria-hidden="true">
+                                <svg class="icon"
+                                     aria-hidden="true">
                                     <use xlink:href="#icondianzan"></use>
                                 </svg>
                                 <font>赞</font>
                                 <span>42</span>
-                            </li>  
+                            </li>
                             <li>
                                 <!-- <img src="@/assets/images/icon/blue-like.png"/> -->
-                                <svg class="icon" aria-hidden="true">
+                                <svg class="icon"
+                                     aria-hidden="true">
                                     <use xlink:href="#iconzuoye"></use>
                                 </svg>
                                 <font>作业</font>
                             </li>
                             <li>
                                 <!-- <img src="@/assets/images/icon/blue-like.png"/> -->
-                                <svg class="icon" aria-hidden="true">
+                                <svg class="icon"
+                                     aria-hidden="true">
                                     <use xlink:href="#icontuijian1"></use>
                                 </svg>
                                 <font>已收藏</font>
@@ -86,7 +96,9 @@
                     <div class="user-msg">
                         <img src="@/assets/images/temp/header.png">
                         <dl>
-                            <dt><font>胡凌</font><span>关注</span></dt>
+                            <dt>
+                                <font>胡凌</font><span>关注</span>
+                            </dt>
                             <dd>
                                 <ul class="author-popularity">
                                     <li>专题 <span>2</span></li>
@@ -104,109 +116,176 @@
                 <!-- 评论 -->
                 <section class="palte-comment">
                     <!-- 功能区--我发表评论 -->
-                    <div class="function-discuss">
-                        <div class="textarea-text">
-                            <textarea name=""  cols="30" rows="10"></textarea>
-                            <p><span>30</span> / 500</p>
-                        </div>
-                        <dl>
-                            <dt>取消评论</dt>
-                            <dd>评论</dd>
-                        </dl>
-                    </div>
+
+                    <spit-text ref='spitT'
+                               @spit='createSpit'></spit-text>
                     <div class="show-comment-box">
                         <ul class="show-comment">
-                            <li class="comment-list">
-                                <img src="@/assets/images/temp/header.png" >
+                            <li class="comment-list"
+                                v-for="(item,index) in commits"
+                                :key='item._id'>
+                                <img src="@/assets/images/temp/header.png">
                                 <section>
-                                    <dl>
+                                    <dl class="spitOrReport">
+                                        <dt>{{item.nickname}}<span>{{item.publishtime}}</span></dt>
+                                        <dd>{{item.content}}</dd>
+                                        <dd>
+                                            <p @click="spitIndx = index"><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconhuifu"></use>
+                                                </svg>回复</p>
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconjubao"></use>
+                                                </svg>举报</p>
+                                        </dd>
+                                    </dl>
+                                    <spit-text ref='spitT'
+                                               :data-id='item._id'
+                                               v-if="index === spitIndx"
+                                               @spit='createSpit'></spit-text>
+
+                                </section>
+                            </li>
+                            <li class="comment-list">
+                                <img src="@/assets/images/temp/header.png">
+                                <section>
+                                    <dl class="spitOrReport">
                                         <dt>作者名字<span>02.24 14:02</span></dt>
                                         <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                         <dd>
-                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                        </dd>    
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconhuifu"></use>
+                                                </svg>回复</p>
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconjubao"></use>
+                                                </svg>举报</p>
+                                        </dd>
                                     </dl>
                                 </section>
                             </li>
                             <li class="comment-list">
-                                <img src="@/assets/images/temp/header.png" >
+                                <img src="@/assets/images/temp/header.png">
                                 <section>
-                                    <dl>
+                                    <dl class="spitOrReport">
                                         <dt>作者名字<span>02.24 14:02</span></dt>
                                         <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                         <dd>
-                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                        </dd>    
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconhuifu"></use>
+                                                </svg>回复</p>
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconjubao"></use>
+                                                </svg>举报</p>
+                                        </dd>
                                     </dl>
                                     <ul class="show-comment show-second">
                                         <li class="comment-list">
-                                            <img class="second-list-img" src="@/assets/images/temp/header.png" >
+                                            <img class="second-list-img"
+                                                 src="@/assets/images/temp/header.png">
                                             <section>
-                                                <dl>
+                                                <dl class="spitOrReport">
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                                    </dd>    
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconhuifu"></use>
+                                                            </svg>回复</p>
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconjubao"></use>
+                                                            </svg>举报</p>
+                                                    </dd>
                                                 </dl>
                                             </section>
                                         </li>
                                         <li class="comment-list">
-                                            <img  class="second-list-img" src="@/assets/images/temp/header.png" >
+                                            <img class="second-list-img"
+                                                 src="@/assets/images/temp/header.png">
                                             <section>
-                                                <dl>
+                                                <dl class="spitOrReport">
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                                    </dd>    
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconhuifu"></use>
+                                                            </svg>回复</p>
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconjubao"></use>
+                                                            </svg>举报</p>
+                                                    </dd>
                                                 </dl>
                                             </section>
                                         </li>
-                                        <li><div class="more-comment">展开更多评论</div></li>
-                                        
+                                        <li>
+                                            <div class="more-comment">展开更多评论</div>
+                                        </li>
+
                                     </ul>
                                 </section>
                             </li>
                             <li class="comment-list">
-                                <img src="@/assets/images/temp/header.png" >
+                                <img src="@/assets/images/temp/header.png">
                                 <section>
-                                    <dl>
+                                    <dl class="spitOrReport">
                                         <dt>作者名字<span>02.24 14:02</span></dt>
                                         <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                         <dd>
-                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                            <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                        </dd>    
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconhuifu"></use>
+                                                </svg>回复</p>
+                                            <p><svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconjubao"></use>
+                                                </svg>举报</p>
+                                        </dd>
                                     </dl>
                                     <ul class="show-comment show-second">
                                         <li class="comment-list">
-                                            <img  class="second-list-img" src="@/assets/images/temp/header.png" >
+                                            <img class="second-list-img"
+                                                 src="@/assets/images/temp/header.png">
                                             <section>
-                                                <dl>
+                                                <dl class="spitOrReport">
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                                    </dd>    
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconhuifu"></use>
+                                                            </svg>回复</p>
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconjubao"></use>
+                                                            </svg>举报</p>
+                                                    </dd>
                                                 </dl>
                                             </section>
                                         </li>
                                         <li class="comment-list">
-                                            <img  class="second-list-img" src="@/assets/images/temp/header.png" >
+                                            <img class="second-list-img"
+                                                 src="@/assets/images/temp/header.png">
                                             <section>
-                                                <dl>
+                                                <dl class="spitOrReport">
                                                     <dt>作者名字<span>02.24 14:02</span></dt>
                                                     <dd>第三类icon叫语意型有些容易混淆，其他的icon设计不也有语意这一层？笔者说的这类，我理解的为“说明型icon”“解释型icon”“辅助型icon”。</dd>
                                                     <dd>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconhuifu"></use></svg>回复</p>
-                                                        <p><svg class="icon" aria-hidden="true"><use xlink:href="#iconjubao"></use></svg>举报</p>
-                                                    </dd>    
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconhuifu"></use>
+                                                            </svg>回复</p>
+                                                        <p><svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#iconjubao"></use>
+                                                            </svg>举报</p>
+                                                    </dd>
                                                 </dl>
                                             </section>
                                         </li>
@@ -218,7 +297,6 @@
                             <span>更多评论</span>
                         </div>
                     </div>
-                    
 
                 </section>
                 <!-- //文章推送 -->
@@ -246,7 +324,9 @@
                     </div>
                     -->
                     <div class="course-article-title">
-                        <span><font>试看</font></span>ICON设计的法则
+                        <span>
+                            <font>试看</font>
+                        </span>ICON设计的法则
                     </div>
                     <ul class="course-article-sum">
                         <li>
@@ -264,7 +344,8 @@
                         <span>今天活跃过</span>
                     </div>
                     <div class="course-introduce-pro">
-                        <p>主题圈结束 <font>10</font></p>
+                        <p>主题圈结束 <font>10</font>
+                        </p>
                     </div>
                     <div class="introduce-msg">你将收获什么？UI设计的干货，从基础到深入的复盘，老胡在各大实际项目中的所遇见的坑分析，互动答疑疑问。每周1/3/5带领大家一起动起手来学习。</div>
                     <div class="add-introduce">立即加入专题圈</div>
@@ -281,14 +362,20 @@
                     <div class="line-bottom"></div>
                     <section class="course-catalogue">
                         <ul>
-                            <li v-for="(item,index) in 5" :key="index">
+                            <li v-for="(item,index) in 5"
+                                :key="index">
                                 <div>
-                                    <span> <font>活动</font></span>
+                                    <span>
+                                        <font>活动</font>
+                                    </span>
                                     <p>支付宝01246版中遇见的坑</p>
                                 </div>
                                 <div>
                                     <!-- <p>03.10</p> -->
-                                    <svg class="icon" aria-hidden="true"><use xlink:href="#iconwanchengdise"></use></svg>
+                                    <svg class="icon"
+                                         aria-hidden="true">
+                                        <use xlink:href="#iconwanchengdise"></use>
+                                    </svg>
                                 </div>
                             </li>
                             <li>
@@ -296,8 +383,11 @@
                                     <!-- <div class="linght">公开</div> -->
                                     <p>支付宝01246版中遇见的坑</p>
                                 </div>
-                                <div> 
-                                    <svg class="icon" aria-hidden="true"><use xlink:href="#iconwanchengdise"></use></svg>
+                                <div>
+                                    <svg class="icon"
+                                         aria-hidden="true">
+                                        <use xlink:href="#iconwanchengdise"></use>
+                                    </svg>
                                 </div>
                             </li>
                             <li>
@@ -305,7 +395,10 @@
                                     <p>支付宝01246版中遇见的坑</p>
                                 </div>
                                 <div>
-                                    <svg class="icon" aria-hidden="true"><use xlink:href="#iconwanchengdise"></use></svg>
+                                    <svg class="icon"
+                                         aria-hidden="true">
+                                        <use xlink:href="#iconwanchengdise"></use>
+                                    </svg>
                                 </div>
                             </li>
                         </ul>
@@ -322,15 +415,15 @@
                     </ul> -->
                 </section>
                 <!-- 课程目录 -->
-                
+
                 <!-- 合作伙伴2 -->
                 <!-- partner -->
                 <ul class="index-partner">
                     <li>
-                        <img src="@/assets/images/temp/Group20.png" >
+                        <img src="@/assets/images/temp/Group20.png">
                     </li>
                 </ul>
-                
+
             </div>
         </section>
         <!-- 作业 -->
@@ -340,11 +433,59 @@
 <script>
 import cardArtical from '@/components/molecule/card-artical.vue'
 import homeWork from './component/home-work'
+import { spitAdd, spitQuery } from '@/api/spit.js'
+import atomy from "@/components/atomy/mixins.js";
 export default {
     name: 'articles',
     components: {
         cardArtical,
-        homeWork:homeWork
+        homeWork: homeWork,
+        spitText: atomy.spitText
     },
+    data() {
+        return {
+            emptChange: 0,
+            test: '',
+            spitKey: true, // 
+            commits: [],
+            spitIndx: '', // 索引值
+        }
+    },
+    created() {
+        this.querySpit()
+    },
+    methods: {
+        // 发表评论
+        createSpit(e) {
+            if (!this.spitKey) return
+            this.spitKey = false
+            let ref = this.$refs.spitT[0]
+            let parentid = ref ? ref.$attrs['data-id'] : ''
+            let _data = {
+                content: e,
+                nickname: 'heytoo',
+                url: '',
+                parentid: parentid,
+            }
+
+            spitAdd(_data).then(res => {
+                this.spitKey = true
+                if (res.data.flag) {
+                    ref.empty()
+                    this.spitIndx = ''
+                } else {
+                    // 评论失败
+                }
+            })
+        },
+        // 查询评论
+        querySpit() {
+            spitQuery().then(res => {
+                if (res.data.flag) {
+                    this.commits = res.data.data
+                }
+            })
+        }
+    }
 }
 </script>

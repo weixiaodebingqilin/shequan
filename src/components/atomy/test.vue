@@ -1,26 +1,27 @@
 <template>
     <div>
-        
+
         <!-- item: 具名; param: slot传递出去的值 -->
-        <slot name="item" v-bind="{param}"></slot> 
+        <slot name="item"
+              v-bind="{param}"></slot>
         <!-- 调用的时候建议使用  {v-slot:xxx}2.6以后的写法 而非slot="xxx"  -->
         <!-- vnode -->
-        <!-- <VNodes :vnodes="slotScopeItem({value: 'vue'})" /> -->
+        <!-- <VNode :vnodes="slotScopeItem({value: 'vue'})" /> -->
     </div>
 </template>
 <script>
 export default {
     name: 'test',
     components: {
-        VNode: {
-            functional: true,
-            render: (h, ctx) => ctx.props.vnodes
-        }
+        // VNode: {
+        //     functional: true,
+        //     render: (h, ctx) => ctx.props.vnodes
+        // }
     },
     props: {
         typeName: {
             // typeName的校验
-            validator: function(value){
+            validator: function (value) {
                 return ['success', 'warning', 'danger'].includes(value);
             }
         },
@@ -31,16 +32,16 @@ export default {
             //     return []
             // }
 
-            default: () =>  []
+            default: () => []
         },
         onfunctions: {
             type: Function,
-            default: () => {}
+            default: () => { }
         }
 
     },
-    data(){
-        return{
+    data() {
+        return {
             param: 'sss',
             mywat: {
                 name: 'hu',
@@ -54,14 +55,14 @@ export default {
         }
     },
     watch: {
-        param: function(val,oldVal){
+        param: function (val, oldVal) {
 
         },
-        'mywat.name': function(val,oldVal){
+        'mywat.name': function (val, oldVal) {
 
         },
-        mydeep:{
-            handler: function(val,oldVal){
+        mydeep: {
+            handler: function (val, oldVal) {
 
             },
             deep: true
