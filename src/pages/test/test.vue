@@ -8,26 +8,19 @@
                 allowfullscreen="true"> </iframe>
         <p>wwww</p>
         <section class="text-cont">
-            <ul v-for="(item) in articleList"
+            <!-- <ul v-for="(item) in articleList"
                 :key="item.id">
                 <li>
                     <h3>{{item.title}}</h3>
                     <div v-html="item.content"></div>
                 </li>
-            </ul>
+            </ul> -->
         </section>
         <el-input type="text"
                   placeholder="这里写标题"
                   max="20"
                   v-model="tyTitle">
         </el-input>
-        <!-- <iframe src="//player.bilibili.com/player.html?aid=35800108&amp;cid=62816818&amp;page=7"
-                scrolling="no"
-                width="100%"
-                border="1"
-                frameborder="no"
-                framespacing="0"
-                allowfullscreen="allowfullscreen"></iframe> -->
 
         <tinymce @input='tinymceChange'></tinymce>
         <el-button @click="sbmtArticle">
@@ -52,16 +45,19 @@
                 </ul>
             </section>
         </div>
+        <hr />
+        <spit-text></spit-text>
     </section>
 </template>
 <script>
 //组件
 import tinymce from "@/components/Tinymce";
+import atomy from "@/components/atomy/mixins.js";
 import { debounce } from "@/utils/util.js";
 import { articleAdd, articleQuery, articleQueryBykey } from "@/api/article.js";
 export default {
     name: "test",
-    components: { tinymce },
+    components: { tinymce, spitText: atomy.spitText },
     data() {
         return {
             tyContent: "",
