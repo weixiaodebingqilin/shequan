@@ -6,6 +6,58 @@
 	from {transform: translate(10px,50px);opacity: 0}
 	to {transform: translate(0,0);opacity: 1}
 }
+#category-item{
+    .category-wrap{
+        width: @wap;
+        margin: 0 auto;
+        .category-banner{
+            display: block;
+            width: 100%;
+            height: 120px;
+            padding: 30px 0;
+        }
+        .category-item-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            >h5{
+                font-size:24px;
+                font-weight:600;
+                color:rgba(51,51,51,1);
+                line-height:24px;
+            }
+            >span{
+                font-size:16px;
+                font-weight:400;
+                color:rgba(51,51,51,1);
+                line-height:16px;
+            }
+        }
+        .theme-wrap{
+            padding-top: 30px;
+            >li{
+                cursor: pointer;
+                width: 340px;
+                margin-right: 30px;
+                margin-bottom: 30px;
+                &:nth-of-type(3n+3){
+                    margin-right: 0;
+                }
+                &:nth-of-type(3n+2){
+                    margin-right:30px;
+                }
+                .theme-title{
+                    padding: 20px 0;
+                    margin: 0 20px;
+                    >h5{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
 #category{
     background:rgba(243,245,247,1);
     .nav{
@@ -123,7 +175,7 @@
         align-items: center;
         padding-left: 30px;
         font-size:24px;
-        font-family:PingFangSC-Medium;
+        
         font-weight:500;
         color:rgba(51,51,51,1);
         >span{
@@ -137,7 +189,7 @@
             justify-content: center;
             margin-left: 10px;
             font-size:12px;
-            font-family:PingFangSC-Medium;
+            
             font-weight:500;
             color:rgba(84,120,235,1);
             line-height:24px;
@@ -155,7 +207,7 @@
         background:linear-gradient(319deg,rgba(255,186,0,1) 0%,rgba(255,147,0,1) 100%);
         border-radius:34px 24px 24px 0px;
         font-size:14px;
-        font-family:PingFangSC-Medium;
+        
         font-weight:500;
         color:rgba(255,255,255,1);
         line-height:18px;
@@ -231,7 +283,7 @@
 		margin-left: 3px;
 		>dt{
 			font-size:14px;
-			font-family:PingFangSC-Medium;
+			
 			font-weight:500;
 			color:rgba(51,51,51,1);
 			line-height:20px;
@@ -264,7 +316,7 @@
 		float: left;
 		margin-top: 40px;
 		font-size:24px;
-		font-family:PingFangSC-Medium;
+		
 		font-weight:500;
 		color:rgba(51,51,51,1);
 		line-height:24px; 
@@ -303,7 +355,7 @@
         padding-right: 30px;
         >p{
             font-size:14px;
-            font-family:PingFangSC-Medium;
+            
             font-weight:500;
             color:rgba(153,153,153,1);
             line-height:14px;
@@ -410,7 +462,7 @@
                         >span{
                             margin-left: 5px;
                             font-size:13px;
-                            font-family:PingFangSC-Medium;
+                            
                             font-weight:500;
                             color:rgba(153,153,153,1);
                             line-height:16px;
@@ -431,7 +483,7 @@
                     background:rgba(84,120,235,1);
                     border-radius:19px;
                     font-size:14px;
-                    font-family:PingFangSC-Medium;
+                    
                     font-weight:500;
                     color:rgba(255,255,255,1);
                     line-height:14px;
@@ -473,7 +525,7 @@
                 border-bottom:1px solid rgba(239,239,239,1);
                 >li{
                     font-size:30px;
-                    font-family:PingFangSC-Medium;
+                    
                     font-weight:500;
                     color:rgba(239,239,239,1);
                     line-height:42px;
@@ -513,7 +565,7 @@
                 align-items: center;
                 justify-content: center;
                 font-size:16px;
-                font-family:PingFangSC-Medium;
+                
                 font-weight:500;
                 color:rgba(255,255,255,1);
                 line-height:18px;
@@ -537,7 +589,7 @@
 					align-items: center;
 					height: 100%;
 					font-size:14px;
-					font-family:PingFangSC-Medium;
+					
 					font-weight:500;
 					&:nth-child(1){
 						color:rgba(84,120,235,1);
@@ -574,7 +626,7 @@
 				margin: 0 auto;
 				>p{
 					font-size:18px;
-					font-family:PingFangSC-Medium;
+					
 					font-weight:500;
 					color:rgba(255,255,255,1);
 					line-height:18px;
@@ -606,14 +658,14 @@
 					margin: 0 60px;
 					>span{
 						font-size:24px;
-						font-family:PingFangSC-Medium;
+						
 						font-weight:500;
 						color:rgba(84,120,235,1);
 						line-height:24px;
 					}
 					>font{
 						font-size:12px;
-						font-family:PingFangSC-Medium;
+						
 						font-weight:500;
 						color:#666666;
 					}
@@ -722,7 +774,7 @@
 			box-sizing: border-box;
 			>h6{
 				font-size:16px;
-				font-family:PingFangSC-Medium;
+				
 				font-weight:500;
 				color:rgba(51,51,51,1);
 				line-height:16px;
@@ -803,7 +855,7 @@
 		}
 		>p{
 			font-size:16px;
-			font-family:PingFangSC-Medium;
+			
 			font-weight:500;
 			color:rgba(102,102,102,1);
 			line-height:16px;
@@ -846,7 +898,7 @@
 					margin-right: 30px;
 					>h6{
 						font-size:24px;
-						font-family:PingFangSC-Medium;
+						
 						font-weight:500;
 						color:rgba(51,51,51,1);
 						line-height:24px;
@@ -862,7 +914,7 @@
 							align-items: center;
 							padding: 0 12px;
 							font-size:12px;
-							font-family:PingFangSC-Medium;
+							
 							font-weight:500;
 							color:rgba(255,147,0,1);
 							line-height:12px;
@@ -915,7 +967,7 @@
 				>div{
 					div{
 						font-size:16px;
-						font-family:PingFangSC-Medium;
+						
 						font-weight:500;
 						color:rgba(51,51,51,1);
 						line-height:16px;
@@ -943,7 +995,7 @@
 					margin-left: 700px;
 					font-size:14px;
 					height: 14px;
-					font-family:PingFangSC-Medium;
+					
 					font-weight:500;
 					color:rgba(84,120,235,1);
 					line-height:14px;
@@ -1062,7 +1114,7 @@
 							line-height:16px;
 							>font{
 								font-size:24px;
-								font-family:PingFangSC-Medium;
+								
 								font-weight:500;
 								color:rgba(255,147,0,1);
 								line-height:24px;
@@ -1079,7 +1131,7 @@
 							align-items: center;
 							justify-content: center;
 							font-size:18px;
-							font-family:PingFangSC-Medium;
+							
 							font-weight:500;
 							color:rgba(255,255,255,1);
 							line-height:18px;
@@ -1116,7 +1168,7 @@
 									}
 									>h5{
 											font-size:18px;
-											font-family:PingFangSC-Medium;
+											
 											font-weight:500;
 											color:rgba(51,51,51,1);
 											line-height:24px;
@@ -1223,7 +1275,7 @@
 											align-items: center;
 											justify-content: center;
 											font-size:14px;
-											font-family:PingFangSC-Medium;
+											
 											font-weight:500;
 											color:rgba(255,255,255,1);
 											line-height:38px;
@@ -1348,7 +1400,7 @@
         }
         .more-comment{
             font-size:12px;
-            font-family:PingFangSC-Medium;
+            
             font-weight:500;
             color:#666666;
             line-height:17px;
@@ -1383,7 +1435,7 @@
                         display: flex;
                         align-items: center;
                         font-size:12px;
-                        font-family:PingFangSC-Medium;
+                        
                         font-weight:500;
                         color:rgba(255,189,0,1);
                     }
@@ -1559,14 +1611,14 @@
 							background:rgba(3,191,140,1);
 							border-radius:13px;
 							font-size:12px;
-							font-family:PingFangSC-Medium;
+							
 							font-weight:500;
 							color:rgba(255,255,255,1);
 							margin-right: 10px;
 					}
 					>font{
 							font-size:18px;
-							font-family:PingFangSC-Medium;
+							
 							font-weight:500;
 							color:rgba(102,102,102,1);
 					}
@@ -1607,7 +1659,7 @@
 							justify-content: space-between;
 							>h5{
 									font-size:18px;
-									font-family:PingFangSC-Medium;
+									
 									font-weight:500;
 									color:rgba(51,51,51,1);
 									line-height:24px;

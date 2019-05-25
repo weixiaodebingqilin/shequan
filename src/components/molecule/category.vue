@@ -1,10 +1,12 @@
 <template>
     <section class="index-category loadUp">
-        <ul class="theme-wrap">
-            <li v-for="(item,index) in 8" :key="index">
+        <ul class="theme-wrap"
+            @click="navTo">
+            <li v-for="(item,index) in 8"
+                :key="index">
                 <div class="theme-img">
-                    <img src="@/assets/images/temp/theme-banner.png" >
-                    <img src="@/assets/images/temp/homework-list.png" >
+                    <img src="@/assets/images/temp/theme-banner.png">
+                    <img src="@/assets/images/temp/homework-list.png">
                 </div>
                 <div class="theme-title">
                     <h5>UI设计的奇妙世界</h5>
@@ -23,7 +25,7 @@
                     <dl>
                         <dt>￥398/年</dt>
                         <dd>
-                            <img src="@/assets/images/temp/join-button.png" >
+                            <img src="@/assets/images/temp/join-button.png">
                         </dd>
                     </dl>
                 </div>
@@ -33,8 +35,13 @@
 </template>
 <script>
 export default {
-    name: 'index-category'
-}
+    name: "index-category",
+    methods: {
+        navTo() {
+            this.$router.push({ path: "/category-details" });
+        }
+    }
+};
 </script>
 
 

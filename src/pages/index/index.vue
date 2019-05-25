@@ -156,7 +156,7 @@
 <script>
 import atomy from "@/components/atomy/mixins.js";
 import hotFind from "./component/hot-find";
-import indexCategory from "./component/category";
+import indexCategory from "@/components/molecule/category";
 import newestShare from "./component/share";
 import indexKnowledge from "./component/knowledge";
 import { regist, getCode } from "@/api/user.js";

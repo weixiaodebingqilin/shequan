@@ -1,6 +1,6 @@
 <template>
     <div class="author-wrap">
-        <img src="@/assets/images/temp/header.png" >
+        <img src="@/assets/images/temp/header.png">
         <div class="author-msg">
             <div>
                 <p>胡凌</p>
@@ -18,17 +18,17 @@
 </template>
 <script>
 export default {
-    name: 'author-wrap'
-}
+    name: "author-wrap"
+};
 </script>
 <style lang="less">
-.author-wrap{
+.author-wrap {
     padding: 66px 30px 30px;
-    background:rgba(248,249,255,1);
-    border-radius:2px;
+    background: rgba(248, 249, 255, 1);
+    border-radius: 2px;
     margin-top: 80px;
     position: relative;
-    >img{
+    > img {
         position: absolute;
         width: 100px;
         height: 100px;
@@ -36,65 +36,64 @@ export default {
         display: block;
         left: 50%;
         top: 0;
-        transform: translate(-50%,-50%);
-        
+        transform: translate(-50%, -50%);
     }
-    .author-msg{
+    .author-msg {
         display: flex;
         justify-content: center;
-        >div{
-            &:first-child{
+        > div {
+            &:first-child {
                 padding-right: 10px;
                 margin-right: 10px;
-                border-right:1px solid rgba(239,239,239,1);
+                border-right: 1px solid rgba(239, 239, 239, 1);
             }
             display: flex;
             align-items: flex-end;
-            >p{
-                font-size:18px;
-                font-family:PingFangSC-Medium;
-                font-weight:500;
-                color:#333333;
-                line-height:18px;
+            > p {
+                font-size: 18px;
+
+                font-weight: 500;
+                color: #333333;
+                line-height: 18px;
             }
-            >span{
-                font-size:12px;
-                font-family:PingFangSC-Medium;
-                color:#999999;
+            > span {
+                font-size: 12px;
+
+                color: #999999;
                 line-height: 12px;
                 margin-left: 10px;
             }
         }
     }
-    >h6{
-        font-size:12px;
-        font-family:PingFangSC-Regular;
-        font-weight:400;
-        color:rgba(51,51,51,1);
-        line-height:24px;
+    > h6 {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        line-height: 24px;
         padding-bottom: 10px;
-        border-bottom:1px solid rgba(239,239,239,1);
+        border-bottom: 1px solid rgba(239, 239, 239, 1);
         margin: 15px 0 10px;
     }
-    >p{
-        font-size:12px;
-        font-family:PingFangSC-Regular;
-        font-weight:400;
-        color:rgba(102,102,102,1);
-        line-height:24px;
+    > p {
+        font-size: 12px;
+        font-family: PingFangSC-Regular;
+        font-weight: 400;
+        color: rgba(102, 102, 102, 1);
+        line-height: 24px;
     }
-    .author-more{
-        height:32px;
-        background:rgba(84,120,235,1);
-        border-radius:2px;
+    .author-more {
+        height: 32px;
+        background: rgba(84, 120, 235, 1);
+        border-radius: 2px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size:12px;
-        font-family:PingFangSC-Medium;
-        font-weight:500;
-        color:rgba(255,255,255,1);
-        line-height:32px;
+        font-size: 12px;
+
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        line-height: 32px;
         margin-top: 30px;
     }
 }
