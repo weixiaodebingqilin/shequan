@@ -102,6 +102,7 @@ export default {
     mounted() {
         articleQuery().then(res => {
             console.log("res: ", res);
+            JSON.stringify;
             this.articleList = res.data.data;
         });
     }
