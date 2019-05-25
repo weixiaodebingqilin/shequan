@@ -50,6 +50,11 @@ export default new Router({
                     component: _import('homework/homework'),
                 },
                 {
+                    path: '/category-details',
+                    name: 'category-details',
+                    component: _import('category/category-details'),
+                },
+                {
                     path: '/mine',
                     name: 'mine',
                     component: _import('mine/mymine'),

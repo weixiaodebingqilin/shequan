@@ -32,7 +32,7 @@
                     </dt>
                     <dd>
                         <div class="challenge-day">
-                            <img src="@/assets/images/icon/challenge-day.png" >
+                            <img src="@/assets/images/icon/challenge-day.png">
                             <p>30</p>
                         </div>
                         <div class="chanlenge-money">
@@ -46,7 +46,7 @@
                             </p>
                         </div>
                         <div class="chanllenge-join">
-                            <img src="@/assets/images/icon/join-right.png" >
+                            <img src="@/assets/images/icon/join-right.png">
                         </div>
                     </dd>
                 </dl>
@@ -55,11 +55,13 @@
             <section class="challenge-cont">
                 <div class="challenge-left">
                     <nav class="challenge-cont-nav">
-                        <table-native :clounms="kindNative" @tableMoveIndex="tableMoveIndex"></table-native>
+                        <table-native :clounms="kindNative"
+                                      @tableMoveIndex="tableMoveIndex"></table-native>
                     </nav>
                     <section class="chanllenge-contBox">
                         <!-- 日程 -->
-                        <ul class="chanllenge-schedule" v-if="tableIndex===0">
+                        <ul class="chanllenge-schedule"
+                            v-if="tableIndex===0">
                             <!-- status 状态：['今日','今日已完成','已完成','未完成'] -->
                             <timeTaskAxis isToday>
                                 <nav>
@@ -67,11 +69,12 @@
                                     <p>请在明日9:30之前提交练习作业</p>
                                 </nav>
                             </timeTaskAxis>
-                            <timeTaskAxis ></timeTaskAxis>
-                            <timeTaskAxis ></timeTaskAxis>
+                            <timeTaskAxis></timeTaskAxis>
+                            <timeTaskAxis></timeTaskAxis>
                         </ul>
                         <!-- 挑战圈 -->
-                        <div class="chanllenge-circle" v-if="tableIndex===1">
+                        <div class="chanllenge-circle"
+                             v-if="tableIndex===1">
                             <ul class="circle-nav">
                                 <li class="screen-active">全部</li>
                                 <li>作业</li>
@@ -79,67 +82,68 @@
                                 <li>红名单</li>
                             </ul>
                             <ul class="circle-comment">
-                                <li v-for="(item,index) in 5" :key="index">
-                                    <img src="@/assets/images/temp/challenge-head.png" >
+                                <li v-for="(item,index) in 5"
+                                    :key="index">
+                                    <img src="@/assets/images/temp/challenge-head.png">
                                     <section>
                                         <h6>KIM_会飞的鱼 <span>刚刚</span></h6>
                                         <p><span>＃作业 </span> 嗯，圈主教的太好了！</p>
                                         <div class="comment-img">
-                                            <img src="@/assets/images/temp/challenge-comment.png" >
-                                            <img src="@/assets/images/temp/challenge-comment.png" >
-                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                            <img src="@/assets/images/temp/challenge-comment.png">
+                                            <img src="@/assets/images/temp/challenge-comment.png">
+                                            <img src="@/assets/images/temp/challenge-comment.png">
                                         </div>
                                         <dl>
                                             <dt class="green">
-                                                <img src="@/assets/images/temp/challenge-comment.png" >
+                                                <img src="@/assets/images/temp/challenge-comment.png">
                                                 <span>已批改</span>
                                             </dt>
                                             <dd class="dd-green">来！我把我把画笔给你，你来做圈主！</dd>
                                         </dl>
                                         <div class="comment-browse">
                                             <div>
-                                                <img src="@/assets/images/temp/challenge-comment.png" >
+                                                <img src="@/assets/images/temp/challenge-comment.png">
                                                 <span>320</span>
                                             </div>
                                             <div>
-                                                <img src="@/assets/images/temp/challenge-comment.png" >
+                                                <img src="@/assets/images/temp/challenge-comment.png">
                                             </div>
                                         </div>
                                         <ol>
                                             <li>
-                                                <img src="@/assets/images/temp/challenge-head.png" >
+                                                <img src="@/assets/images/temp/challenge-head.png">
                                                 <section>
                                                     <h6>胡凌 <span> 02.20 14:23</span></h6>
                                                     <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
                                                     <div>
                                                         <div>
-                                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                                            <img src="@/assets/images/temp/challenge-comment.png">
                                                             <span>320</span>
                                                         </div>
                                                     </div>
                                                 </section>
                                             </li>
                                             <li>
-                                                <img src="@/assets/images/temp/challenge-head.png" >
+                                                <img src="@/assets/images/temp/challenge-head.png">
                                                 <section>
                                                     <h6>胡凌 <span> 02.20 14:23</span></h6>
                                                     <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
                                                     <div>
                                                         <div>
-                                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                                            <img src="@/assets/images/temp/challenge-comment.png">
                                                             <span>320</span>
                                                         </div>
                                                     </div>
                                                 </section>
                                             </li>
                                             <li>
-                                                <img src="@/assets/images/temp/challenge-head.png" >
+                                                <img src="@/assets/images/temp/challenge-head.png">
                                                 <section>
                                                     <h6>胡凌 <span> 02.20 14:23</span></h6>
                                                     <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
                                                     <div>
                                                         <div>
-                                                            <img src="@/assets/images/temp/challenge-comment.png" >
+                                                            <img src="@/assets/images/temp/challenge-comment.png">
                                                             <span>320</span>
                                                         </div>
                                                     </div>
@@ -172,32 +176,29 @@
     </div>
 </template>
 <script>
-import atomy from '@/components/atomy/mixins.js'
-import molecule from  '@/components/molecule/mixins.js'
+import atomy from "@/components/atomy/mixins.js";
+import molecule from "@/components/molecule/mixins.js";
 export default {
-    name: 'challenge',
+    name: "challenge",
     components: {
         textHd: atomy.textHd,
         tableNative: atomy.tableNative,
         showStar: atomy.showStar,
         timeTaskAxis: molecule.timeTaskAxis,
-        authorWrap: molecule.authorWrap,
-
+        authorWrap: molecule.authorWrap
     },
-    data(){
-        return{
-            kindNative: ['日程','挑战圈'],
-            tableIndex:0,
-        }
+    data() {
+        return {
+            kindNative: ["日程", "挑战圈"],
+            tableIndex: 0
+        };
     },
     methods: {
-        tableMoveIndex(index){
-            this.tableIndex=index;
+        tableMoveIndex(index) {
+            this.tableIndex = index;
         }
     }
-
-    
-}
+};
 </script>
 
 
