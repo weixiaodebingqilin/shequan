@@ -8,7 +8,7 @@ import './utils/local/cookies.js' // 引入cookies
 import router from './router/index.js'
 
 import './utils/directive.js'
-import './utils/iconfont.js'
+// import './utils/iconfont.js'
 
 import { Button, Select, Option, Upload, Input, Radio, Dialog, Alert, Notification } from 'element-ui'
 Vue.prototype.$ELEMENT = { size: 'small' }

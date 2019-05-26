@@ -88,6 +88,7 @@
                         <div>发表</div>
                     </div>
                 </div>
+                <!-- 圈子内搜索 -->
 
                 <!-- 导航 -->
                 <div class="catalogue-native">
@@ -305,10 +306,10 @@ export default {
         };
     },
     // 组件的生命周期
-    created() {},
+    created() { },
     // 我们要写的一些方法
     methods: {
-        kindMove(index, event) {
+        kindMove(index) {
             this.kindIndex = index;
         },
         open() {
