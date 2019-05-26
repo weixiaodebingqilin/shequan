@@ -28,7 +28,7 @@
                     <index-knowledge v-if="kindIndex === 0"></index-knowledge>
                     <hot-find v-if="kindIndex === 1"></hot-find>
                     <newest-share v-if="kindIndex === 2"></newest-share>
-                    <index-category v-if="kindIndex === 3"></index-category>
+                    <!-- <index-category v-if="kindIndex === 2"></index-category> -->
                 </div>
 
             </div>
@@ -150,7 +150,6 @@
 
             </div>
         </section>
-        <button @click="test">点击我试试看</button>
     </div>
 </template>
 <script>
@@ -159,7 +158,6 @@ import hotFind from "./component/hot-find";
 import indexCategory from "@/components/molecule/category";
 import newestShare from "./component/share";
 import indexKnowledge from "./component/knowledge";
-import { regist, getCode } from "@/api/user.js";
 export default {
     name: "index",
     components: {
@@ -172,12 +170,12 @@ export default {
     },
     data() {
         return {
-            kindNative: ["知识点", "热门发现", "最新分享", "专题圈", "关注的"], ///
+            kindNative: ["知识点", "热门发现", "最新分享", "关注的"], ///
             kindIndex: 1 //
         };
     },
     // 组件的生命周期
-    created() {},
+    created() { },
     // 我们要写的一些方法
     methods: {
         // 导航栏切换后的回调
@@ -185,14 +183,8 @@ export default {
             this.kindIndex = index;
         },
         ///
-        test() {
-            getCode("13820381757").then(res => {
-                console.log("res： ", res);
-            });
-        },
-        regist() {
-            regist();
-        }
+
+
     }
 };
 </script>

@@ -2,7 +2,7 @@
  * Cookie
  * 同一个域名下的所有请求，都会携带 Cookie
  */
-const cookies = {
+export const cookies = {
     set: function (key, val, time) {//设置cookie方法
         var date = new Date(); //获取当前时间
         var expiresDays = time;  //将date设置为n天以后的时间

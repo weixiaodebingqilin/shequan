@@ -5,16 +5,23 @@
  *  
  */
 export const cutDwon = (nums, param) => {
-    let {star,end, doing} = param
+    let { star, end, doing } = param
     star && star(nums)
     nums--
-    if(nums < 0){
+    if (nums < 0) {
         end && end(nums)
         return
     }
-    setTimeout(()=>{
+    setTimeout(() => {
         doing && doing(nums)
-        cutDwon(nums,param)
-    } ,1000)
+        cutDwon(nums, param)
+    }, 1000)
 }
 
+/**
+ * 登陆成功后，设置cookies
+ * @param {any} value
+ */
+export const setToken = (value) => {
+    Cookies.set('token', value, { expires: 365 })
+}

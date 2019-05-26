@@ -71,8 +71,7 @@
                                 <font>赞</font>
                                 <span>42</span>
                             </li>
-                            <li>
-                                <!-- <img src="@/assets/images/icon/blue-like.png"/> -->
+                            <li class="pointer">
                                 <svg class="icon"
                                      aria-hidden="true">
                                     <use xlink:href="#iconzuoye"></use>
@@ -343,24 +342,25 @@
                         <p>主题圈结束</p>
                         <span>今天活跃过</span>
                     </div>
-                    <div class="course-introduce-pro">
-                        <p>主题圈结束 <font>10</font>
-                        </p>
-                    </div>
                     <div class="introduce-msg">你将收获什么？UI设计的干货，从基础到深入的复盘，老胡在各大实际项目中的所遇见的坑分析，互动答疑疑问。每周1/3/5带领大家一起动起手来学习。</div>
+                    <!-- <div class="course-introduce-pro">
+                        <p>最新动态 <font>10</font>
+                        </p>
+                    </div> -->
+
                     <div class="add-introduce">立即加入专题圈</div>
-                    <div class="add-introduce add-int-blue">进入专题圈</div>
+                    <!-- <div class="add-introduce add-int-blue">进入专题圈</div> -->
                     <!-- <div class="introduce-plan">
                         <span>已更新25章</span>
                         <font>|</font>
                         <p>每周1/3/5更新</p>
                     </div> -->
-                    <div class="line-bottom"></div>
-                    <div class="introduce-plan-pro">
+                    <!-- <div class="line-bottom"></div> -->
+                    <!-- <div class="introduce-plan-pro">
                         目录
-                    </div>
-                    <div class="line-bottom"></div>
-                    <section class="course-catalogue">
+                    </div> -->
+                    <!-- <div class="line-bottom"></div> -->
+                    <!-- <section class="course-catalogue">
                         <ul>
                             <li v-for="(item,index) in 5"
                                 :key="index">
@@ -371,7 +371,6 @@
                                     <p>支付宝01246版中遇见的坑</p>
                                 </div>
                                 <div>
-                                    <!-- <p>03.10</p> -->
                                     <svg class="icon"
                                          aria-hidden="true">
                                         <use xlink:href="#iconwanchengdise"></use>
@@ -380,7 +379,6 @@
                             </li>
                             <li>
                                 <div>
-                                    <!-- <div class="linght">公开</div> -->
                                     <p>支付宝01246版中遇见的坑</p>
                                 </div>
                                 <div>
@@ -402,7 +400,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </section>
+                    </section> -->
                     <!-- <div class="line-bottom"></div>
                     <ul class="paging">
                         <li></li>
@@ -426,20 +424,17 @@
 
             </div>
         </section>
-        <!-- 作业 -->
-        <home-work></home-work>
+
     </div>
 </template>
 <script>
 import cardArtical from '@/components/molecule/card-artical.vue'
-import homeWork from './component/home-work'
 import { spitAdd, spitQuery } from '@/api/spit.js'
 import atomy from "@/components/atomy/mixins.js";
 export default {
     name: 'articles',
     components: {
         cardArtical,
-        homeWork: homeWork,
         spitText: atomy.spitText
     },
     data() {

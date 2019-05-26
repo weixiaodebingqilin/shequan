@@ -112,104 +112,107 @@
 import atomy from "@/components/atomy/mixins.js";
 import { getCode, loginMessage, loginPassword } from "@/api/user.js";
 import { reg } from "@/utils/validate.js";
-import { cutDwon } from "./utils.js";
+import { cutDwon, setToken } from "./utils.js";
 export default {
-  name: "login",
-  components: {
-    tableNative: atomy.tableNative
-  },
-  data() {
-    return {
-      kindNative: ["密码登陆", "短信登陆"],
-      initIndex: 0, //
-      kindeIndex: 0,
-      mobile: "",
-      code: "",
-      password: "",
-      mobileState: true, // 手机号状态（
-      inputType: "password", // 密码框 input的属性
-      outtime: "获取短信验证码", // 获取短信验证码显示内容
-      outText: "获取短信验证码",
-      times: 60, // 倒计时时间
-      getCodeType: "smslogin" // 短信验证码type
-    };
-  },
-  methods: {
-    tableMoveIndex(index) {
-      this.code = "";
-      this.kindeIndex = index;
+    name: "login",
+    components: {
+        tableNative: atomy.tableNative
     },
-    loginto() {},
-    validateMoblie() {
-      this.mobileState = reg.phone.test(this.mobile);
+    data() {
+        return {
+            kindNative: ["密码登陆", "短信登陆"],
+            initIndex: 0, //
+            kindeIndex: 0,
+            mobile: "",
+            code: "",
+            password: "",
+            mobileState: true, // 手机号状态（
+            inputType: "password", // 密码框 input的属性
+            outtime: "获取短信验证码", // 获取短信验证码显示内容
+            outText: "获取短信验证码",
+            times: 60, // 倒计时时间
+            getCodeType: "smslogin" // 短信验证码type
+        };
     },
+    methods: {
+        tableMoveIndex(index) {
+            this.code = "";
+            this.kindeIndex = index;
+        },
+        validateMoblie() {
+            this.mobileState = reg.phone.test(this.mobile);
+        },
 
-    // 短信验证码
-    getCode(e) {
-      this.validateMoblie();
-      if (!reg.phone.test(this.mobile)) return;
-      if (this.outtime !== this.outText) return;
-      this.outtime = this.times + "s";
-      cutDwon(this.times, {
-        doing: res => (this.outtime = res + "s"),
-        end: res => (this.outtime = this.outText)
-      });
+        // 短信验证码
+        getCode() {
+            this.validateMoblie();
+            if (!reg.phone.test(this.mobile)) return;
+            if (this.outtime !== this.outText) return;
+            this.outtime = this.times + "s";
+            cutDwon(this.times, {
+                doing: res => (this.outtime = res + "s"),
+                end: () => (this.outtime = this.outText)
+            });
 
-      getCode(this.mobile, this.getCodeType).then(res => {
-        let msg = "发送失败,请重新获取";
-        if (+res.status === 200) {
-          msg = res.data.message;
-          console.log("短信验证码为：", res.data.data);
+            getCode(this.mobile, this.getCodeType).then(res => {
+                let msg = "发送失败,请重新获取";
+                if (+res.status === 200) {
+                    msg = res.data.message;
+                    console.log("短信验证码为：", res.data.data);
+                }
+                console.log("msg", msg);
+            });
+        },
+        loginto() {
+            this.validateMoblie();
+            if (!reg.phone.test(this.mobile)) return;
+            let _data = {
+                mobile: this.mobile
+            };
+            let fn = [this.loginPswd, this.loginMsg][this.kindeIndex];
+            fn(_data);
+        },
+        // 短信验证码登陆
+        loginMsg(_data) {
+            if (!this.code) {
+                console.log("验证码不能为空");
+                return;
+            }
+            loginMessage(this.code, _data).then(res => {
+                console.log("resmgs: ", res);
+                setToken(res.data.token)
+                this.$router.push({ path: "/" });
+            });
+        },
+        // 密码登陆
+        loginPswd(_data) {
+            if (!this.password) {
+                console.log("密码不能为空");
+                return;
+            }
+            _data.password = this.password;
+            loginPassword(_data).then(res => {
+                if (+res.status === 200) {
+                    res = res.data;
+                    console.log("密码登陆： ", res.message);
+                    if (res.data && res.data.token) {
+                        // localStorage.setItem("token", res.data.token);
+                        console.log('res.data.token: ', res.data.token)
+                        setToken(res.data.token)
+                        console.log('cookies', Cookies.get('token'))
+                        this.$router.push({ path: "/" });
+                    }
+                }
+            });
         }
-        console.log("msg", msg);
-      });
     },
-    loginto() {
-      this.validateMoblie();
-      if (!reg.phone.test(this.mobile)) return;
-      let _data = {
-        mobile: this.mobile
-      };
-      let fn = [this.loginPswd, this.loginMsg][this.kindeIndex];
-      fn(_data);
-    },
-    // 验证码登陆
-    loginMsg(_data) {
-      if (!this.code) {
-        console.log("验证码不能为空");
-        return;
-      }
-      loginMessage(this.code, _data).then(res => {
-        console.log("resmgs: ", res);
-        this.$router.push({ path: "/" });
-      });
-    },
-    // 密码登陆
-    loginPswd(_data) {
-      if (!this.password) {
-        console.log("密码不能为空");
-        return;
-      }
-      _data.password = this.password;
-      loginPassword(_data).then(res => {
-        if (+res.status === 200) {
-          res = res.data;
-          console.log("密码登陆： ", res.message);
-          if (res.data && res.data.token) {
-            localStorage.setItem("token", res.data.token);
-            this.$router.push({ path: "/" });
-          }
+    watch: {
+        mobile(nwe) {
+            // console.log(nwe.length)
+            nwe.length > 11 && (this.mobile = this.mobile.slice(0, 11));
+            this.mobileState = true;
         }
-      });
     }
-  },
-  watch: {
-    mobile(nwe) {
-      // console.log(nwe.length)
-      nwe.length > 11 && (this.mobile = this.mobile.slice(0, 11));
-      this.mobileState = true;
-    }
-  }
 };
 </script>
 
