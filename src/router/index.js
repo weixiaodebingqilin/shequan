@@ -59,6 +59,11 @@ export default new Router({
                     name: 'mine',
                     component: _import('mine/mymine'),
                 },
+                {
+                    path: '/myInformation',
+                    name: 'myInformation',
+                    component: _import('mine/myInformation'),
+                },
             ]
         },
         {
