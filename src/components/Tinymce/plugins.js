@@ -9,15 +9,15 @@ const title = [
     },
     {
         name: 'p',
-        tip: '段落'
+        tip: '正文'
     },
     {
         name: 'h1',
-        tip: '标题一'
+        tip: '副标题一'
     },
     {
         name: 'h2',
-        tip: '标题二'
+        tip: '副标题二'
     },
 ];
 window.tinymce.PluginManager.add('stylebuttons', function (editor) {

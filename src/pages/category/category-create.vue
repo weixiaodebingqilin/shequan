@@ -23,16 +23,16 @@
                                        :value="item.value">
                             </el-option>
                         </el-select>
-                        <div>
+                        <section>
                             <span>
                                 <img src="@/assets/images/icon/add.png" />
                             </span>
                             <p>您的专题圈未超过6篇文章，不能创建新的专题圈</p>
-                        </div>
+                        </section>
                     </div>
                     <!-- 附件 -->
                     <div class="create-options-enclosure">
-
+                        <!-- 上传附件 -->
                         <el-upload class="upload-demo"
                                    action="https://jsonplaceholder.typicode.com/posts/"
                                    :on-preview="handlePreview"
@@ -47,6 +47,7 @@
                                 点击可上传附件(zip/rar7z)
                             </el-button>
                         </el-upload>
+                        <el-button class="cloud-address">网盘地址（大文件建议使用网盘）</el-button>
                     </div>
                     <!-- 简介 -->
                     <div class="create-options-introduction">
@@ -56,12 +57,13 @@
                                   max="120"
                                   v-model="introduction">
                         </el-input>
+                        <p>{{120 - introduction.length}}</p>
                     </div>
                     <!-- 定是送 -->
                     <div>
                         <el-radio v-model="isTiming"
                                   label="1">
-                            占位符，样式跟功能
+                            设置定时发送
                         </el-radio>
                         <p>你可以选择一周内内任意时刻定时发布，在设定的时间之前可修改取消</p>
                     </div>
@@ -197,6 +199,7 @@ export default {
     margin: 0 auto;
     padding-top: 20px;
     justify-content: space-between;
+    background: rgba(248, 249, 255, 1);
     > nav {
         width: 210px;
         li {
@@ -240,11 +243,14 @@ export default {
     }
 }
 .create-options-topic {
-    > div {
+    .el-select {
+        width: 246px;
+    }
+    > section {
         height: 32px;
         line-height: 32px;
         flex: 1;
-        margin-right: 20px;
+        margin-left: 20px;
         display: flex;
         align-items: center;
         font-size: 12px;
@@ -256,7 +262,11 @@ export default {
             border: 1px solid rgba(252, 64, 17, 0.7);
             border-radius: 50%;
             text-align: center;
-            margin-right: 20px;
+            margin-right: 14px;
+            display: flex;
+            box-sizing: content-box;
+            align-items: center;
+            justify-content: center;
             > img {
                 width: 14px;
                 height: 14px;
@@ -265,8 +275,23 @@ export default {
     }
 }
 .create-options-enclosure {
+    .cloud-address {
+        flex: 1;
+        margin-left: 10px;
+    }
 }
-
+.create-options-introduction {
+    position: relative;
+    > p {
+        position: absolute;
+        bottom: 5px;
+        right: 10px;
+        color: rgba(207, 207, 207, 1);
+    }
+    .el-textarea__inner {
+        padding-right: 30px;
+    }
+}
 .create-options-cover {
     width: 180px;
     margin-left: 30px;
