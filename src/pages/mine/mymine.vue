@@ -3,7 +3,7 @@
     <div id="mymine">
         <section class="mymine-topMsg">
             <div class="topMsg-wrap">
-                <dl>
+                <dl @click="navToInformation">
                     <dt><img src="@/assets/images/temp/header.png"></dt>
                     <dd>
                         <h5>微笑的冰欺凌</h5>
@@ -34,7 +34,7 @@
                 </ul>
             </div>
         </section>
-        <section class="main-wrap">
+        <section class="main-wrap loadUp">
             <div class="main-left">
                 <table-native :clounms="kindNative"
                               @tableMoveIndex="kindMove"
@@ -113,6 +113,9 @@ export default {
     methods: {
         kindMove(index, event) {
             this.kindIndex = index;
+        },
+        navToInformation() {
+            this.$router.push({ path: "/myInformation" });
         }
     }
 };

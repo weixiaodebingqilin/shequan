@@ -15,6 +15,7 @@
             margin: 0 auto;
             >dl{
                 .on-flex();
+                cursor: pointer;
                 width: 749px;
                 padding-bottom: 15px;
                 border-bottom:1px solid rgba(67,67,67,1);
@@ -178,4 +179,107 @@
         }
         
     }
+}
+//个人中心-个人信息
+#information{
+    background:rgba(243,245,247,1);
+    padding-bottom: 70px;
+    .main-wrap{
+        width: @wap;
+		display: flex;
+        margin: 0 auto;
+        padding-top: 20px;
+        justify-content: space-between;
+        .main-left{
+            width: 260px;
+            margin-right: 20px;
+            .my-msg{
+                background:rgba(255,255,255,1);
+                padding: 14px 30px 30px;
+                .my-msg-w{
+                    border-bottom:1px solid rgba(239,239,239,1);
+                    padding-bottom: 10px;
+                    >img{
+                        width: 106px;
+                        height: 106px;
+                        display: block;
+                        margin: 6px auto;
+                    }
+                    >h5{
+                        font-size:18px;
+                        font-weight:500;
+                        color:rgba(51,51,51,1);
+                        line-height:18px;
+                        text-align: center;
+                        padding: 14px 20px;
+                    }
+                    >p{
+                        font-size:12px;
+                        font-weight:400;
+                        color:rgba(51,51,51,1);
+                        line-height:24px;
+                    }
+                }
+                .my-msg-button{
+                    height:38px;
+                    background:rgba(84,120,235,1);
+                    border-radius:2px;  
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size:12px;
+                    font-weight:500;
+                    color:rgba(255,255,255,1);
+                    box-sizing: border-box;
+                    margin-top: 30px;
+                    cursor: pointer;
+                }
+                .my-msg-button-home{
+                    border:1px solid rgba(84,120,235,0.2);
+                    color: #5478EB;
+                    background: transparent;
+                    margin-top: 20px;
+                }
+                .my-msg-button-author{
+                    margin-top: 10px;
+                    color: #999999;
+                    border:1px solid rgba(239,239,239,1);
+                    background: transparent;
+                }
+            }
+            .my-navTab{
+                margin-top: 20px;
+                background: #fff;
+                >li{
+                    transition: ease-out .4s;
+                    cursor: pointer;
+                    font-size:16px;
+                    font-weight:400;
+                    color:rgba(51,51,51,1);
+                    line-height:16px;
+                    padding: 20px 0 20px 30px;
+                    &:nth-of-type(4n+4){
+                        border-bottom: 1px solid rgba(239,239,239,1);
+                    }
+                }
+                .my-navTab-active{
+                    background:rgba(84,120,235,0.1);
+                    color: #5478EB;
+                }
+                
+            }
+            
+        }
+		.main-right{
+            flex: 1;
+            background: #fff;
+            .table-native{
+                padding: 36px 0 20px 30px;
+                
+            }
+            .main-right-wrap{
+                padding: 0 30px;
+            }
+        }
+    }        
 }
