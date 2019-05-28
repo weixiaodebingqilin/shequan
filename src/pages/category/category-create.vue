@@ -60,23 +60,25 @@
                         <p>{{120 - introduction.length}}</p>
                     </div>
                     <!-- 定是送 -->
-                    <div>
-                        <el-radio v-model="isTiming"
-                                  label="1">
-                            设置定时发送
-                        </el-radio>
+                    <div class="create-choice">
+                        <dk-switch @click="choice">
+                            <template slot="text">
+                                设置定时发送
+                            </template>
+                        </dk-switch>
                         <p>你可以选择一周内内任意时刻定时发布，在设定的时间之前可修改取消</p>
                     </div>
+
                     <div class="create-options-choiceTime">
-                        <el-select v-model="topic"
+                        <el-select v-model="tmDay"
                                    placeholder="今天">
-                            <el-option v-for="item in topics"
-                                       :key="item.value"
-                                       :label="item.label"
-                                       :value="item.value">
+                            <el-option v-for="item in tmDays"
+                                       :key="item"
+                                       :label="item"
+                                       :value="item">
                             </el-option>
                         </el-select>
-                        <el-select v-model="topic"
+                        <el-select v-model="tmHour"
                                    placeholder="20">
                             <el-option v-for="item in topics"
                                        :key="item.value"
@@ -85,7 +87,7 @@
                             </el-option>
                         </el-select>
                         时
-                        <el-select v-model="topic"
+                        <el-select v-model="tmMin"
                                    placeholder="选择专题">
                             <el-option v-for="item in topics"
                                        :key="item.value"
@@ -128,10 +130,11 @@
 /* eslint-disable no-console */
 <script>
 import tinymce from "@/components/Tinymce";
+import atomy from "@/components/atomy/mixins.js";
 export default {
     name: "category-create",
 
-    components: { tinymce },
+    components: { tinymce, dkSwitch: atomy.dkSwitch },
     data() {
         return {
             navs: ["分享心得", "专题圈", "挑战实练"],
@@ -150,11 +153,58 @@ export default {
             fileList: [],
             introduction: "", //简介
             imageUrl: "",
-            //定是送?
-            isTiming: ""
+            //定时发送?
+            isTiming: "",
+            tmDay: "",
+            tmHour: "",
+            tmMin: "",
+
+            tmDays: [],
+            tmHours: [],
+            tmMins: [] //
         };
     },
+    mounted() {
+        this.setTime();
+    },
     methods: {
+        /**
+         * 时间格式化
+         *
+         * 1. 输入 某天的值（‘2019-5-28’）
+         * 2. 输出 一个长度为七的数组arr, 从当天天开始起的七天数据 比如 ['今天', '5-29', '5-30', '5-31', '6-1' ,...]
+         */
+        formData(day) {
+            let times = 24 * 60 * 60 * 1000;
+            let arr = [];
+            // .padStart(2, "0")
+            for (let i = 1; i < 7; i++) {
+                let td = new Date(day + i * times);
+                let m = td.getMonth() + 1;
+                let d = td.getDate();
+                let now =
+                    m.toString().padStart(2, "0") +
+                    "-" +
+                    d.toString().padStart(2, "0");
+                arr.push(now);
+            }
+            return arr;
+        },
+        setTime() {
+            const now = new Date();
+            let nows = {
+                hour: now.getHours(),
+                min: now.getMinutes()
+            };
+            let arr = ["今天", ...this.formData(+now)];
+            this.tmDays = arr;
+            console.log("arr: ", arr);
+        },
+
+        /// 是否展示时间
+        choice(is) {
+            console.log("is: ", is);
+        },
         navtab() {},
         handleRemove(file, fileList) {
             // eslint-disable-next-line no-console
@@ -326,6 +376,19 @@ export default {
     width: 180px;
     height: 120px;
     display: block;
+}
+.create-choice {
+    > p {
+        flex: 1;
+        color: rgba(153, 153, 153, 1);
+        margin-left: 10px;
+    }
+}
+.create-options-cont > .create-options-choiceTime {
+    justify-content: flex-start;
+    .el-select {
+        width: 80px;
+    }
 }
 </style>
 
