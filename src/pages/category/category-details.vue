@@ -286,7 +286,7 @@
 import atomy from "@/components/atomy/mixins.js";
 import molecule from "@/components/molecule/mixins.js";
 import categoryCircle from "./component/circle";
-import categoryWrap from "./component/wrap";
+import categoryWrap from "@/components/molecule/wrap";
 import categoryChallenge from "./component/challenge";
 export default {
     name: "category",
@@ -306,7 +306,7 @@ export default {
         };
     },
     // 组件的生命周期
-    created() { },
+    created() {},
     // 我们要写的一些方法
     methods: {
         kindMove(index) {
