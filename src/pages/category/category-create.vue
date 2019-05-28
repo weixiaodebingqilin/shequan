@@ -71,7 +71,8 @@
 
                     <div class="create-options-choiceTime">
                         <el-select v-model="tmDay"
-                                   placeholder="今天">
+                                   placeholder="今天"
+                                   @change='hourChange'>
                             <el-option v-for="item in tmDays"
                                        :key="item"
                                        :label="item"
@@ -80,19 +81,18 @@
                         </el-select>
                         <el-select v-model="tmHour"
                                    placeholder="20">
-                            <el-option v-for="item in topics"
+                            <el-option v-for="item in tmHours"
                                        :key="item.value"
-                                       :label="item.label"
+                                       :label="item.value"
                                        :value="item.value">
                             </el-option>
                         </el-select>
                         时
                         <el-select v-model="tmMin"
-                                   placeholder="选择专题">
-                            <el-option v-for="item in topics"
-                                       :key="item.value"
-                                       :label="item.label"
-                                       :value="item.value">
+                                   placeholder="0">
+                            <el-option v-for="item in tmMins"
+                                       :key="item"
+                                       :value="item">
                             </el-option>
                         </el-select>
                         分
@@ -168,6 +168,10 @@ export default {
         this.setTime();
     },
     methods: {
+        hourChange(v) {
+            console.log('v: ', v)
+            this.setHour()
+        },
         /**
          * 时间格式化
          *
@@ -190,22 +194,41 @@ export default {
             }
             return arr;
         },
+        setHour(day = this.tmDay, hour = this.tmHour) {
+            this.tmHours = day === this.tmDays[0] ? this.tmHours.splice(hour, 24) : JSON.parse(JSON.stringify(this.initHours))
+        },
+        setHours() {
+            let hours = []
+            for (let i = 0; i < 24; i++) {
+                hours.push({
+                    value: i,
+                    disabled: false
+                })
+            }
+            this.initHours = [...hours]
+            return hours
+        },
         setTime() {
             const now = new Date();
-            let nows = {
-                hour: now.getHours(),
-                min: now.getMinutes()
-            };
+
+
+
             let arr = ["今天", ...this.formData(+now)];
             this.tmDays = arr;
-            console.log("arr: ", arr);
+            this.tmDay = arr[0]
+            this.tmHours = this.setHours()
+            this.tmHour = now.getHours()
+            this.tmMins = [...new Array(60).keys()]
+            this.tmMin = now.getMinutes(this.setHours())
+
+            this.setHour()
         },
 
         /// 是否展示时间
         choice(is) {
             console.log("is: ", is);
         },
-        navtab() {},
+        navtab() { },
         handleRemove(file, fileList) {
             // eslint-disable-next-line no-console
             console.log(file, fileList);
@@ -217,7 +240,7 @@ export default {
         handleExceed(files, fileList) {
             this.$message.warning(
                 `当前限制选择 1 个文件，本次选择了 ${
-                    files.length
+                files.length
                 } 个文件，共选择了 ${files.length + fileList.length} 个文件`
             );
         },
@@ -244,151 +267,152 @@ export default {
 </script>
 <style lang="less">
 .category-create {
-    width: @wap;
-    display: flex;
-    margin: 0 auto;
-    padding-top: 20px;
-    justify-content: space-between;
-    background: rgba(248, 249, 255, 1);
-    > nav {
-        width: 210px;
-        li {
-            height: 44px;
-            line-height: 44px;
-            background: rgba(255, 255, 255, 1);
-            border: 1px solid rgba(84, 120, 235, 0.1);
-            margin-bottom: 10px;
-            text-indent: 30px;
-            font-size: 14px;
-            color: rgba(51, 51, 51, 1);
-            cursor: pointer;
-            &:hover {
-                background: rgba(84, 120, 235, 0.7);
-                color: rgba(255, 255, 255, 1);
-            }
-            &.active {
-                background: rgba(84, 120, 235, 1);
-                color: rgba(255, 255, 255, 1);
-            }
-        }
+  width: @wap;
+  display: flex;
+  margin: 0 auto;
+  padding-top: 20px;
+  justify-content: space-between;
+  background: rgba(248, 249, 255, 1);
+  > nav {
+    width: 210px;
+    li {
+      height: 44px;
+      line-height: 44px;
+      background: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(84, 120, 235, 0.1);
+      margin-bottom: 10px;
+      text-indent: 30px;
+      font-size: 14px;
+      color: rgba(51, 51, 51, 1);
+      cursor: pointer;
+      &:hover {
+        background: rgba(84, 120, 235, 0.7);
+        color: rgba(255, 255, 255, 1);
+      }
+      &.active {
+        background: rgba(84, 120, 235, 1);
+        color: rgba(255, 255, 255, 1);
+      }
     }
-    .create-main {
-        width: 900px;
+  }
+  .create-main {
+    width: 900px;
 
-        .create-options {
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-        }
+    .create-options {
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
     }
+  }
 }
 
 .create-options-cont {
-    width: 660px;
-    padding-right: 25px;
-    > div {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: space-between;
-    }
+  width: 660px;
+  padding-right: 25px;
+  > div {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 .create-options-topic {
-    .el-select {
-        width: 246px;
+  .el-select {
+    width: 246px;
+  }
+  > section {
+    height: 32px;
+    line-height: 32px;
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(252, 64, 17, 0.7);
+    > span {
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border: 1px solid rgba(252, 64, 17, 0.7);
+      border-radius: 50%;
+      text-align: center;
+      margin-right: 14px;
+      display: flex;
+      box-sizing: content-box;
+      align-items: center;
+      justify-content: center;
+      > img {
+        width: 14px;
+        height: 14px;
+      }
     }
-    > section {
-        height: 32px;
-        line-height: 32px;
-        flex: 1;
-        margin-left: 20px;
-        display: flex;
-        align-items: center;
-        font-size: 12px;
-        color: rgba(252, 64, 17, 0.7);
-        > span {
-            width: 24px;
-            height: 24px;
-            line-height: 24px;
-            border: 1px solid rgba(252, 64, 17, 0.7);
-            border-radius: 50%;
-            text-align: center;
-            margin-right: 14px;
-            display: flex;
-            box-sizing: content-box;
-            align-items: center;
-            justify-content: center;
-            > img {
-                width: 14px;
-                height: 14px;
-            }
-        }
-    }
+  }
 }
 .create-options-enclosure {
-    .cloud-address {
-        flex: 1;
-        margin-left: 10px;
-    }
+  .cloud-address {
+    flex: 1;
+    margin-left: 10px;
+  }
 }
 .create-options-introduction {
-    position: relative;
-    > p {
-        position: absolute;
-        bottom: 5px;
-        right: 10px;
-        color: rgba(207, 207, 207, 1);
-    }
-    .el-textarea__inner {
-        padding-right: 30px;
-    }
+  position: relative;
+  > p {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: rgba(207, 207, 207, 1);
+  }
+  .el-textarea__inner {
+    padding-right: 30px;
+  }
 }
 .create-options-cover {
-    width: 180px;
-    margin-left: 30px;
-    padding-top: 30px;
-    > p {
-        margin-top: 20px;
-        font-size: 12px;
-        color: rgba(153, 153, 153, 1);
-        line-height: 24px;
-    }
+  width: 180px;
+  margin-left: 30px;
+  padding-top: 30px;
+  > p {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(153, 153, 153, 1);
+    line-height: 24px;
+  }
 }
 
 .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 .avatar-uploader .el-upload:hover {
-    border-color: #409eff;
+  border-color: #409eff;
 }
 .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 180px;
-    height: 120px;
-    line-height: 120px;
-    text-align: center;
+  font-size: 28px;
+  color: #8c939d;
+  width: 180px;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
 }
 .avatar {
-    width: 180px;
-    height: 120px;
-    display: block;
+  width: 180px;
+  height: 120px;
+  display: block;
 }
 .create-choice {
-    > p {
-        flex: 1;
-        color: rgba(153, 153, 153, 1);
-        margin-left: 10px;
-    }
+  > p {
+    flex: 1;
+    color: rgba(153, 153, 153, 1);
+    margin-left: 10px;
+  }
 }
 .create-options-cont > .create-options-choiceTime {
-    justify-content: flex-start;
-    .el-select {
-        width: 80px;
-    }
+  justify-content: flex-start;
+  align-items: center;
+  .el-select {
+    width: 80px;
+  }
 }
 </style>
 
