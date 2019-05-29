@@ -35,11 +35,6 @@ export default new Router({
                     component: _import('category/category'),
                 },
                 {
-                    path: '/category-create',
-                    name: 'category-create',
-                    component: _import('category/category-create'),
-                },
-                {
                     path: '/combat',
                     name: 'combat',
                     component: _import('combat/combat'),
@@ -63,6 +58,19 @@ export default new Router({
                     path: '/myInformation',
                     name: 'myInformation',
                     component: _import('mine/myInformation'),
+                },
+                {
+                    path: '/create',
+                    name: 'create',
+                    redirect: '/create-category',
+                    component: _import('create/create'),
+                    children: [
+                        {
+                            path: '/create-category',
+                            name: 'create-category',
+                            component: _import('create/create-category'),
+                        },
+                    ]
                 },
             ]
         },

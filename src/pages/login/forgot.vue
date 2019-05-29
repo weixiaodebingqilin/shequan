@@ -4,7 +4,7 @@
             <!-- <img src="@/assets/images/login/design.png" > -->
             <svg class="icon logo"
                  aria-hidden="true">
-                <use xlink:href="#iconlogo"></use>
+                <use xlink:href="#iconlogo-bluegary"></use>
             </svg>
             <p>欢迎来到属于设计师的圈子，和优秀的设计师们一起学习成长</p>
         </header>

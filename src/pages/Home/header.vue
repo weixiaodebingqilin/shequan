@@ -31,6 +31,10 @@
                     <router-link to="/homework">批改作业</router-link>
                 </li>
             </ul>
+            <!-- 经验创作 -->
+            <div class="top-create">
+                <router-link to="/create">经验创作</router-link>
+            </div>
             <!-- 搜索 -->
             <div class="top-search">
                 <input type="text" />
