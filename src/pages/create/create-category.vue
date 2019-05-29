@@ -147,7 +147,7 @@
 import tinymce from "@/components/Tinymce";
 import atomy from "@/components/atomy/mixins.js";
 export default {
-    name: "category-create",
+    name: "create-category",
     components: { tinymce, dkSwitch: atomy.dkSwitch },
     data() {
         return {

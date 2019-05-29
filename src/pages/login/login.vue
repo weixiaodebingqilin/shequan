@@ -4,7 +4,7 @@
             <!-- <img src="@/assets/images/login/design.png" > -->
             <svg class="icon logo"
                  aria-hidden="true">
-                <use xlink:href="#iconlogo"></use>
+                <use xlink:href="#iconlogo-bluegary"></use>
             </svg>
             <p>欢迎来到属于设计师的圈子，和优秀的设计师们一起学习成长</p>
         </header>
@@ -138,6 +138,7 @@ export default {
         tableMoveIndex(index) {
             this.code = "";
             this.kindeIndex = index;
+            this.mobileState = true;
         },
         validateMoblie() {
             this.mobileState = reg.phone.test(this.mobile);
@@ -180,7 +181,7 @@ export default {
             }
             loginMessage(this.code, _data).then(res => {
                 console.log("resmgs: ", res);
-                setToken(res.data.token)
+                setToken(res.data.token);
                 this.$router.push({ path: "/" });
             });
         },
@@ -197,9 +198,9 @@ export default {
                     console.log("密码登陆： ", res.message);
                     if (res.data && res.data.token) {
                         // localStorage.setItem("token", res.data.token);
-                        console.log('res.data.token: ', res.data.token)
-                        setToken(res.data.token)
-                        console.log('cookies', Cookies.get('token'))
+                        console.log("res.data.token: ", res.data.token);
+                        setToken(res.data.token);
+                        console.log("cookies", Cookies.get("token"));
                         this.$router.push({ path: "/" });
                     }
                 }
