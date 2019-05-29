@@ -26,7 +26,8 @@ module.exports = {
             // why use this cdn, detail see https://github.com/PanJiaChen/tinymce-all-in-one
             js: [
                 'https://cdn.jsdelivr.net/npm/tinymce-all-in-one@4.9.3/tinymce.min.js',
-                '//at.alicdn.com/t/font_1179524_w5guqoem65g.js'
+                // '//at.alicdn.com/t/font_1179524_w5guqoem65g.js'
+                '//at.alicdn.com/t/font_1179524_bv5dgsbkgc.js'
             ]
         }
         config.plugin('html')
