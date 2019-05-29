@@ -70,6 +70,7 @@ export default {
 
 .category-erap {
     padding: 15px 20px;
+    background: #fff;
     > li {
         padding-bottom: 30px;
         border-bottom: 1px solid rgba(242, 242, 242, 1);

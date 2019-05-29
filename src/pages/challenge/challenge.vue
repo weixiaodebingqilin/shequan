@@ -102,11 +102,19 @@
                                         </dl>
                                         <div class="comment-browse">
                                             <div>
-                                                <img src="@/assets/images/temp/challenge-comment.png">
+                                                <svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#icondianzan"></use>
+                                                </svg>
                                                 <span>320</span>
                                             </div>
                                             <div>
-                                                <img src="@/assets/images/temp/challenge-comment.png">
+                                                <svg class="icon"
+                                                     aria-hidden="true">
+                                                    <use xlink:href="#iconhuifu"></use>
+                                                </svg>
+                                                <span>20</span>
+
                                             </div>
                                         </div>
                                         <ol>
@@ -117,7 +125,10 @@
                                                     <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
                                                     <div>
                                                         <div>
-                                                            <img src="@/assets/images/temp/challenge-comment.png">
+                                                            <svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#icondianzan"></use>
+                                                            </svg>
                                                             <span>320</span>
                                                         </div>
                                                     </div>
@@ -130,7 +141,10 @@
                                                     <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
                                                     <div>
                                                         <div>
-                                                            <img src="@/assets/images/temp/challenge-comment.png">
+                                                            <svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#icondianzan"></use>
+                                                            </svg>
                                                             <span>320</span>
                                                         </div>
                                                     </div>
@@ -143,7 +157,10 @@
                                                     <p>楼下的这个家伙是真的笑死我了，脑洞真的大，哈哈哈。求老大明天的实战是动物世界！</p>
                                                     <div>
                                                         <div>
-                                                            <img src="@/assets/images/temp/challenge-comment.png">
+                                                            <svg class="icon"
+                                                                 aria-hidden="true">
+                                                                <use xlink:href="#icondianzan"></use>
+                                                            </svg>
                                                             <span>320</span>
                                                         </div>
                                                     </div>
@@ -172,8 +189,19 @@
                     <author-wrap></author-wrap>
                 </div>
             </section>
+
+        </div>
+        <div class="challenge-footer">
+            <p>
+                <font>￥99</font>保证金
+            </p>
+            <div>
+                <span>立即参加</span>
+                <p>坚持学习30天全部退还</p>
+            </div>
         </div>
     </div>
+
 </template>
 <script>
 import atomy from "@/components/atomy/mixins.js";

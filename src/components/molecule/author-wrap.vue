@@ -11,6 +11,11 @@
                 <span>人气</span>
             </div>
         </div>
+        <div v-if="0"
+             class="author-attention">
+            <span>胡凌</span>
+            <div>＋关注</div>
+        </div>
         <h6>阿里巴巴资深设计师，曾主导过支付宝，天猫等项目</h6>
         <p>在这里我将带领大家，每天让自己进步一点点，积累行业知识。用我8年的从业的过程中无数大大小小的坑，为大家填上。</p>
         <div class="author-more">查看主页</div>
@@ -38,6 +43,29 @@ export default {
         top: 0;
         transform: translate(-50%, -50%);
     }
+    .author-attention {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        > span {
+            font-size: 18px;
+            font-weight: bold;
+            color: rgba(51, 51, 51, 1);
+            line-height: 20px;
+        }
+        > div {
+            width: 67px;
+            height: 20px;
+            background: rgba(84, 120, 235, 1);
+            border-radius: 11px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            line-height: 20px;
+            margin-left: 15px;
+        }
+    }
     .author-msg {
         display: flex;
         justify-content: center;
@@ -52,7 +80,7 @@ export default {
             > p {
                 font-size: 18px;
 
-                font-weight: 500;
+                font-weight: bold;
                 color: #333333;
                 line-height: 18px;
             }

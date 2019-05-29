@@ -92,7 +92,8 @@
                     <!-- 阅读记录-- -->
                     <div v-if="kindIndex===0">
                         <article-item v-for="(item,index) in 3"
-                                      :key="index"></article-item>
+                                      :key="index"
+                                      :showContent="false"></article-item>
                     </div>
                 </section>
                 <!-- 我的评论 -->
@@ -115,7 +116,8 @@
                     <!-- 我的收藏-- -->
                     <div v-if="kindIndex===0">
                         <article-item v-for="(item,index) in 3"
-                                      :key="index"></article-item>
+                                      :key="index"
+                                      :showContent="false"></article-item>
                     </div>
                 </section>
             </div>
