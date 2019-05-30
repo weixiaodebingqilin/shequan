@@ -80,6 +80,11 @@ export default new Router({
             component: _import('test/test'),
         },
         {
+            path: '/study',
+            name: 'study',
+            component: _import('test/study'),
+        },
+        {
             path: '/logins',
             name: 'logins',
             component: _import('login/loginIndex'),

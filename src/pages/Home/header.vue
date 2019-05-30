@@ -76,7 +76,8 @@
                              alt="头像" />
                         <ul v-show="keyMymenu">
                             <li v-for="item in mymenu"
-                                :key='item.name'>
+                                :key='item.name'
+                                @click="closeMenu">
                                 <router-link :to="item.url">
                                     <em>
                                         <svg class="icon"
@@ -117,71 +118,75 @@ export default {
             keyMymenu: false, // 显示mymenu
             mymenu: [
                 {
-                    name: '我的主页',
-                    url: '/mine',
-                    icon: '#iconzhuye'
+                    name: "我的主页",
+                    url: "/mine",
+                    icon: "#iconzhuye"
                 },
                 {
-                    name: '我的收藏',
-                    url: '/mine',
-                    icon: '#icontuijian1'
+                    name: "我的收藏",
+                    url: "/mine",
+                    icon: "#icontuijian1"
                 },
                 {
-                    name: '我的作业',
-                    url: '/mine',
-                    icon: '#iconzuoye'
+                    name: "我的作业",
+                    url: "/mine",
+                    icon: "#iconzuoye"
                 },
                 {
-                    name: '我的加入',
-                    url: '/mine',
-                    icon: '#iconzhandou'
+                    name: "我的加入",
+                    url: "/mine",
+                    icon: "#iconzhandou"
                 },
                 {
-                    name: '我的钱包',
-                    url: '/mine',
-                    icon: '#iconqianbao'
+                    name: "我的钱包",
+                    url: "/mine",
+                    icon: "#iconqianbao"
                 },
                 {
-                    name: '资料设置',
-                    url: '/mine',
-                    icon: '#iconshezhi'
+                    name: "资料设置",
+                    url: "/mine",
+                    icon: "#iconshezhi"
                 },
                 {
-                    name: '已购项目',
-                    url: '/mine',
-                    icon: '#icongoumai'
-                },
+                    name: "已购项目",
+                    url: "/mine",
+                    icon: "#icongoumai"
+                }
             ]
-        }
+        };
     },
     created() {
-        let token = Cookies.get('token')
-        this.isLogin = !!token
+        this.setIsLogin();
+        this.setClick();
     },
     methods: {
+        setClick() {
+            document.addEventListener("click", this.clo);
+        },
+        clo(e) {
+            if (!this.$el.contains(e.target)) {
+                this.closeMenu();
+            }
+        },
+        setIsLogin() {
+            let token = Cookies.get("token");
+            this.isLogin = !!token;
+        },
         closeMenu() {
-            if (!this.keyMymenu) return
-            this.keyMymenu = false
+            if (!this.keyMymenu) return;
+            this.keyMymenu = false;
         },
         logOut() {
-            Cookies.remove('token')
+            this.closeMenu();
+            Cookies.remove("token");
             this.$router.push({
-                path: '/login'
-            })
+                path: "/login"
+            });
         }
     },
-    watch: {
-        keyMymenu(now) {
-            if (!now) {
-                document.body.removeEventListener('click', this.closeMenu)
-            } else {
-                setTimeout(() => {
-                    document.body.addEventListener('click', this.closeMenu)
-                }, 20)
-            }
-        }
+    destroyed() {
+        document.removeEventListener("click", this.clo);
     }
-
 };
 </script>
 
