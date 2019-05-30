@@ -8,14 +8,14 @@ const prev = 'user'
  * @param {Object} data
  * @return {Object} res 
  */
-export const regist = (code, data) => service.post(`${prev}/user/register/${code}`,data);
+export const regist = (code, data) => service.post(`${prev}/user/register/${code}`, data);
 
 /**
  * getCode 获取短信验证码
  * @param {[String,Number]} mobile 
  * @return {Object} res 
  */
-export const getCode = (mobile,type) => service.post(`${prev}/user/sendsms/${mobile}?type=${type}`);
+export const getCode = (mobile, type) => service.post(`${prev}/user/sendsms/${mobile}?type=${type}`);
 
 
 /**
@@ -24,14 +24,14 @@ export const getCode = (mobile,type) => service.post(`${prev}/user/sendsms/${mob
  * @param {Object} data 
  * @return {Object} res 
  */
-export const loginMessage = (code,data) => service.post(`${prev}/user/login?code=${code}`,data);
+export const loginMessage = (code, data) => service.post(`${prev}/user/login?code=${code}`, data);
 
 /**
  * loginPassword 短信验证码登陆
  * @param {Object} data 
  * @return {Object} res 
  */
-export const loginPassword = (data) => service.post(`${prev}/user/login`,data);
+export const loginPassword = (data) => service.post(`${prev}/user/login`, data);
 
 /**
  * restPassword 重置密码
@@ -39,4 +39,10 @@ export const loginPassword = (data) => service.post(`${prev}/user/login`,data);
  * @param {Object} data 
  * @return {Object} res 
  */
-export const restPassword = (code,data) => service.post(`${prev}/user/reset?code=${code}`,data);
+export const restPassword = (code, data) => service.post(`${prev}/user/reset?code=${code}`, data);
+
+/**
+ * testGet 获取用户信息
+ * @return {Object} res 
+ */
+export const testGet = () => service.get(`${prev}/user`);

@@ -158,6 +158,7 @@ import hotFind from "./component/hot-find";
 import indexCategory from "@/components/molecule/category";
 import newestShare from "./component/share";
 import indexKnowledge from "./component/knowledge";
+import { testGet } from '@/api/user.js'
 export default {
     name: "index",
     components: {
@@ -175,7 +176,11 @@ export default {
         };
     },
     // 组件的生命周期
-    created() { },
+    created() {
+        testGet().then(res => {
+            console.log("resL : ", res)
+        })
+    },
     // 我们要写的一些方法
     methods: {
         // 导航栏切换后的回调

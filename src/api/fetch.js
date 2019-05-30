@@ -10,13 +10,14 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? '/sell/' : 'ht
 const service = axios.create({
     timeout: 60000 // 请求超时时间
 })
-
 /**
  * request拦截器
  */
 service.interceptors.request.use(config => {
-    // let token = 
-    // config.headers['Authorization'] = 'Bearer' + token
+    let token = localStorage.getItem('token')
+    if (token) {
+        config.headers['Authorization'] = 'Bearer ' + token
+    }
     return config
 }, error => {
     return Promise.reject(error)
@@ -24,10 +25,13 @@ service.interceptors.request.use(config => {
 /**
  * 状态且提示
  */
-const errorStatus = {
-    '403': '当前没权限',
-    '500':  '服务器无响应'
-}
+// const errorStatus = {
+//     '403': {
+//         msg: '当前没权限',
+//         path: '/403'
+//     },
+//     '500': '服务器无响应'
+// }
 /**
  * Response拦截器
  */
@@ -38,7 +42,7 @@ service.interceptors.response.use(
     error => {
         const status = error.response.status
         // 401没权限时 重定向进入登录页面
-        if(+status === 401){
+        if (+status === 401) {
             // router.replace({ path: '/login'})
             return
         }

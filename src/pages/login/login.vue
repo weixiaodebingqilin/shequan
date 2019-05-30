@@ -112,12 +112,13 @@
 import atomy from "@/components/atomy/mixins.js";
 import { getCode, loginMessage, loginPassword } from "@/api/user.js";
 import { reg } from "@/utils/validate.js";
-import { cutDwon, setToken } from "./utils.js";
+import { cutDwon } from "./utils.js";
 export default {
     name: "login",
     components: {
         tableNative: atomy.tableNative
     },
+    inject: ['app'],
     data() {
         return {
             kindNative: ["密码登陆", "短信登陆"],
@@ -181,7 +182,7 @@ export default {
             }
             loginMessage(this.code, _data).then(res => {
                 console.log("resmgs: ", res);
-                setToken(res.data.token);
+                this.app.setToken(res.data.token);
                 this.$router.push({ path: "/" });
             });
         },
@@ -197,10 +198,8 @@ export default {
                     res = res.data;
                     console.log("密码登陆： ", res.message);
                     if (res.data && res.data.token) {
-                        // localStorage.setItem("token", res.data.token);
-                        console.log("res.data.token: ", res.data.token);
-                        setToken(res.data.token);
-                        console.log("cookies", Cookies.get("token"));
+                        this.app.setToken(res.data.token);
+                        console.log("cookies", localStorage.getItem("token"));
                         this.$router.push({ path: "/" });
                     }
                 }

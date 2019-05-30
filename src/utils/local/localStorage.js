@@ -7,10 +7,27 @@
 /**
  * 初始化token
  */
-export const initToken = () => {
-    localStorage.removeItem("token")
-}
+// export const romveToken = () => {
+//     localStorage.removeItem("token")
+// }
 
-export const initAllStorage = () => {
-    initToken()
+// export const initAllStorage = () => {
+//     romveToken()
+// }
+
+/**
+ * 混入到app.vue里面 通过provide达到全局变量的作用
+ */
+export default {
+    methods: {
+        setToken(value) {
+            localStorage.setItem('token', value)
+        },
+        romveToken() {
+            localStorage.removeItem("token")
+        },
+        initAllStorage() {
+            this.romveToken()
+        },
+    }
 }

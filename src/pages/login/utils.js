@@ -18,10 +18,4 @@ export const cutDwon = (nums, param) => {
     }, 1000)
 }
 
-/**
- * 登陆成功后，设置cookies
- * @param {any} value
- */
-export const setToken = (value) => {
-    Cookies.set('token', value, { expires: 365 })
-}
+
