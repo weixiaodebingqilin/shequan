@@ -171,6 +171,92 @@
                         </div>
                     </div>
                 </div>
+                <!-- 打卡奖励 -->
+                <div class="hit-crad">
+                    <div class="clock-in-title">
+                        <svg class="icon"
+                             aria-hidden="true">
+                            <use xlink:href="#iconremendianping"></use>
+                        </svg>
+                        <span>打卡奖励</span>
+                    </div>
+                    <ul>
+                        <li>
+                            <p>阿里启动页插画源文件</p>
+                            <div>
+                                <span>领取</span>
+                                <!-- <font>20天</font> -->
+                            </div>
+                        </li>
+                        <li>
+                            <p>阿里启动页插画源文件</p>
+                            <div>
+                                <font>20天</font>
+                            </div>
+                        </li>
+                        <li>
+                            <p>阿里启动页插画源文件</p>
+                            <div>
+                                <font>20天</font>
+                            </div>
+                        </li>
+                        <li>
+                            <p>阿里启动页插画源文件</p>
+                            <div>
+                                <font>20天</font>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 榜单 -->
+                <div class="list-focus">
+                    <div class="clock-in-title">
+                        <svg class="icon"
+                             aria-hidden="true">
+                            <use xlink:href="#iconremendianping"></use>
+                        </svg>
+                        <span>榜单</span>
+                    </div>
+                    <ol>
+                        <li class="list-tab-active">今日获评</li>
+                        <li>今日交流</li>
+                        <li>打卡</li>
+                    </ol>
+                    <ul>
+                        <li>
+                            <img src="@/assets/images/temp/circle-banner.png">
+                            <div>
+                                <img src="@/assets/images/temp/circle-banner.png">
+                                <div>
+                                    <p>彩云Sky</p>
+                                    <span>获得41个评论</span>
+                                </div>
+                            </div>
+                            <img src="@/assets/images/icon/arrows-right.png">
+                        </li>
+                        <li>
+                            <img src="@/assets/images/temp/circle-banner.png">
+                            <div>
+                                <img src="@/assets/images/temp/circle-banner.png">
+                                <div>
+                                    <p>彩云Sky</p>
+                                    <span>获得41个评论</span>
+                                </div>
+                            </div>
+                            <img src="@/assets/images/icon/arrows-right.png">
+                        </li>
+                        <li>
+                            <div>
+                                <img src="@/assets/images/temp/circle-banner.png">
+                                <div>
+                                    <p>彩云Sky</p>
+                                    <span>获得41个评论</span>
+                                </div>
+                            </div>
+                            <img src="@/assets/images/icon/arrows-right.png">
+                        </li>
+                    </ul>
+                </div>
                 <!-- <div class="author-wrap">
 					<img src="@/assets/images/ot/img/slices/图1(3).png" >
 					<div class="author-msg">
