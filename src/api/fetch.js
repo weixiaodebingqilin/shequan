@@ -13,9 +13,11 @@ const service = axios.create({
 /**
  * request拦截器
  */
+const noToken = ['undefined', 'null']
 service.interceptors.request.use(config => {
+    console.log('config: ', config)
     let token = localStorage.getItem('token')
-    if (token) {
+    if (token && !!token && !noToken.includes(token)) {
         config.headers['Authorization'] = 'Bearer ' + token
     }
     return config

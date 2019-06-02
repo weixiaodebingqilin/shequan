@@ -169,7 +169,7 @@ export default {
             }
         },
         setIsLogin() {
-            let token = Cookies.get("token");
+            let token = localStorage.getItem("token");
             this.isLogin = !!token;
         },
         closeMenu() {
