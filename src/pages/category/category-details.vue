@@ -125,6 +125,43 @@
 
             </section>
             <section class="main-right">
+                <!-- 圈子数据 -->
+                <div class="circle-data">
+                    <div class="clock-in-title">
+                        <svg class="icon"
+                             aria-hidden="true">
+                            <use xlink:href="#iconremendianping"></use>
+                        </svg>
+                        <span>圈子数据</span>
+                        <div class="arrow-right">
+                            <img src="@/assets/images/icon/arrows-right.png">
+                        </div>
+                    </div>
+                    <ul>
+                        <li>
+                            <span>今日打卡数</span>
+                            <p>2236</p>
+                        </li>
+                        <li>
+                            <span>今日互动数</span>
+                            <p>40437</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 圈子设置 -->
+                <div class="circle-data">
+                    <div class="clock-in-title">
+                        <svg class="icon"
+                             aria-hidden="true">
+                            <use xlink:href="#iconremendianping"></use>
+                        </svg>
+                        <span>圈子设置</span>
+                        <div class="arrow-right">
+                            <img src="@/assets/images/icon/arrows-right.png">
+                        </div>
+                    </div>
+                </div>
+                <!-- 打卡 -->
                 <div class="clock-in">
                     <div class="clock-in-title">
                         <svg class="icon"
@@ -366,6 +403,10 @@
                 </div>
             </div>
         </section>
+
+        <!-- 圈子管理（数据） -->
+        <popout></popout>
+
     </div>
 </template>
 <script>
@@ -374,6 +415,7 @@ import molecule from "@/components/molecule/mixins.js";
 import categoryCircle from "./component/circle";
 import categoryWrap from "@/components/molecule/wrap";
 import categoryChallenge from "./component/challenge";
+import popout from "./component/popout";
 export default {
     name: "category",
     components: {
@@ -381,7 +423,8 @@ export default {
         authorWrap: molecule.authorWrap,
         categoryCircle: categoryCircle,
         categoryWrap: categoryWrap,
-        categoryChallenge: categoryChallenge
+        categoryChallenge: categoryChallenge,
+        popout: popout
     },
     data() {
         return {
