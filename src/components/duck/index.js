@@ -1,6 +1,9 @@
 import Switch from './components/switch'
+
+
 const components = {
-    Switch
+    Switch,
+    SwitchGroup: Switch.Group
 }
 const install = (Vue) => {
     Object.keys(components).map((key) => {
