@@ -15,7 +15,6 @@
     </div>
 </template>
 <script>
-import atomy from "@/components/atomy/mixins.js";
 import As from "./components/provide-inject/A";
 import Bs from "./components/provide-inject/B.vue";
 import broadcastA from "./components/dispatch-broadcast/A";
@@ -24,7 +23,7 @@ export default {
     provide: {
         name: "study的provide，studys"
     },
-    components: { dkSwitch: atomy.dkSwitch, As, Bs, broadcastA },
+    components: { As, Bs, broadcastA },
     methods: {
         choice(i) {
             console.log(i);

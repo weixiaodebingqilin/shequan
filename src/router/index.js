@@ -10,7 +10,7 @@ export default new Router({
             path: '/',
             name: 'home',
             component: _import('Home'),
-            redirect: '/index',
+            redirect: '/study',
             meta: { title: '首页' },
             children: [
                 {
