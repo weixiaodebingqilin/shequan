@@ -127,7 +127,8 @@
             <section class="main-right">
                 <!-- 圈子数据 -->
                 <div class="circle-data">
-                    <div class="clock-in-title">
+                    <div class="clock-in-title"
+                         @click="popouts(0)">
                         <svg class="icon"
                              aria-hidden="true">
                             <use xlink:href="#iconremendianping"></use>
@@ -150,7 +151,8 @@
                 </div>
                 <!-- 圈子设置 -->
                 <div class="circle-data">
-                    <div class="clock-in-title">
+                    <div class="clock-in-title"
+                         @click="popouts(1)">
                         <svg class="icon"
                              aria-hidden="true">
                             <use xlink:href="#iconremendianping"></use>
@@ -210,7 +212,8 @@
                 </div>
                 <!-- 打卡奖励 -->
                 <div class="hit-crad">
-                    <div class="clock-in-title">
+                    <div class="clock-in-title"
+                         @click="popouts(2)">
                         <svg class="icon"
                              aria-hidden="true">
                             <use xlink:href="#iconremendianping"></use>
@@ -405,7 +408,10 @@
         </section>
 
         <!-- 圈子管理（数据） -->
-        <popout></popout>
+        <popout ref="pop"
+                :popoutData="popout[0]"
+                :popoutSet="popout[1]"
+                :popoutCard="popout[2]"></popout>
 
     </div>
 </template>
@@ -431,7 +437,9 @@ export default {
             kindNative: ["圈子", "目录", "挑战／抗魔计划"], ///
             kindIndex: 0, //
             kindStyle: {},
-            maskShow: false
+            maskShow: false,
+            popout: [false, false, false],
+            showpopout: false
         };
     },
     // 组件的生命周期
@@ -446,6 +454,18 @@ export default {
         },
         close() {
             this.maskShow = false;
+        },
+        //弹框
+        popouts(index) {
+            this.$refs["pop"].showpops();
+            this.popout = [false, false, false];
+            this.$set(this.popout, index, !this.popout[index]);
+            console.log(this.popout[index]);
+            // if (this.popout[index]) {
+            //     this.popout[index] = false;
+            // } else {
+            //     this.popout[index] = true;
+            // }
         }
     }
 };

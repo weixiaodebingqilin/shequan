@@ -6,6 +6,13 @@
 	from {transform: translate(10px,50px);opacity: 0}
 	to {transform: translate(0,0);opacity: 1}
 }
+.loadRight{
+    animation: loadRight .3s ease-out;
+}
+@keyframes loadRight{
+    from {transform: translate(100%,0);opacity: 0}
+    to {transform: translate(0,0);opacity: 1}
+}
 #category-item{
     .category-wrap{
         width: @wap;
@@ -1352,9 +1359,7 @@
         }
     }
 }
-body{
-    overflow: hidden;
-}
+
 /*category-challenge**/
 .category-challenge{
     padding: 15px 20px;
@@ -1820,6 +1825,7 @@ body{
         bottom: 0;
         background:rgba(0,0,0,0.5);
         cursor: pointer;
+        transition:  all .3s;
     }
     .popout-scroll{
         background:rgba(255,255,255,1);
@@ -1831,11 +1837,43 @@ body{
         display: flex;
         >section{
             height: 100%;
-            overflow-y: auto;
             border-right:1px solid rgba(239,239,239,1);
+            display: flex;
+            flex-direction: column;
+            .popout-body{
+                flex: 1;
+                overflow-y: auto;
+            }
             &:last-child{
                 border-right: none;
             }
+            .popout-footer{
+                border-top:1px solid rgba(239,239,239,1);
+                display: flex;
+                background:rgba(250,250,250,1);
+                .popout-footer-button{
+                    transition: background-color .25s ease;
+                    cursor: pointer;
+                    flex-grow:1;
+                    border-right:1px solid rgba(239,239,239,1);
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size:14px;
+                    font-weight:bold;
+                    color:rgba(51,51,51,1);
+                    line-height:14px;
+                    height: 40px;
+                    &:hover{
+                        background-color: #f5f7fa;
+                    }
+                    &:last-child{
+                        border-right:none;
+                    }
+                }
+            }
+            
         }
         .popout-title{
             height:60px;
@@ -2065,7 +2103,6 @@ body{
                     padding-right:0;
                 }
             }
-            .set-admin-user{}
             .admin-user-search{
                 margin: 19px 0 30px;
                 .user-search{
@@ -2131,7 +2168,21 @@ body{
                 }
             }
         }
-        
+        //添加奖励
+        .popout-add-card{
+            width: 350px;
+            .popout-main{
+                padding-left: 0;
+            }
+            .add-card-radio{
+                .el-radio__inner:after{
+                    background: #409eff;
+                    border: 1px solid #fff;
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
     }
     
 }
