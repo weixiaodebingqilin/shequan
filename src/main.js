@@ -18,8 +18,12 @@ Vue.use(Radio)
 Vue.use(Alert).use(Notification)
 
 
+
 import lazyCom from './components/publick/lazy-com/lazy-com.js'
-Vue.use(lazyCom)
+Vue.use(lazyCom);
+
+import Duck from './components/duck/index.js';
+Vue.use(Duck)
 
 Vue.config.productionTip = false
 /// router
