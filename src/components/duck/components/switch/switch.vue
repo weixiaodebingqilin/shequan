@@ -13,8 +13,8 @@
     </div>
 </template>
 <script>
-import { findComponentUpward } from '../../utils/assist';
-import Emitter from '../../mixins/emitter';
+import { findComponentUpward } from "../../utils/assist";
+import Emitter from "../../mixins/emitter";
 export default {
     name: "dk-switch",
     mixins: [Emitter],
@@ -28,8 +28,7 @@ export default {
         forLable: {
             type: Boolean,
             default: false
-        },
-
+        }
     },
     provide() {
         return {
@@ -41,15 +40,13 @@ export default {
             beIcon: this.likeIcon,
             isLable: this.forLable,
             group: false,
-            parent: '',
-            index: '', // 在group里面的索引值
+            parent: ""
         };
     },
     mounted() {
-        this.parent = findComponentUpward(this, 'dk-switch-group');
+        this.parent = findComponentUpward(this, "dk-switch-group");
         if (this.parent) {
-            this.group = true
-            // this.parent.updateModel(true);
+            this.group = true;
         }
     },
     methods: {
@@ -57,18 +54,17 @@ export default {
             this.beIcon = !this.beIcon;
             this.$emit("click", this.beIcon);
             if (this.group) {
+                //this.index 在group里面的索引值  vue自带
                 this.parent.change(this.index);
             }
         },
         iconClick() {
-            this.isLable && this.change()
+            this.isLable && this.change();
         },
         switchClick() {
-            !this.isLable && this.change()
-        },
-
-    },
-
+            !this.isLable && this.change();
+        }
+    }
 };
 </script>
 

@@ -33,49 +33,44 @@
         </dk-switch-group>
         <hr />
         <!-- 4  单选-->
-        <dk-switch-group :value="switchs2"
+        <p>下面的单选或多选</p>
+        <dk-switch-group :value="multiples"
                          multiple
+                         @onChange='multonChange'>
+            <dk-switch>
+                <template slot="text">
+                    单选
+                </template>
+            </dk-switch>
+            <dk-switch>
+                <template slot="text">
+                    多选
+                </template>
+            </dk-switch>
+        </dk-switch-group>
+        <hr />
+        <dk-switch-group :value="switchs2"
+                         :multiple='isMult'
                          @onChange='onChange'>
-            <dk-switch forLable>
+            <dk-switch forLable
+                       v-for="(item,i) in switchs2"
+                       :key='i'>
                 <template slot="text">
-                    非整个组件点击事件1
+                    <section class="switch-item-content">
+                        <input type="text"
+                               placeholder="请输入内容"
+                               v-model="ipts[i]" />
+                        <ul class="operation">
+                            <li @click="add(i,$event)">增加</li>
+                            <li @click="dlt(i,$event)">删除</li>
+                            <li @click="up(i,$event)">上</li>
+                            <li @click="down(i,$event)">下</li>
+                        </ul>
+                    </section>
+
                 </template>
             </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
-            <dk-switch>
-                <template slot="text">
-                    hhaha
-                </template>
-            </dk-switch>
+
         </dk-switch-group>
     </div>
 </template>
@@ -91,33 +86,78 @@ export default {
     components: { As, Bs, broadcastA },
     data() {
         return {
-            switchs: [
-                true,
-                false,
-                true
-            ],
-            switchs2: [
-                false,
-                false,
-                true,
-                true,
-                true,
-                true,
-                true,
-                true
-            ],
-        }
+            switchs: [true, false, true],
+            switchs2: [false, false, true, false, false, false, false, false],
+            multiples: [true, false],
+            isMult: true,
+            ipts: []
+        };
     },
     methods: {
         onChange(v) {
-            console.log('switchsvvvvvv ', v);
+            console.log("switchsvvvvvv ", v);
+            this.switchs2 = v;
         },
         choice(i) {
-            console.log('switchs: ', this.switchs);
+            console.log("switchs: ", this.switchs);
         },
         pclick(event) {
             // console.log("pppppp: ", event);
+        },
+        multonChange(v) {
+            // 默认为单选
+            console.log("multiplesv: ", v);
+            if (v[0] || (!v[0] && !v[1])) {
+                this.isMult = true;
+            } else {
+                this.isMult = false;
+            }
+            console.log("this.isMult: ", this.isMult);
+        },
+        up(i, el) {
+            console.log("i,$event: ", i);
+            if (i === 0) return;
+            let tp = this.switchs2[i];
+            this.$set(this.switchs2, i, this.switchs2[i - 1]);
+            this.$set(this.switchs2, i - 1, tp);
+            //
+            let ip = this.ipts[i];
+            this.$set(this.ipts, i, this.ipts[i - 1]);
+            this.$set(this.ipts, i - 1, ip);
+            //
+        },
+        down(i, el) {
+            console.log("i,$event: ", i);
+            if (i === this.switchs2.length - 1) return;
+            let tp = this.switchs2[i];
+            this.$set(this.switchs2, i, this.switchs2[i + 1]);
+            this.$set(this.switchs2, i + 1, tp);
+            //
+            let ip = this.ipts[i];
+            this.$set(this.ipts, i, this.ipts[i + 1]);
+            this.$set(this.ipts, i + 1, ip);
+        },
+        add() {
+            this.switchs2.push(false);
+            this.ipts.push("");
+        },
+        dlt(i, el) {
+            this.switchs2.splice(i, 1);
+            this.ipts.splice(i, 1);
         }
     }
 };
 </script>
+<style lang="less">
+.switch-item-content {
+    display: flex;
+    .operation {
+        display: flex;
+        > li {
+            width: 80px;
+            text-align: center;
+        }
+    }
+}
+</style>
+
