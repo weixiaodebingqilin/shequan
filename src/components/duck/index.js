@@ -1,9 +1,12 @@
 import Switch from './components/switch'
-
+import { dkSelect, dkOption, dkOptionGroup } from './components/select';
 
 const components = {
     Switch,
-    SwitchGroup: Switch.Group
+    SwitchGroup: Switch.Group,
+    dkOption: dkOption,
+    dkOptionGroup,
+    dkSelect
 }
 const install = (Vue) => {
     Object.keys(components).map((key) => {
