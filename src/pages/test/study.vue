@@ -72,6 +72,15 @@
             </dk-switch>
 
         </dk-switch-group>
+        <hr />
+        <dk-select v-model='value1'
+                   placeholder="请选择语言">
+            <dk-option value='Javascript'></dk-option>
+            <dk-option value='C++'></dk-option>
+            <dk-option value='PHP'
+                       disabled></dk-option>
+            <dk-option value='Java'></dk-option>
+        </dk-select>
     </div>
 </template>
 <script>
@@ -90,7 +99,8 @@ export default {
             switchs2: [false, false, true, false, false, false, false, false],
             multiples: [true, false],
             isMult: true,
-            ipts: []
+            ipts: [],
+            value1: ""
         };
     },
     methods: {
