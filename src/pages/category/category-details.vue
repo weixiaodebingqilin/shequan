@@ -460,12 +460,6 @@ export default {
             this.$refs["pop"].showpops();
             this.popout = [false, false, false];
             this.$set(this.popout, index, !this.popout[index]);
-            console.log(this.popout[index]);
-            // if (this.popout[index]) {
-            //     this.popout[index] = false;
-            // } else {
-            //     this.popout[index] = true;
-            // }
         }
     }
 };
