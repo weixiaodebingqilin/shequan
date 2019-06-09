@@ -1,7 +1,7 @@
-import dkSelect from './select.vue';
-import dkOption from './option.vue';
-import dkOptionGroup from './option-group.vue';
+import Select from './select.vue';
+import Option from './option.vue';
+import OptionGroup from './option-group.vue';
 
-export { dkSelect, dkOption, dkOptionGroup };
+export { Select, Option, OptionGroup };
 
-export default dkSelect;
+export default Select;

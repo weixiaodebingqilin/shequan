@@ -42,6 +42,12 @@ export const loginPassword = (data) => service.post(`${prev}/user/login`, data);
 export const restPassword = (code, data) => service.post(`${prev}/user/reset?code=${code}`, data);
 
 /**
+ * getUserInfo 获取当前用户信息
+ * @return {Object} res 
+ */
+export const getUserInfo = () => service.get(`${prev}/user/info`);
+
+/**
  * testGet 获取用户信息
  * @return {Object} res 
  */

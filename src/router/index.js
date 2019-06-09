@@ -10,7 +10,7 @@ export default new Router({
             path: '/',
             name: 'home',
             component: _import('Home'),
-            redirect: '/study',
+            redirect: '/index',
             meta: { title: '首页' },
             children: [
                 {
@@ -74,6 +74,11 @@ export default new Router({
                             path: '/create-category',
                             name: 'create-category',
                             component: _import('create/create-category'),
+                        },
+                        {
+                            path: '/create-circle',
+                            name: 'create-circle',
+                            component: _import('create/create-circle'),
                         },
                     ]
                 },

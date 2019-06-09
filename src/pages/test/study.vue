@@ -70,7 +70,6 @@
 
                 </template>
             </dk-switch>
-
         </dk-switch-group>
         <hr />
         <dk-select v-model='value1'
@@ -81,6 +80,21 @@
                        disabled></dk-option>
             <dk-option value='Java'></dk-option>
         </dk-select>
+        <hr />
+        图片上传
+        <input type="file"
+               @change="fileChange" />
+        <hr />
+        <dk-upload :action="urlprev"
+                   :on-success='upS'
+                   :on-error='upE'>
+            <button>上传组件</button>
+        </dk-upload>
+        <p>{{upImgname}}</p>
+        <img v-if="upImgurl"
+             :src="upImgurl" />
+        <!-- 进度条 -->
+        <Progress :percent="25"></Progress>
     </div>
 </template>
 <script>
@@ -100,7 +114,10 @@ export default {
             multiples: [true, false],
             isMult: true,
             ipts: [],
-            value1: ""
+            value1: "",
+            urlprev: (process.env.NODE_ENV === 'development' ? '/sell' : 'http://39.96.35.240:9012') + '/base/upload/yun',
+            upImgname: '',
+            upImgurl: ''
         };
     },
     methods: {
@@ -154,20 +171,37 @@ export default {
         dlt(i, el) {
             this.switchs2.splice(i, 1);
             this.ipts.splice(i, 1);
-        }
+        },
+        fileChange(e) {
+            console.log('e: ', e)
+            console.log(' e.target.files: ', e.target.files)
+
+        },
+        upS(response, file, fileList) {
+            console.log(' response: ', response)
+            console.log(' file: ', file)
+            console.log(' fileList: ', fileList)
+            this.upImgname = response.data.fileName
+            this.upImgurl = '//' + response.data.filePath
+        },
+        upE(error, file, fileList) {
+            console.log(' error: ', response)
+            console.log(' file: ', file)
+            console.log(' fileList: ', fileList)
+        },
     }
 };
 </script>
 <style lang="less">
 .switch-item-content {
+  display: flex;
+  .operation {
     display: flex;
-    .operation {
-        display: flex;
-        > li {
-            width: 80px;
-            text-align: center;
-        }
+    > li {
+      width: 80px;
+      text-align: center;
     }
+  }
 }
 </style>
 

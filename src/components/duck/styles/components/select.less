@@ -1,0 +1,208 @@
+.dk-select {
+    position: relative;
+    display: inline-block;
+  
+    .dk-select-input{
+      position: relative;
+      
+      &.dk-select-input-sm{
+        .dk-input{
+          padding: 4px 20px 4px 6px;
+        }
+      }
+  
+      &.dk-select-input-lg{
+        .dk-input{
+          padding: 12px 30px 12px 15px;
+          font-size: 14px
+        }
+      }
+  
+      &.dk-select-input-disabled{
+        cursor: not-allowed;
+  
+        .dk-input{
+          cursor: not-allowed;
+        }
+      }
+  
+      &>.dk-input{
+        cursor: pointer;
+      }
+  
+      &>i{
+        right: 10px;
+      }
+  
+      .dk-clearable{
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        top: 0;
+        width: 30px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+  
+        i{
+          transition: all 0.25s ease-in-out;
+          color: darken(@border, 20%);
+        }
+  
+        right: 0;
+        cursor: pointer;
+  
+        &:hover{
+          i{
+            color: darken(@border, 60%);
+          }
+        }
+      }
+  
+      .dk-select-icon{
+        position: absolute;
+        width: 30px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+  
+        i.dk-arrow{
+          right: 10px;
+        }
+      }
+  
+      .dk-select-array{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 30px;
+        padding-left: 8px;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+  
+        &>span{
+          padding: 2px 8px;
+          background-color: @border;
+          border-radius: 4px;
+        }
+  
+        .dk-select-array-content{
+          max-width: 70%;
+          padding: 2px 8px;
+          background-color: @border;
+          border-radius: 4px;
+          margin-right: 5px;
+          display: flex;
+  
+          &>span {
+            float: left;
+          }
+          .dk-con-array{
+            overflow: hidden;
+            flex:1;
+            display: block;
+            white-space:nowrap;flex:1;
+            text-overflow: ellipsis;
+          }
+          .dk-clearable-array{
+            width: 14px;
+            width: auto;
+            display: block;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  
+    // 单选模式
+    .dk-select-option{
+      z-index: 2;
+      position: absolute;
+      background-color: #FFF;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px fade(#000, 10%);
+      overflow: hidden;
+  
+      & ul{
+        max-height: 220px;
+        overflow-y: auto;
+      }
+  
+      .dk-option{
+        list-style: none;
+      }
+  
+      // 选项框
+      .dk-option-row{
+        cursor: pointer;
+        padding-left: 25px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 6px 12px;
+  
+        &:hover{
+          background-color: fade(@primary, 10%)
+        }
+  
+        // 选中状态
+        &.select{
+          color: @primary;
+          background-color: fade(@border, 10%);
+          font-weight: bold;
+        }
+  
+        // 禁用状态
+        &.is-disabled{
+          cursor: no-drop;
+          color: fade(@text, 40%);
+          &:hover{
+            background-color: initial;
+          }
+        }
+  
+        .dk-option-text{
+          white-space:nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+  
+      }
+    }
+  
+    .dk-option-group{
+      .dk-option-title{
+        .dk-option-row{
+          cursor: auto;
+          color: #aaa;
+          &:hover{
+            background-color: inherit;
+          }
+        }
+      }
+      ul{
+        li {
+          .dk-option-row{
+            padding-left: 22px;
+          }
+        }
+      }
+    }
+  
+    .dk-select-search{
+      padding:5px 10px;
+    }
+  
+    .list-complete-enter, .list-complete-leave-to
+    /* .list-complete-leave-active for below version 2.1.8 */ {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .list-complete-leave-active {
+      position: absolute;
+    }
+  
+  }
+  

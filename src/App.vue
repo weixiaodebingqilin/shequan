@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import _local from "@/utils/local/localStorage.js";
+import _local from "@/mixins/local.js";
 export default {
     name: "app",
     mixins: [_local],

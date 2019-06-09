@@ -1,1 +1,103 @@
+@default:#e3eaef;
+@success:#0acf97;
+@primary:#2d7bf4;
+@warning:#f9bc0b;
+@info:#4eb7eb;
+@danger:#f1556c;
+@white:#FFFFFF;
+@border:#d9e3e9;
+@text:#333;
+// Color
+@primary-color          : #2d8cf0;
+@info-color             : #2db7f5;
+@success-color          : #19be6b;
+@processing-color       : @primary-color;
+@warning-color          : #ff9900;
+@error-color            : #ed4014;
+@normal-color           : #e6ebf1;
+@link-color             : #2D8cF0;
+@link-hover-color       : tint(@link-color, 20%);
+@link-active-color      : shade(@link-color, 5%);
+@selected-color         : fade(@primary-color, 90%);
+@tooltip-color          : #fff;
+@subsidiary-color       : #808695;
+@rate-star-color        : #f5a623;
+// Legend
+@legend-color           : #999;
+//
+// Base
+@body-background        : #fff;
+@component-background   : #fff;
+@font-family            : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+@code-family            : Consolas,Menlo,Courier,monospace;
+@title-color            : #17233d;
+@text-color             : #515a6e;
+@font-size-base         : 14px;
+@font-size-small        : 12px;
+@font-size-large        : 16px;
+@line-height-base       : 1.5;
+@line-height-computed   : floor((@font-size-base * @line-height-base));
+@border-radius-base     : 6px;
+@border-radius-small    : 4px;
+@cursor-disabled        : not-allowed;
+//
+//
+@css-prefix             : dk-;
+//
+// Button
+@btn-font-weight        : normal;
+@btn-padding-base       : 5px 15px 6px;
+@btn-padding-large      : 6px 15px 6px 15px;
+@btn-padding-small      : 1px 7px 2px;
+@btn-padding-base-icon  : 5px 15px 6px;
+@btn-padding-large-icon : 6px 15px 6px 15px;
+@btn-padding-small-icon : 1px 7px 2px;
+@btn-font-size          : 12px;
+@btn-font-size-large    : 14px;
+@btn-border-radius      : 4px;
+@btn-border-radius-small: 3px;
+@btn-group-border       : shade(@primary-color, 5%);
+///
+// Animation
+@animation-time         : .3s;
+@transition-time        : .2s;
+@ease-in-out            : ease-in-out;
+///
+// Z-index
+@zindex-spin            : 8;
+@zindex-affix           : 10;
+@zindex-back-top        : 10; 
+@zindex-select          : 900;
+@zindex-modal           : 1000;
+@zindex-drawer          : 1000;
+@zindex-message         : 1010;
+@zindex-notification    : 1010;
+@zindex-tooltip         : 1060;
+@zindex-transfer        : 1060;
+@zindex-loading-bar     : 2000;
+@zindex-spin-fullscreen : 2010;
+///
+// Shadow
+@shadow-color           : rgba(0, 0, 0, .2);
+@shadow-base            : @shadow-down;
+@shadow-card            : 0 1px 1px 0 rgba(0,0,0,.1);
+@shadow-up              : 0 -1px 6px @shadow-color;
+@shadow-down            : 0 1px 6px @shadow-color;
+@shadow-left            : -1px 0 6px @shadow-color;
+@shadow-right           : 1px 0 6px @shadow-color;
+// mixins
+.close-base(@top: 0, @icon-font-size: 22px) {
+    font-size: @icon-font-size;
+    color: @legend-color;
+    transition: color @transition-time ease;
+    position: relative;
+    top: @top;
+    &:hover {
+        color: #444;
+    }
+}
+/////
 @import 'switch';
+@import 'select';
+@import "progress";
+@import "message";

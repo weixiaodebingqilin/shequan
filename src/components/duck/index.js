@@ -1,12 +1,17 @@
 import Switch from './components/switch'
-import { dkSelect, dkOption, dkOptionGroup } from './components/select';
-
+import { Select, Option, OptionGroup } from './components/select';
+import Progress from './components/progress';
+import Upload from './components/upload';
+import Message from './components/message';
 const components = {
     Switch,
     SwitchGroup: Switch.Group,
-    dkOption: dkOption,
-    dkOptionGroup,
-    dkSelect
+    Option: Option,
+    OptionGroup,
+    Select,
+    Progress,
+    Upload,
+    Message
 }
 const install = (Vue) => {
     Object.keys(components).map((key) => {
@@ -14,7 +19,7 @@ const install = (Vue) => {
         Vue.component(component.name, component)
     })
 
-    // Vue.prototype.$message = Message
+    Vue.prototype.$Message = Message;
     // Vue.prototype.$notice = Notice
     // Vue.prototype.$create = create
 }

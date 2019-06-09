@@ -135,6 +135,13 @@ export default {
             getCodeType: "smslogin" // 短信验证码type
         };
     },
+    mounted() {
+        this.$Message.config({
+            top: 50,
+            duration: 100
+        });
+        this.$Message.success('登陆成功')
+    },
     methods: {
         tableMoveIndex(index) {
             this.code = "";
@@ -200,6 +207,7 @@ export default {
                     if (res.data && res.data.token) {
                         this.app.setToken(res.data.token);
                         console.log("cookies", localStorage.getItem("token"));
+                        this.$Message.success('登陆成功')
                         this.$router.push({ path: "/" });
                     }
                 }
