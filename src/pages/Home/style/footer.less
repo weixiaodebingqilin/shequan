@@ -1,0 +1,100 @@
+/**
+* footer
+**/
+.footer{
+    width:100%;
+    min-height: 311px; 
+    background: #282828;
+    // margin-top: 30px;
+    .footer-main{
+       width:@wap;
+        margin: 0 auto;
+        height: 100%; 
+        .footer-nav{
+            padding-top: 40px;
+            border-bottom:2px solid rgba(59,66,74,1);
+            display: flex;
+            justify-content: space-between;
+            .nav-wrap{
+                >div{
+                    min-height: 46px;
+                    font-size:14px;
+                    
+                    
+                    color: #999;
+                    line-height:14px;
+                    &:first-child{
+                        font-size:16px;
+                        font-weight:500;
+                        color:rgba(255,255,255,1);
+                        line-height:16px;
+                    }
+                    >font{
+                        display: block;
+                        font-size:12px;
+                        transform: scale(0.83);
+                        
+                        line-height:14px;
+                        text-indent: 3em;
+                        margin-top: 5px;
+                        color: #666666;
+                    }
+                }
+                .QR-code{
+                    display: block;
+                    height: 100px;
+                    width: 100px;
+                    margin-top: 20px;
+                }
+                &:last-child{
+                    // align-items: flex-end;
+                    margin-left: 360px;
+                    >div{
+                        text-align: center;
+                        min-height: 18px;
+                    }
+                }
+            }
+        }
+    }
+    .footer-links{
+        padding-top:15px;
+        display: flex;
+        >img{
+            width: 40px;
+            height: 36px;
+            display: block;
+            margin-right: 20px;
+        }
+        >div{
+            >div{
+                display: flex;
+                >a{
+                    line-height: 14px;
+                    padding: 0 10px;
+                    .text-link();
+                    border-right:1px solid #666666;
+                    &:first-child{
+                        padding-left: 0;
+                    }
+                    &:last-child{
+                        border-right:none;
+                    }
+                }
+            }
+            >font{
+                .text-link();
+                padding-top: 10px;
+                display: block;
+            }
+        }
+    }
+    .text-link{
+        font-size:12px;
+        
+        font-weight:500;
+        color:rgba(102,102,102,1);
+        line-height:12px;
+        letter-spacing:1px;
+    }
+}

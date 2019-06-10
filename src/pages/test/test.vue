@@ -77,7 +77,12 @@ export default {
             console.log("this.tyTitle: ", this.tyTitle);
             let _data = {
                 title: this.tyTitle,
-                content: this.tyContent
+                image: "//img.cdn.shequanpro.com/timg-1560159491673.jpg", // 封面
+                isPublic: false,
+                themeCircleId: 1137639777894535168,
+                content: this.tyContent,
+                userId: 1135212201683062784,
+                type: 1
             };
             articleAdd(_data).then(res => {
                 console.log("res: res", res);

@@ -2,7 +2,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-empty */
 // eslint-disable-next-line no-extra-semi
-; (function (factory) {
+
+(function (factory) {
     var registeredInModuleLoader;
     if (typeof define === 'function' && define.amd) {
         define(factory);
@@ -19,6 +20,7 @@
             window.Cookies = OldCookies;
             return api;
         };
+
     }
 }(function () {
     function extend() {
@@ -160,3 +162,5 @@
 
     return init(function () { });
 }));
+
+export default Cookies

@@ -3,29 +3,29 @@
         <h3>创建主题圈</h3>
         <form>
             <!-- 主题圈名 -->
-            <div class="crtcircle-name">
+            <!-- <div class="crtcircle-name">
                 <input type="text"
                        placeholder="请输入主题圈名（每月仅能修改两次）" />
-            </div>
+            </div> -->
             <!-- 上传封面 -->
-            <div class="crtcircle-cover">
+            <!-- <div class="crtcircle-cover">
                 <div></div>
                 <dl>
                     <dt>上传封面，它将会在圈子主页、圈子封面展示</dt>
                     <dd>建议尺寸 2560x616，支持3MB内的PNG、JPG</dd>
                 </dl>
-            </div>
+            </div> -->
             <!-- 主题圈介绍 -->
-            <div class="crtcircle-introduce">
+            <!-- <div class="crtcircle-introduce">
                 <input type="text"
                        placeholder="主题圈介绍..." />
                 <p>200</p>
-            </div>
+            </div> -->
             <!-- 加入费用 -->
-            <div class="crtcircle-cost">
+            <!-- <div class="crtcircle-cost">
                 加入费用：￥<input type="text"
                        placeholder="50-2000" /> /年
-            </div>
+            </div> -->
             <!-- 有效期 -->
             <div class="crtcircle-term">
                 <dk-switch-group :value="termValues"
@@ -47,13 +47,13 @@
                 </section>
             </div>
             <!-- 规则 -->
-            <div class="crtcircle-rule">
+            <!-- <div class="crtcircle-rule">
                 <dk-switch @click="crtRule">
                     <template slot="text">
                         我已阅读并同意<span>《设圈主题圈规则》</span>
                     </template>
                 </dk-switch>
-            </div>
+            </div> -->
             <!-- 提交 -->
             <ul>
                 <li>取消</li>
@@ -63,53 +63,72 @@
     </div>
 </template>
 <script>
-import { createTopic } from '@/api/topic.js'
+import { createTopic, getMyTopic, getTopicList } from "@/api/topic.js";
+
 export default {
-    name: 'create-circle',
+    name: "create-circle",
     data() {
         return {
             termValues: [false, true],
             termText: [
                 {
-                    text: '加入之后计算一年',
-                    value: '1'
+                    text: "加入之后计算一年",
+                    value: "1"
                 },
                 {
-                    text: '固定时间开始计算',
-                    value: '2'
+                    text: "固定时间开始计算",
+                    value: "2"
                 }
-
             ]
-        }
+        };
+    },
+    mounted() {
+        this.getMyTopic();
+        this.getTopicList();
     },
     methods: {
+        getMyTopic() {
+            let userId = "1135212201683062784";
+            getMyTopic(userId).then(res => {
+                console.log("getMyTopicres: ", res);
+            });
+        },
+        getTopicList() {
+            let _data = {
+                page: 1,
+                size: 10,
+                searchMap: {}
+            };
+            getTopicList(_data).then(res => {
+                console.log("getTopicListres: ", res);
+            });
+        },
         onChange(value) {
-            console.log('value: ', value)
+            console.log("value: ", value);
         },
         crtRule(value) {
-            console.log('value: ', value)
+            console.log("value: ", value);
         },
         createNow() {
-            console.log('ssss: ')
-            let now = new Date()
-            let end = +now + 24 * 60 * 60 * 1000
+            console.log("ssss: ");
+            let now = new Date();
+            let end = +now + 24 * 60 * 60 * 1000;
             let _data = {
-                title: '第一个主题圈',
-                coverUrl: '//img.cdn.shequanpro.com/cookie-1560012464021.png',
-                intro: '这是我的第一个主题圈',
+                title: "第一个主题圈",
+                coverUrl: "//img.cdn.shequanpro.com/cookie-1560012464021.png",
+                intro: "这是我的第一个主题圈",
                 cost: 200,
-                userId: '1135212201683062784',
+                userId: "1135212201683062784",
                 startTime: +now,
                 endTime: end
                 // endTime: new Date(end)
-
-            }
+            };
             createTopic(_data).then(res => {
-                console.log('res: ', res)
-            })
+                console.log("res: ", res);
+            });
         }
     }
-}
+};
 </script>
 <style lang="less">
 .create-circle {

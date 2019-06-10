@@ -4,11 +4,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 import Vue from 'vue'
 import App from './App.vue'
-import './utils/local/cookies.js' // 引入cookies
+
 import router from './router/index.js'
 
 import './utils/directive.js'
 // import './utils/iconfont.js'
+import Cookies from './utils/local/cookies.js' // 引入cookies 
 
 import { Button, Select, Option, Upload, Input, Radio, Dialog, Alert, Notification } from 'element-ui'
 Vue.prototype.$ELEMENT = { size: 'small' }
@@ -25,10 +26,16 @@ Vue.use(lazyCom);
 import Duck from './components/duck/index.js';
 Vue.use(Duck)
 
+
+Vue.prototype.$Cookies = Cookies;
+console.log('Cookies: ', Cookies)
+console.log('Vue.$Cookies: ', Vue.$Cookies)
+
 Vue.config.productionTip = false
 /// router
 const jurisdiction = ['/mine']
 router.beforeEach((to, from, next) => {
+
     let token = Cookies.get('token')
     if (!token && jurisdiction.includes(from)) {
         //失效

@@ -112,7 +112,7 @@
 <script>
 export default {
     name: "my-header",
-    inject: ['app'],
+    inject: ["app"],
     data() {
         return {
             isLogin: false, //是否登陆
@@ -170,7 +170,7 @@ export default {
             }
         },
         setIsLogin() {
-            let token = localStorage.getItem("token");
+            let token = Cookies.get("token");
             this.isLogin = !!token;
         },
         closeMenu() {
@@ -179,7 +179,7 @@ export default {
         },
         logOut() {
             this.closeMenu();
-            this.app.romveToken()
+            this.app.romveToken();
             this.$router.push({
                 path: "/login"
             });
