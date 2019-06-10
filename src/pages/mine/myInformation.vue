@@ -120,6 +120,11 @@
                                       :showContent="false"></article-item>
                     </div>
                 </section>
+                <!-- 资料设置 -->
+                <section v-if="navTabIndex===8"
+                         class="loadUp">
+                    <data-set></data-set>
+                </section>
             </div>
         </section>
     </div>
@@ -135,6 +140,7 @@ import homeworkItem from "./component/homework-item"; //我的作业--训练
 import homeworkAsk from "./component/homework-ask"; //我的作业--问答
 import messagesItem from "./component/messages-item"; //系统消息--全部通知
 import articleItem from "./component/article-item"; //我的评论--文章
+import dataSet from "./component/data-set"; //资料设置
 export default {
     name: "information",
     components: {
@@ -146,7 +152,8 @@ export default {
         homeworkItem,
         homeworkAsk,
         messagesItem,
-        articleItem
+        articleItem,
+        dataSet
     },
     data() {
         return {

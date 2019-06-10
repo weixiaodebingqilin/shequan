@@ -70,7 +70,8 @@
         </div>
         <div class="popout-footer">
             <div class="popout-footer-button"> 确认</div>
-            <div class="popout-footer-button">取消</div>
+            <div class="popout-footer-button"
+                 @click="cancel">取消</div>
         </div>
     </section>
 </template>
@@ -82,7 +83,11 @@ export default {
     data() {
         return {};
     },
-    methods: {}
+    methods: {
+        cancel() {
+            this.$emit("close");
+        }
+    }
 };
 </script>
 

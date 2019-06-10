@@ -5,12 +5,17 @@
              @click="showpops"></div>
         <!-- 圈子权限 -->
         <div class="popout-scroll loadRight">
-            <popout-data v-if="popoutData"></popout-data>
+            <popout-data v-if="popoutData"
+                         @close="cancel"></popout-data>
             <popout-set v-if="popoutSet"
-                        @on-click="setItems"></popout-set>
-            <popout-admin v-if="popoutAdmin"></popout-admin>
-            <popout-card v-if="popoutCard"></popout-card>
-            <popout-addcard v-if="popoutAward"></popout-addcard>
+                        @on-click="setItems"
+                        @close="cancel"></popout-set>
+            <popout-admin v-if="popoutAdmin || setIndex==1"
+                          @close="cancel"></popout-admin>
+            <popout-card v-if="popoutCard"
+                         @close="cancel"></popout-card>
+            <popout-addcard v-if="popoutAward"
+                            @close="cancel"></popout-addcard>
         </div>
     </div>
 </template>
@@ -64,7 +69,8 @@ export default {
     },
     data() {
         return {
-            showpopt: this.showpop
+            showpopt: this.showpop,
+            setIndex: -1
         };
     },
     methods: {
@@ -73,6 +79,10 @@ export default {
         },
         setItems(payload) {
             console.log(1, payload.index);
+            this.setIndex = payload.index;
+        },
+        cancel() {
+            this.showpops();
         }
     }
 };

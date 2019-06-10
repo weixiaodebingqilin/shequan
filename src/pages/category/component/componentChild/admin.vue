@@ -1,5 +1,5 @@
 <template>
-    <section class="popout-set-admin">
+    <section class="popout-set-admin loadRight">
         <div class="popout-title">
             <svg class="icon"
                  aria-hidden="true">
@@ -53,7 +53,8 @@
             </div>
         </div>
         <div class="popout-footer">
-            <div class="popout-footer-button">取消</div>
+            <div class="popout-footer-button"
+                 @click="cancel">取消</div>
         </div>
     </section>
 </template>
@@ -76,7 +77,11 @@ export default {
             ]
         };
     },
-    methods: {}
+    methods: {
+        cancel() {
+            this.$emit("close");
+        }
+    }
 };
 </script>
 
