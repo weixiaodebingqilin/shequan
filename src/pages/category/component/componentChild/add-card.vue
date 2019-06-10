@@ -76,7 +76,11 @@ export default {
             radio: "1"
         };
     },
-    methods: {}
+    methods: {
+        cancel() {
+            this.$emit("close");
+        }
+    }
 };
 </script>
 
