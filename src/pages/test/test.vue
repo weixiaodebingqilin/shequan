@@ -79,7 +79,7 @@ export default {
                 title: this.tyTitle,
                 image: "//img.cdn.shequanpro.com/timg-1560159491673.jpg", // 封面
                 isPublic: false,
-                themeCircleId: 1137639777894535168,
+                topicCircleId: 1137639777894535168,
                 content: this.tyContent,
                 userId: 1135212201683062784,
                 type: 1
@@ -115,11 +115,11 @@ export default {
 </script>
 <style lang="less">
 .text-cont {
-    ul {
-        > li {
-            margin: 40px 0;
-        }
+  ul {
+    > li {
+      margin: 40px 0;
     }
+  }
 }
 </style>
 
