@@ -8,7 +8,8 @@
                     <h5>精选设计入门主题圈</h5>
                     <span>查看更多</span>
                 </div>
-                <index-category></index-category>
+                <index-category v-if="list[0]"
+                                :list='list'></index-category>
             </section>
             <section class="category-wrap">
                 <div class="category-item-title">
@@ -22,6 +23,7 @@
 </template>
 <script>
 import indexCategory from "@/components/molecule/category";
+import { getTopicList } from "@/api/topic.js";
 export default {
     name: "category-item",
     components: {
@@ -29,12 +31,32 @@ export default {
     },
     data() {
         return {
-            maskShow: false
+            maskShow: false,
+            list: []
         };
     },
     // 组件的生命周期
-    created() {},
+    created() {
+        this.getTopicList()
+    },
     // 我们要写的一些方法
-    methods: {}
+    methods: {
+        getTopicList() {
+            let _data = {
+                page: 1,
+                size: 6,
+                searchMap: {}
+            };
+            getTopicList(_data).then(res => {
+
+
+                if (res.data.data) {
+
+                    this.list = res.data.data.rows
+                    console.log("list: ", this.list);
+                }
+            });
+        },
+    }
 };
 </script>

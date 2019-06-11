@@ -93,3 +93,8 @@ outline:none;
     width: 16px;
     height: 16px;
 }
+
+
+.mce-branding.mce-widget.mce-label.mce-flow-layout-item.mce-last{
+    display: none;
+}
