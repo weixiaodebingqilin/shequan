@@ -80,6 +80,11 @@ export default new Router({
                             name: 'create-circle',
                             component: _import('create/create-circle'),
                         },
+                        {
+                            path: '/create-article',
+                            name: 'create-article',
+                            component: _import('create/create-article'),
+                        },
                     ]
                 },
             ]

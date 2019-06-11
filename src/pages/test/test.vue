@@ -1,12 +1,12 @@
 <template>
     <section>
-        <iframe src="http://player.bilibili.com/player.html?aid=6117110&cid=9931722&page=1"
+        <!-- <iframe src="http://player.bilibili.com/player.html?aid=6117110&cid=9931722&page=1"
                 scrolling="no"
                 border="0"
                 frameborder="no"
                 framespacing="0"
                 allowfullscreen="true"> </iframe>
-        <p>wwww</p>
+        <p>wwww</p> -->
         <section class="text-cont">
             <!-- <ul v-for="(item) in articleList"
                 :key="item.id">
@@ -115,11 +115,11 @@ export default {
 </script>
 <style lang="less">
 .text-cont {
-  ul {
-    > li {
-      margin: 40px 0;
+    ul {
+        > li {
+            margin: 40px 0;
+        }
     }
-  }
 }
 </style>
 
