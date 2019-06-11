@@ -22,9 +22,11 @@ export default {
     methods: {
         setToken(value) {
             localStorage.setItem('token', value)
+            Cookies.set('token', value, { expires: 7, path: '' });
         },
         romveToken() {
             localStorage.removeItem("token")
+            Cookies.set('token', '', { expires: -1, path: '' });
         },
         initAllStorage() {
             this.romveToken()
