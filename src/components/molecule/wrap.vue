@@ -1,6 +1,7 @@
 <template>
+    <!-- 暂时有两到三个地方用到 -->
     <ul :class="{'category-erap loadUp':1,'showTitle':!showTitle}">
-        <li v-for="(item,index) in 10"
+        <li v-for="(item,index) in list"
             :key="index">
             <div v-if="showTitle">
                 <span>最新</span>
@@ -8,9 +9,13 @@
                 <p>今天这篇文章是我经常用在实际项目中的方法</p>
             </div>
             <dl>
-                <img src="@/assets/images/temp/category-product.png">
+                <img v-if="!item.image"
+                     src="@/assets/images/temp/category-product.png">
+                <img v-if="item.image"
+                     :src="item.image"
+                     alt="">
                 <div>
-                    <h5>产品设计师是什么？</h5>
+                    <h5>{{item.title || '产品设计师是什么？'}} </h5>
                     <p>介绍产品设计师是什么，与普通UI的区别，以及如何晋升。前段时间有朋友来询问，产品设计师是一个什么样的岗位，要负责哪些工作？我其实是比较奇怪的，这个概念已经兴起了一两年了，从阿里的全链路设计师到产品设计师。本以为...</p>
                     <ol>
                         <li>
@@ -52,6 +57,10 @@
 export default {
     name: "category-erap",
     props: {
+        list: {
+            type: Array,
+            default: () => [1, 2, 3, 4]
+        },
         // 标题
         clounms: {
             type: Array,

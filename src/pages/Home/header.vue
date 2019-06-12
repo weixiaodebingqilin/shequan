@@ -31,7 +31,20 @@
             </ul>
             <!-- 经验创作 -->
             <div class="top-create">
-                <router-link to="/create">经验创作</router-link>
+                <p @click="keyCreate = !keyCreate">经验创作</p>
+                <ul v-if="keyCreate"
+                    @click="closeCreate">
+                    <li>
+                        <router-link to="/create-article">经验创作</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/create-circle">主题圈</router-link>
+                    </li>
+                    <li>
+                        实战训练
+                    </li>
+                </ul>
+                <!-- <router-link to="/create">经验创作</router-link> -->
             </div>
             <!-- 搜索 -->
             <div class="top-search">
@@ -117,6 +130,7 @@ export default {
         return {
             isLogin: false, //是否登陆
             keyMymenu: false, // 显示mymenu
+            keyCreate: false, //显示创作
             mymenu: [
                 {
                     name: "我的主页",
@@ -161,12 +175,17 @@ export default {
         this.setClick();
     },
     methods: {
+        closeCreate() {
+            if (!this.keyCreate) return;
+            this.keyCreate = false;
+        },
         setClick() {
             document.addEventListener("click", this.clo);
         },
         clo(e) {
             if (!this.$el.contains(e.target)) {
                 this.closeMenu();
+                this.closeCreate();
             }
         },
         setIsLogin() {

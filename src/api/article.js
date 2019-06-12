@@ -10,11 +10,19 @@ const prev = 'article'
 export const articleAdd = (data) => service.post(`${prev}/article`, data);
 
 /**
- * articleQuery 查询文章
+ * articleDetailQuery 根据文章id查询文章详情
  * @method {get} 
+ * @param {String} id 
  * @return {Object} res 
  */
-export const articleQuery = () => service.get(`${prev}/article`);
+export const articleDetailQuery = (id) => service.get(`${prev}/article/${id}`);
+/**
+ * articleQuery 查询文章列表
+ * @method {post} 
+ * @param {Object} data 
+ * @return {Object} res 
+ */
+export const articleListQuery = (data) => service.post(`${prev}/article/search/${data.page}/${data.size}`, data);
 
 /**
  * articleQueryBykey 根据关键字查询文章

@@ -100,7 +100,8 @@
                 <!-- 圈子 -->
                 <category-circle v-if="kindIndex === 0 "></category-circle>
                 <!-- 目录 -->
-                <category-wrap v-if="kindIndex === 1 "></category-wrap>
+                <category-wrap v-if="kindIndex === 1 "
+                               :list='articleList'></category-wrap>
                 <!-- 挑战／抗魔计划 -->
                 <!-- <div class="challenge" v-if="kindIndex === 2 ">
 					<ul>
@@ -422,6 +423,7 @@ import categoryCircle from "./component/circle";
 import categoryWrap from "@/components/molecule/wrap";
 import categoryChallenge from "./component/challenge";
 import popout from "./component/popout";
+import { articleListQuery } from "@/api/article.js";
 export default {
     name: "category",
     components: {
@@ -439,13 +441,33 @@ export default {
             kindStyle: {},
             maskShow: false,
             popout: [false, false, false],
-            showpopout: false
+            showpopout: false,
+            //
+            articleList: [], // 文章列表
+            topic: []
         };
     },
     // 组件的生命周期
-    created() {},
+    created() {
+        let param = this.$route.query;
+        console.log("param: ", param);
+        this.articleListQuery(param.id);
+    },
     // 我们要写的一些方法
     methods: {
+        articleListQuery(id) {
+            let _data = {
+                page: 1,
+                size: 10,
+                topicCircleId: id
+            };
+            articleListQuery(_data).then(res => {
+                console.log("res:rtcl", res);
+                if (res.data.data) {
+                    this.articleList = res.data.data.rows;
+                }
+            });
+        },
         kindMove(index) {
             this.kindIndex = index;
         },
