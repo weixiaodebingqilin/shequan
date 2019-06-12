@@ -65,6 +65,11 @@ export default new Router({
                     component: _import('mine/myInformation'),
                 },
                 {
+                    path: '/search',
+                    name: 'search',
+                    component: _import('search/search'),
+                },
+                {
                     path: '/create',
                     name: 'create',
                     redirect: '/create-category',
