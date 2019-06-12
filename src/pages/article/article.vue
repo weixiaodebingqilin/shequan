@@ -15,6 +15,7 @@
 
 import articleRight from './component/article-right'
 import articleLeft from './component/article-left'
+
 export default {
     name: 'articles',
     components: {

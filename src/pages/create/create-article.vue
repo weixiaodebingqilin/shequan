@@ -92,7 +92,7 @@
                            :on-error='upE'>
 
                     <div class="cover-cont">
-                        <div v-if="!upImgurl">
+                        <div v-if="!image">
                             <img class="cover-prev"
                                  src="@/assets/images/temp/add-imgs.png">
                             <p>上传封面</p>
@@ -175,9 +175,10 @@ export default {
             let topicCircleId = ''
             this.cricleList.some(v => {
                 topicCircleId = v.id
-                return v.title = this.circleId
+                console.log('circleId1: ', topicCircleId)
+                return v.title === this.circleId
             })
-            console.log('circleId: ', this.circleId)
+            console.log('circleId2: ', topicCircleId)
             let _data = {
                 title: this.title,
                 image: this.image, // 封面
@@ -186,6 +187,7 @@ export default {
                 summary: this.summary,
                 topicCircleId: topicCircleId,
                 userId: 1135212201683062784,
+                saySome: this.saySome,
                 type: 1
             };
             articleAdd(_data).then(res => {

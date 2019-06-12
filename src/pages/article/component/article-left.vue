@@ -4,7 +4,7 @@
         <div class="article-content">
             <div class="article-user">
                 <div class="article-user-sum">阅读收获<span>80</span>分</div>
-                <h5>Icon设计的法则</h5>
+                <h5>{{article.title || 'Icon设计的法则'}}</h5>
                 <div class="user-msg">
                     <img src="@/assets/images/temp/header.png">
                     <dl>
@@ -51,7 +51,14 @@
 
             </div>
         </div>
-        <!-- //文章评论 -->
+        <!-- //文章内容 -->
+        <div v-if="article.content"
+             class="article-comment">
+            <div v-html="article.content"></div>
+            上面的是创建的内荣
+            <hr>
+        </div>
+
         <div class="article-comment">
             <h5>从不同维度对Icon设计进行解析，整理一整套Icon设计的法则</h5>
             <p>网络上有很多关于Icon设计的文章，一些文章从部分维度切入讲述Icon的设计理念，但大部分缺乏整体性。 所以我尝试把自己的思考方式结合其他人的设计理念整理了一个完整的Icon设计法则，通过简单易懂的描述语言，并且结合设计案例呈现出来，希望能够对大家有所帮助。文章使用的案例只代表个人观点，并不代表相关产品。 本文重点讲述Icon设计思维，关于Icon的具体定义以及具体的制作过程就不再赘述，网络上有很多相关文章都有讲述。 从不同维度对Icon设计进行解析，整理一整套Icon的设计法则。每一个产品中都有不同类型的Icon，产品通过Icon可以快速的向用户传递语意，通过独特的设计语言让用户形成对于产品的认知心智。Icon的重要性就不言而喻了。 ICON的设计法则-菱形设计法则，主要包括语意、层级、设计形式、风格、一致性、范围。而其他的设计思考也是这个设计法则的变体，中心思想没有发生变化。通过对以上设计思考点的聚合，来设计能够传递Icon语意，并且能够清晰展现产品结构和信息层级的Icon系统，通过差异化的设计形式展现产品设计的独特风格，让具有一致性的设计语言传递信息，和用户形成共鸣。</p>
@@ -308,6 +315,7 @@
 import atomy from "@/components/atomy/mixins.js";
 import cardArtical from '@/components/molecule/card-artical.vue'
 import { spitAdd, spitQuery } from '@/api/spit.js'
+import { articleDetailQuery } from '@/api/article.js'
 export default {
     name: 'article-left',
     components: {
@@ -321,12 +329,24 @@ export default {
             spitKey: true, // 
             commits: [],
             spitIndx: '', // 索引值
+            article: '', // 文章内容
         }
     },
     created() {
+        let param = this.$route.query
+        if (param.aid) {
+            this.articleDetailQuery(param.aid)
+        }
+
         this.querySpit()
     },
     methods: {
+        articleDetailQuery(id) {
+            articleDetailQuery(id).then(res => {
+                console.log('articleDetailQueryres: ', res)
+                this.article = res.data.data
+            })
+        },
         // 发表评论
         createSpit(e) {
             if (!this.spitKey) return

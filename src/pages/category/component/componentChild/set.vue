@@ -129,7 +129,21 @@ export default {
     methods: {
         setItems(index) {
             console.dir(event.currentTarget.dataset.id);
+            if (index === 0) {
+                console.log('ssssssssss')
+                // 跳转修改圈子
+                let param = this.$route.query
+                console.log("param: ", param)
+                this.$router.push({
+                    path: "/create-circle",
+                    query: {
+                        cid: param.id
+                    }
+                })
+                return
+            }
             this.setItemIndex = index;
+
             this.$emit("on-click", {
                 index: index
             });

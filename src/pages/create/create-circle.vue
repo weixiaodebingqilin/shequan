@@ -87,7 +87,8 @@
             <ul class="crtcircle-submit">
                 <li>取消</li>
                 <li @click="createNow"
-                    class="submit-t">立即创建</li>
+                    class="submit-t">{{cid ? '修改' : '立即创建' }} </li>
+
             </ul>
         </form>
         <ul class="create-succeed"
@@ -99,12 +100,13 @@
 
 </template>
 <script>
-import { createTopic, getMyTopic, getTopicList } from "@/api/topic.js";
+import { createTopic, getMyTopic, getTopicList, getTopicDetails, puTopicDetails } from "@/api/topic.js";
 
 export default {
     name: "create-circle",
     data() {
         return {
+            cid: '',
             termValues: [false, true],
             termText: [
                 {
@@ -129,6 +131,14 @@ export default {
                     : "http://39.96.35.240:9012") + "/base/upload/yun"
         };
     },
+    created() {
+        let param = this.$route.query
+        console.log("param； ", param)
+        if (param.cid) {
+            this.cid = param.cid
+            this.getTopicDetails(param.cid)
+        }
+    },
     mounted() {
         this.getMyTopic();
         this.getTopicList();
@@ -144,6 +154,19 @@ export default {
             console.log(" error: ", response);
             console.log(" file: ", file);
             console.log(" fileList: ", fileList);
+        },
+        getTopicDetails(id) {
+            getTopicDetails(id).then(res => {
+                console.log('getTopicDetailsres: ', res)
+                if (res.data.data) {
+                    let data = res.data.data
+                    this.title = data.title
+                    this.coverUrl = data.coverUrl
+                    this.intro = data.intro
+                    this.cost = data.cost
+                    this.joinType = data.joinType
+                }
+            })
         },
         getMyTopic() {
             let userId = "1135212201683062784";
@@ -182,11 +205,14 @@ export default {
                 cost: this.cost,
                 joinType: this.joinType,
                 userId: "1135212201683062784"
-                // startTime: now,
-                // endTime: new Date(end)
-                // endTime: new Date(end)
             };
-            createTopic(_data).then(res => {
+            let fn = createTopic
+            if (this.cid) {
+                fn = puTopicDetails
+                _data.id = this.cid
+            }
+
+            fn(_data).then(res => {
                 console.log("res: ", res);
                 if (res.data.flag) {
                     //增加成功
@@ -194,6 +220,7 @@ export default {
                 }
             });
         },
+
         gotoArticle() {
             this.$router.push({ path: "/create-article" });
         }
@@ -202,225 +229,225 @@ export default {
 </script>
 <style lang="less">
 .create-circle {
-    width: @wapEditor;
-    margin: 20px auto 0;
-    background: rgba(255, 255, 255, 1);
+  width: @wapEditor;
+  margin: 20px auto 0;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 2px;
+  border: 1px solid rgba(84, 120, 235, 0.1);
+  > h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 18px;
+    border-bottom: 1px solid rgba(239, 239, 239, 1);
+    padding: 20px 30px;
+  }
+  > form {
+    padding: 30px;
+  }
+  .crtcircle-name {
+    > input {
+      font-size: 20px;
+      font-weight: 500;
+      color: rgba(51, 51, 51, 1);
+      line-height: 20px;
+      border: none;
+      background: transparent;
+      width: 100%;
+      &::-webkit-input-placeholder {
+        font-size: 20px;
+        font-weight: 500;
+        color: rgba(102, 102, 102, 1);
+        line-height: 20px;
+      }
+    }
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(239, 239, 239, 1);
+  }
+  .crtcircle-cover {
+    margin: 30px 0;
+    display: flex;
+    padding: 50px 70px;
     border-radius: 2px;
-    border: 1px solid rgba(84, 120, 235, 0.1);
-    > h3 {
-        font-size: 18px;
+    border: 1px dashed rgba(84, 120, 235, 0.5);
+    .dk-upload {
+      width: 130px;
+    }
+    .cover-cont > div {
+      border-right: 1px solid rgba(84, 120, 235, 0.1);
+      padding: 3px 70px 13px 0;
+      > img {
+        border: 1px dashed rgba(0, 0, 0, 0.5);
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: 0;
+      }
+    }
+    > dl {
+      padding-left: 70px;
+      > dt {
+        font-size: 16px;
+        font-weight: bold;
+        color: rgba(102, 102, 102, 1);
+        line-height: 16px;
+        padding: 3px 0 20px;
+      }
+      > dd {
+        font-size: 14px;
         font-weight: 400;
-        color: rgba(51, 51, 51, 1);
-        line-height: 18px;
-        border-bottom: 1px solid rgba(239, 239, 239, 1);
-        padding: 20px 30px;
+        color: rgba(153, 153, 153, 1);
+        line-height: 24px;
+      }
     }
-    > form {
-        padding: 30px;
+  }
+  .crtcircle-introduce {
+    position: relative;
+    padding: 20px;
+    background: rgba(247, 247, 247, 1);
+    border-radius: 2px;
+    border: 1px solid rgba(221, 221, 221, 1);
+    margin-bottom: 40px;
+    > textarea {
+      min-height: 63px;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(51, 51, 51, 1);
+      line-height: 14px;
+      border: none;
+      background: transparent;
+      outline: none;
+      resize: none;
     }
-    .crtcircle-name {
-        > input {
-            font-size: 20px;
-            font-weight: 500;
-            color: rgba(51, 51, 51, 1);
-            line-height: 20px;
-            border: none;
-            background: transparent;
-            width: 100%;
-            &::-webkit-input-placeholder {
-                font-size: 20px;
-                font-weight: 500;
-                color: rgba(102, 102, 102, 1);
-                line-height: 20px;
-            }
-        }
-        padding-bottom: 30px;
-        border-bottom: 1px solid rgba(239, 239, 239, 1);
+    > p {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(207, 207, 207, 1);
+      line-height: 14px;
     }
-    .crtcircle-cover {
-        margin: 30px 0;
-        display: flex;
-        padding: 50px 70px;
-        border-radius: 2px;
-        border: 1px dashed rgba(84, 120, 235, 0.5);
-        .dk-upload {
-            width: 130px;
-        }
-        .cover-cont > div {
-            border-right: 1px solid rgba(84, 120, 235, 0.1);
-            padding: 3px 70px 13px 0;
-            > img {
-                border: 1px dashed rgba(0, 0, 0, 0.5);
-                display: block;
-                width: 60px;
-                height: 60px;
-                margin: 0;
-            }
-        }
-        > dl {
-            padding-left: 70px;
-            > dt {
-                font-size: 16px;
-                font-weight: bold;
-                color: rgba(102, 102, 102, 1);
-                line-height: 16px;
-                padding: 3px 0 20px;
-            }
-            > dd {
-                font-size: 14px;
-                font-weight: 400;
-                color: rgba(153, 153, 153, 1);
-                line-height: 24px;
-            }
-        }
+  }
+  .crtcircle-cost {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(239, 239, 239, 1);
+    > input {
+      margin: 0 20px 0 15px;
+      width: 101px;
+      height: 44px;
+      background: rgba(247, 247, 247, 1);
+      border-radius: 2px;
+      border: 1px solid rgba(221, 221, 221, 1);
+      text-indent: 20px;
     }
-    .crtcircle-introduce {
-        position: relative;
-        padding: 20px;
-        background: rgba(247, 247, 247, 1);
-        border-radius: 2px;
-        border: 1px solid rgba(221, 221, 221, 1);
-        margin-bottom: 40px;
-        > textarea {
-            min-height: 63px;
-            width: 100%;
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(51, 51, 51, 1);
-            line-height: 14px;
-            border: none;
-            background: transparent;
-            outline: none;
-            resize: none;
-        }
-        > p {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            font-size: 14px;
-            font-weight: 400;
-            color: rgba(207, 207, 207, 1);
-            line-height: 14px;
-        }
+  }
+  .crtcircle-term {
+    .dk-switch-group {
+      display: flex;
+      padding: 30px 0;
+      .dk-switch {
+        margin-right: 30px;
+      }
     }
-    .crtcircle-cost {
+    > section {
+      padding: 20px 30px 15px;
+      background: rgba(247, 247, 247, 1);
+      > dl {
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
+        > dt {
+          font-size: 14px;
+          font-weight: 400;
+          color: rgba(102, 102, 102, 1);
+          line-height: 14px;
+        }
+        > dd {
+          font-size: 14px;
+          font-family: PingFangSC-Regular;
+          font-weight: 400;
+          color: rgba(255, 147, 0, 1);
+          line-height: 14px;
+        }
+      }
+      > p {
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(153, 153, 153, 1);
+        line-height: 24px;
+      }
+    }
+  }
+  .crtcircle-rule {
+    margin-top: 30px;
+    .dk-switch {
+      display: flex;
+      align-items: center;
+      > p {
         font-size: 14px;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
         line-height: 14px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba(239, 239, 239, 1);
-        > input {
-            margin: 0 20px 0 15px;
-            width: 101px;
-            height: 44px;
-            background: rgba(247, 247, 247, 1);
-            border-radius: 2px;
-            border: 1px solid rgba(221, 221, 221, 1);
-            text-indent: 20px;
-        }
+      }
+      > span {
+        color: #5478eb;
+      }
     }
-    .crtcircle-term {
-        .dk-switch-group {
-            display: flex;
-            padding: 30px 0;
-            .dk-switch {
-                margin-right: 30px;
-            }
-        }
-        > section {
-            padding: 20px 30px 15px;
-            background: rgba(247, 247, 247, 1);
-            > dl {
-                margin-bottom: 10px;
-                display: flex;
-                align-items: center;
-                > dt {
-                    font-size: 14px;
-                    font-weight: 400;
-                    color: rgba(102, 102, 102, 1);
-                    line-height: 14px;
-                }
-                > dd {
-                    font-size: 14px;
-                    font-family: PingFangSC-Regular;
-                    font-weight: 400;
-                    color: rgba(255, 147, 0, 1);
-                    line-height: 14px;
-                }
-            }
-            > p {
-                font-size: 12px;
-                font-weight: 400;
-                color: rgba(153, 153, 153, 1);
-                line-height: 24px;
-            }
-        }
+  }
+  .crtcircle-submit {
+    margin-top: 50px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    > li {
+      margin-left: 30px;
+      &:first-child {
+        margin-left: 0;
+      }
+      cursor: pointer;
+      width: 170px;
+      height: 36px;
+      background: rgba(102, 102, 102, 1);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 1);
+      line-height: 14px;
     }
-    .crtcircle-rule {
-        margin-top: 30px;
-        .dk-switch {
-            display: flex;
-            align-items: center;
-            > p {
-                font-size: 14px;
-                font-weight: 400;
-                color: rgba(51, 51, 51, 1);
-                line-height: 14px;
-            }
-            > span {
-                color: #5478eb;
-            }
-        }
+    .submit-t {
+      background: rgba(84, 120, 235, 1);
     }
-    .crtcircle-submit {
-        margin-top: 50px;
-        padding-bottom: 30px;
-        display: flex;
-        justify-content: center;
-        > li {
-            margin-left: 30px;
-            &:first-child {
-                margin-left: 0;
-            }
-            cursor: pointer;
-            width: 170px;
-            height: 36px;
-            background: rgba(102, 102, 102, 1);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-family: PingFangSC-Medium;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 1);
-            line-height: 14px;
-        }
-        .submit-t {
-            background: rgba(84, 120, 235, 1);
-        }
+  }
+  .create-succeed {
+    padding: 0 30px;
+    > li {
+      font-size: 16px;
+      font-family: PingFangSC-Medium;
+      font-weight: 500;
+      color: rgba(51, 51, 51, 1);
+      line-height: 20px;
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(239, 239, 239, 1);
+      cursor: pointer;
     }
-    .create-succeed {
-        padding: 0 30px;
-        > li {
-            font-size: 16px;
-            font-family: PingFangSC-Medium;
-            font-weight: 500;
-            color: rgba(51, 51, 51, 1);
-            line-height: 20px;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(239, 239, 239, 1);
-            cursor: pointer;
-        }
-    }
-    .cover-prev {
-        width: 24px;
-        height: 24px;
-        margin: 30px 0 20px;
-    }
+  }
+  .cover-prev {
+    width: 24px;
+    height: 24px;
+    margin: 30px 0 20px;
+  }
 }
 </style>
 
