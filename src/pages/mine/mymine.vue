@@ -2,7 +2,7 @@
     <!-- 批改作业 -->
     <div id="mymine">
         <section class="mymine-topMsg">
-            <div class="mymine-topMsg-header"> 
+            <div class="mymine-topMsg-header">
                 <div class="topMsg-wrap">
                     <dl @click="navToInformation">
                         <dt><img src="@/assets/images/temp/header.png"></dt>
@@ -38,7 +38,7 @@
                     <div class="lately-see-wrap">
                         <div class="lately-see-title">
                             <svg class="icon"
-                                aria-hidden="true">
+                                 aria-hidden="true">
                                 <use xlink:href="#icontuijian"></use>
                             </svg>
                             <span>最近看过</span>
@@ -64,19 +64,22 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
         <div class="line-white"></div>
-        <table-native :clounms="kindNative" class="main-nav"
-                              @tableMoveIndex="kindMove"
-                              :initIndex='kindIndex'></table-native>
+        <table-native :clounms="kindNative"
+                      class="main-nav"
+                      @tableMoveIndex="kindMove"
+                      :initIndex='kindIndex'></table-native>
         <section class="main-wrap loadUp">
-            <div class="main-left " v-if="kindIndex!==0">
+            <div class="main-left "
+                 v-if="kindIndex!==0">
                 <!-- 我加入的 -->
                 <div class="article-push loadUp"
                      v-if="kindIndex==1">
                     <join-item v-for="(item,index) in 5"
-                                     :key="index" :showImg="false"></join-item>
+                               :key="index"
+                               :showImg="false"></join-item>
                 </div>
                 <!-- //收藏 -->
                 <div class="article-push loadUp"
@@ -86,12 +89,22 @@
                                       :key="index"></card-artical>
                     </ul>
                 </div>
-                
+                <!-- //评论 -->
+                <div class="article-push loadUp"
+                     v-if="kindIndex==3">
+                    <article-item v-for="(item,index) in 3"
+                                  :key="index"></article-item>
+                </div>
+                <!-- //文章 -->
+                <div class="article-push loadUp"
+                     v-if="kindIndex==4">
+                    <category-wrap :showTitle="false"></category-wrap>
+                </div>
 
             </div>
             <!-- "练习", -->
             <div class="article-push loadUp"
-                    v-if="kindIndex==0">
+                 v-if="kindIndex==0">
                 <exercise></exercise>
             </div>
             <!-- <div class="main-right">
@@ -104,8 +117,10 @@
 import atomy from "@/components/atomy/mixins.js";
 import molecule from "@/components/molecule/mixins.js";
 import cardArtical from "@/components/molecule/card-artical.vue";
-import exercise from "./component/exercise"; 
-import joinItem from "./component/join-item"; //我加入的--主题圈
+import exercise from "./component/exercise";
+import joinItem from "./component/join-item"; //我加入的
+import articleItem from "./component/article-item"; //评论
+import categoryWrap from "@/components/molecule/wrap"; //文章
 export default {
     name: "mymine",
     components: {
@@ -113,18 +128,13 @@ export default {
         tableNative: atomy.tableNative,
         authorWrap: molecule.authorWrap,
         exercise,
-        joinItem
+        joinItem,
+        articleItem,
+        categoryWrap
     },
     data() {
         return {
-            kindNative: [
-                "练习",
-                "我加入的",
-                "收藏",
-                "评论",
-                "文章",
-                "视频"
-            ], ///
+            kindNative: ["练习", "我加入的", "收藏", "评论", "文章", "视频"], ///
             kindIndex: 2 //
         };
     },

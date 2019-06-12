@@ -118,13 +118,15 @@ export default {
             ],
             //
             createS: false, // 创建成功
-            title: '', // 主题圈名字
-            coverUrl: '', // 封面
-            intro: '', //介绍
-            cost: '', //费用
-            joinType: 'F',// F固定 / A
-            urlprev: (process.env.NODE_ENV === 'development' ? '/sell' : 'http://39.96.35.240:9012') + '/base/upload/yun',
-
+            title: "", // 主题圈名字
+            coverUrl: "", // 封面
+            intro: "", //介绍
+            cost: "", //费用
+            joinType: "F", // F固定 / A
+            urlprev:
+                (process.env.NODE_ENV === "development"
+                    ? "/sell"
+                    : "http://39.96.35.240:9012") + "/base/upload/yun"
         };
     },
     mounted() {
@@ -133,15 +135,15 @@ export default {
     },
     methods: {
         upS(response, file, fileList) {
-            console.log(' response: ', response)
-            console.log(' file: ', file)
-            console.log(' fileList: ', fileList)
-            this.coverUrl = '//' + response.data.filePath
+            console.log(" response: ", response);
+            console.log(" file: ", file);
+            console.log(" fileList: ", fileList);
+            this.coverUrl = "//" + response.data.filePath;
         },
         upE(error, file, fileList) {
-            console.log(' error: ', response)
-            console.log(' file: ', file)
-            console.log(' fileList: ', fileList)
+            console.log(" error: ", response);
+            console.log(" file: ", file);
+            console.log(" fileList: ", fileList);
         },
         getMyTopic() {
             let userId = "1135212201683062784";
@@ -162,13 +164,12 @@ export default {
         onChange(value) {
             console.log("termValues: ", value);
             value.map((v, i) => {
-                this.$set(this.termValues, i, v)
-            })
+                this.$set(this.termValues, i, v);
+            });
             // this.termValues = value
         },
         crtRule(value) {
             console.log("value: ", value);
-
         },
         createNow() {
             console.log("ssss: ");
@@ -180,7 +181,7 @@ export default {
                 intro: this.intro,
                 cost: this.cost,
                 joinType: this.joinType,
-                userId: "1135212201683062784",
+                userId: "1135212201683062784"
                 // startTime: now,
                 // endTime: new Date(end)
                 // endTime: new Date(end)
@@ -189,7 +190,7 @@ export default {
                 console.log("res: ", res);
                 if (res.data.flag) {
                     //增加成功
-                    this.createS = true
+                    this.createS = true;
                 }
             });
         },
@@ -201,221 +202,225 @@ export default {
 </script>
 <style lang="less">
 .create-circle {
-  width: @wapEditor;
-  margin: 20px auto 0;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 2px;
-  border: 1px solid rgba(84, 120, 235, 0.1);
-  > h3 {
-    font-size: 18px;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 1);
-    line-height: 18px;
-    border-bottom: 1px solid rgba(239, 239, 239, 1);
-    padding: 20px 30px;
-  }
-  > form {
-    padding: 30px;
-  }
-  .crtcircle-name {
-    > input {
-      font-size: 20px;
-      font-weight: 500;
-      color: rgba(51, 51, 51, 1);
-      line-height: 20px;
-      border: none;
-      background: transparent;
-      width: 100%;
-      &::-webkit-input-placeholder {
-        font-size: 20px;
-        font-weight: 500;
-        color: rgba(102, 102, 102, 1);
-        line-height: 20px;
-      }
-    }
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(239, 239, 239, 1);
-  }
-  .crtcircle-cover {
-    margin: 30px 0;
-    display: flex;
-    padding: 68px 70px;
+    width: @wapEditor;
+    margin: 20px auto 0;
+    background: rgba(255, 255, 255, 1);
     border-radius: 2px;
-    border: 1px dashed rgba(84, 120, 235, 0.5);
-    > div {
-      border-right: 1px solid rgba(84, 120, 235, 0.1);
-      padding: 3px 70px 13px 0;
-      > img {
-        border: 1px dashed rgba(0, 0, 0, 0.5);
-        display: block;
-        width: 60px;
-        height: 60px;
-      }
-    }
-    > dl {
-      padding-left: 70px;
-      > dt {
-        font-size: 16px;
-        font-weight: bold;
-        color: rgba(102, 102, 102, 1);
-        line-height: 16px;
-        padding: 3px 0 20px;
-      }
-      > dd {
-        font-size: 14px;
+    border: 1px solid rgba(84, 120, 235, 0.1);
+    > h3 {
+        font-size: 18px;
         font-weight: 400;
-        color: rgba(153, 153, 153, 1);
-        line-height: 24px;
-      }
+        color: rgba(51, 51, 51, 1);
+        line-height: 18px;
+        border-bottom: 1px solid rgba(239, 239, 239, 1);
+        padding: 20px 30px;
     }
-  }
-  .crtcircle-introduce {
-    position: relative;
-    padding: 20px;
-    background: rgba(247, 247, 247, 1);
-    border-radius: 2px;
-    border: 1px solid rgba(221, 221, 221, 1);
-    margin-bottom: 40px;
-    > textarea {
-      min-height: 63px;
-      width: 100%;
-      font-size: 14px;
-      font-weight: 400;
-      color: rgba(51, 51, 51, 1);
-      line-height: 14px;
-      border: none;
-      background: transparent;
-      outline: none;
-      resize: none;
+    > form {
+        padding: 30px;
     }
-    > p {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      font-size: 14px;
-      font-weight: 400;
-      color: rgba(207, 207, 207, 1);
-      line-height: 14px;
+    .crtcircle-name {
+        > input {
+            font-size: 20px;
+            font-weight: 500;
+            color: rgba(51, 51, 51, 1);
+            line-height: 20px;
+            border: none;
+            background: transparent;
+            width: 100%;
+            &::-webkit-input-placeholder {
+                font-size: 20px;
+                font-weight: 500;
+                color: rgba(102, 102, 102, 1);
+                line-height: 20px;
+            }
+        }
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(239, 239, 239, 1);
     }
-  }
-  .crtcircle-cost {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 1);
-    line-height: 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid rgba(239, 239, 239, 1);
-    > input {
-      margin: 0 20px 0 15px;
-      width: 101px;
-      height: 44px;
-      background: rgba(247, 247, 247, 1);
-      border-radius: 2px;
-      border: 1px solid rgba(221, 221, 221, 1);
-      text-indent: 20px;
+    .crtcircle-cover {
+        margin: 30px 0;
+        display: flex;
+        padding: 50px 70px;
+        border-radius: 2px;
+        border: 1px dashed rgba(84, 120, 235, 0.5);
+        .dk-upload {
+            width: 130px;
+        }
+        .cover-cont > div {
+            border-right: 1px solid rgba(84, 120, 235, 0.1);
+            padding: 3px 70px 13px 0;
+            > img {
+                border: 1px dashed rgba(0, 0, 0, 0.5);
+                display: block;
+                width: 60px;
+                height: 60px;
+                margin: 0;
+            }
+        }
+        > dl {
+            padding-left: 70px;
+            > dt {
+                font-size: 16px;
+                font-weight: bold;
+                color: rgba(102, 102, 102, 1);
+                line-height: 16px;
+                padding: 3px 0 20px;
+            }
+            > dd {
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba(153, 153, 153, 1);
+                line-height: 24px;
+            }
+        }
     }
-  }
-  .crtcircle-term {
-    .dk-switch-group {
-      display: flex;
-      padding: 30px 0;
-      .dk-switch {
-        margin-right: 30px;
-      }
+    .crtcircle-introduce {
+        position: relative;
+        padding: 20px;
+        background: rgba(247, 247, 247, 1);
+        border-radius: 2px;
+        border: 1px solid rgba(221, 221, 221, 1);
+        margin-bottom: 40px;
+        > textarea {
+            min-height: 63px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(51, 51, 51, 1);
+            line-height: 14px;
+            border: none;
+            background: transparent;
+            outline: none;
+            resize: none;
+        }
+        > p {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: rgba(207, 207, 207, 1);
+            line-height: 14px;
+        }
     }
-    > section {
-      padding: 20px 30px 15px;
-      background: rgba(247, 247, 247, 1);
-      > dl {
-        margin-bottom: 10px;
+    .crtcircle-cost {
         display: flex;
         align-items: center;
-        > dt {
-          font-size: 14px;
-          font-weight: 400;
-          color: rgba(102, 102, 102, 1);
-          line-height: 14px;
-        }
-        > dd {
-          font-size: 14px;
-          font-family: PingFangSC-Regular;
-          font-weight: 400;
-          color: rgba(255, 147, 0, 1);
-          line-height: 14px;
-        }
-      }
-      > p {
-        font-size: 12px;
-        font-weight: 400;
-        color: rgba(153, 153, 153, 1);
-        line-height: 24px;
-      }
-    }
-  }
-  .crtcircle-rule {
-    margin-top: 30px;
-    .dk-switch {
-      display: flex;
-      align-items: center;
-      > p {
         font-size: 14px;
         font-weight: 400;
         color: rgba(51, 51, 51, 1);
         line-height: 14px;
-      }
-      > span {
-        color: #5478eb;
-      }
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(239, 239, 239, 1);
+        > input {
+            margin: 0 20px 0 15px;
+            width: 101px;
+            height: 44px;
+            background: rgba(247, 247, 247, 1);
+            border-radius: 2px;
+            border: 1px solid rgba(221, 221, 221, 1);
+            text-indent: 20px;
+        }
     }
-  }
-  .crtcircle-submit {
-    margin-top: 50px;
-    padding-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    > li {
-      margin-left: 30px;
-      &:first-child {
-        margin-left: 0;
-      }
-      cursor: pointer;
-      width: 170px;
-      height: 36px;
-      background: rgba(102, 102, 102, 1);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      font-family: PingFangSC-Medium;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 1);
-      line-height: 14px;
+    .crtcircle-term {
+        .dk-switch-group {
+            display: flex;
+            padding: 30px 0;
+            .dk-switch {
+                margin-right: 30px;
+            }
+        }
+        > section {
+            padding: 20px 30px 15px;
+            background: rgba(247, 247, 247, 1);
+            > dl {
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                > dt {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: rgba(102, 102, 102, 1);
+                    line-height: 14px;
+                }
+                > dd {
+                    font-size: 14px;
+                    font-family: PingFangSC-Regular;
+                    font-weight: 400;
+                    color: rgba(255, 147, 0, 1);
+                    line-height: 14px;
+                }
+            }
+            > p {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba(153, 153, 153, 1);
+                line-height: 24px;
+            }
+        }
     }
-    .submit-t {
-      background: rgba(84, 120, 235, 1);
+    .crtcircle-rule {
+        margin-top: 30px;
+        .dk-switch {
+            display: flex;
+            align-items: center;
+            > p {
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba(51, 51, 51, 1);
+                line-height: 14px;
+            }
+            > span {
+                color: #5478eb;
+            }
+        }
     }
-  }
-  .create-succeed {
-    padding: 0 30px;
-    > li {
-      font-size: 16px;
-      font-family: PingFangSC-Medium;
-      font-weight: 500;
-      color: rgba(51, 51, 51, 1);
-      line-height: 20px;
-      padding: 30px 0;
-      border-bottom: 1px solid rgba(239, 239, 239, 1);
-      cursor: pointer;
+    .crtcircle-submit {
+        margin-top: 50px;
+        padding-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        > li {
+            margin-left: 30px;
+            &:first-child {
+                margin-left: 0;
+            }
+            cursor: pointer;
+            width: 170px;
+            height: 36px;
+            background: rgba(102, 102, 102, 1);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-family: PingFangSC-Medium;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 1);
+            line-height: 14px;
+        }
+        .submit-t {
+            background: rgba(84, 120, 235, 1);
+        }
     }
-  }
-  .cover-prev {
-    width: 24px;
-    height: 24px;
-    margin: 30px 0 20px;
-  }
+    .create-succeed {
+        padding: 0 30px;
+        > li {
+            font-size: 16px;
+            font-family: PingFangSC-Medium;
+            font-weight: 500;
+            color: rgba(51, 51, 51, 1);
+            line-height: 20px;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(239, 239, 239, 1);
+            cursor: pointer;
+        }
+    }
+    .cover-prev {
+        width: 24px;
+        height: 24px;
+        margin: 30px 0 20px;
+    }
 }
 </style>
 

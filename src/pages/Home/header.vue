@@ -47,7 +47,8 @@
                 <!-- <router-link to="/create">经验创作</router-link> -->
             </div>
             <!-- 搜索 -->
-            <div class="top-search">
+            <div class="top-search"
+                 @click="search">
                 <!-- <input type="text" /> -->
                 <div>
                     <svg class="icon"
@@ -201,6 +202,11 @@ export default {
             this.app.romveToken();
             this.$router.push({
                 path: "/login"
+            });
+        },
+        search() {
+            this.$router.push({
+                path: "/search"
             });
         }
     },
