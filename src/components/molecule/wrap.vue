@@ -7,7 +7,7 @@
             <div v-if="showTitle">
                 <span>最新</span>
                 <font>03-01</font>
-                <p>今天这篇文章是我经常用在实际项目中的方法</p>
+                <p>{{item.saySome || '今天这篇文章是我经常用在实际项目中的方法'}}</p>
             </div>
             <dl>
                 <img v-if="!item.image"

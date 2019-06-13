@@ -151,7 +151,7 @@
             </div>
         </section>
     </div>
-</template>
+</template> 
 <script>
 import atomy from "@/components/atomy/mixins.js";
 import hotFind from "./component/hot-find";
@@ -159,6 +159,7 @@ import indexCategory from "@/components/molecule/category";
 import newestShare from "./component/share";
 import indexKnowledge from "./component/knowledge";
 import { testGet } from '@/api/user.js'
+import { articleListQuery } from '@/api/article.js'
 export default {
     name: "index",
     components: {
@@ -180,9 +181,20 @@ export default {
         testGet().then(res => {
             console.log("resL : ", res)
         })
+        this.articleListQuery()
     },
     // 我们要写的一些方法
     methods: {
+        //
+        articleListQuery() {
+            let _data = {
+                page: 10,
+                size: 1
+            }
+            articleListQuery(_data).then(res => {
+                console.log('res 文章列表: ', res)
+            })
+        },
         // 导航栏切换后的回调
         tableMoveIndex(index) {
             this.kindIndex = index;

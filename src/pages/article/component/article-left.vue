@@ -4,7 +4,8 @@
         <div class="article-content">
             <div class="article-user">
                 <div class="article-user-sum">阅读收获<span>80</span>分</div>
-                <h5>{{article.title || 'Icon设计的法则'}}</h5>
+                <h5>{{article.title || 'Icon设计的法则'}} <span @click="goUpdate">修改文章</span> </h5>
+
                 <div class="user-msg">
                     <img src="@/assets/images/temp/header.png">
                     <dl>
@@ -341,6 +342,14 @@ export default {
         this.querySpit()
     },
     methods: {
+        goUpdate() {
+            this.$router.push({
+                path: '/create-article',
+                query: {
+                    aid: this.article.id
+                }
+            })
+        },
         articleDetailQuery(id) {
             articleDetailQuery(id).then(res => {
                 console.log('articleDetailQueryres: ', res)
