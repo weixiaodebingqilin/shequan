@@ -44,7 +44,7 @@
             </ul>
         </div>
         <div class="search-result">
-            <p><span>插画</span> 找到128个结果</p>
+            <p class="search-result-title"><span>插画</span> 找到128个结果</p>
             <hot-find></hot-find>
         </div>
     </div>
@@ -72,7 +72,17 @@ export default {
 #search {
     .search-result {
         width: 750px;
-        margin: 0 auto;
+        margin: 60px auto 0;
+        .search-result-title {
+            font-size: 16px;
+            font-weight: 400;
+            color: #666666;
+            line-height: 16px;
+            > span {
+                color: rgba(84, 120, 235, 1);
+                margin-right: 4px;
+            }
+        }
     }
     min-height: 600px;
     .flex-center {

@@ -12,7 +12,7 @@
                 <!-- 管理员 -->
                 <div class="popout-main-title">
                     <span>奖励列表</span>
-                    <div><span>+添加奖励</span></div>
+                    <div @click="addaward"><span>+添加奖励</span></div>
                 </div>
                 <div class="main-table">
                     <table>
@@ -80,6 +80,9 @@ export default {
     methods: {
         cancel() {
             this.$emit("close");
+        },
+        addaward() {
+            this.$emit("award");
         }
     }
 };

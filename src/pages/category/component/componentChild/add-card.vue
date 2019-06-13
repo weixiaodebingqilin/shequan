@@ -1,5 +1,5 @@
 <template>
-    <section class="popout-add-card">
+    <section class="popout-add-card loadRight">
         <div class="popout-title">
             <svg class="icon"
                  aria-hidden="true">
