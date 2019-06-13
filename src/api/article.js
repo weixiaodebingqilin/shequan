@@ -31,3 +31,12 @@ export const articleListQuery = (data) => service.post(`${prev}/article/search/$
  * @return {Object} res 
  */
 export const articleQueryBykey = (data) => service.get(`search/article/${data.key}/${data.page}/${data.size}`);
+
+
+/**
+ * articleUpdate 增加文章
+ * @method {put}
+ * @param {Object} data  
+ * @return {Object} res 
+ */
+export const articleUpdate = (data) => service.put(`${prev}/article/${data.aid}`, data);
