@@ -1,12 +1,18 @@
 <template>
-    <li class="card-artical">
-        <img src="@/assets/images/temp/kind-native.png">
+    <li class="card-artical"
+        v-if="cont && cont.id"
+        @click="goArtical">
+        <img :src="cont.image"
+             v-if="cont.imag"
+             alt="">
+        <img v-if="!cont.imag"
+             src="@/assets/images/temp/kind-native.png">
         <section>
             <h3>
-                <p>渐变插画的重设计</p>
+                <p>{{cont.title}}</p>
                 <span>插画世界-重塑你的画笔</span>
             </h3>
-            <text-hd>这不仅仅是一篇经验，而是前辈用日积月累得工作心得。把自己这些年学习的一些想法和感悟，希望可以帮助到你。</text-hd>
+            <text-hd>{{cont.summary}}</text-hd>
             <dl>
                 <dt>
                     <img src="@/assets/images/temp/header.png">
@@ -35,6 +41,23 @@ export default {
     components: {
         textHd: atomy.textHd
     },
+    props: {
+        cont: {
+            type: Object,
+            default: () => { }
+        }
+    },
+    methods: {
+        goArtical() {
+            let _this = this
+            this.$router.push({
+                path: '/article',
+                query: {
+                    aid: _this.cont.id
+                }
+            })
+        }
+    }
 }
 </script>
 <style lang="less">
@@ -58,6 +81,7 @@ li.card-artical {
   > section {
     position: relative;
     margin-left: 15px;
+    flex: 1;
     > h3 {
       height: 24px;
       line-height: 24px;

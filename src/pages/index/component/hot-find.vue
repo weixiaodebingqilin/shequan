@@ -1,7 +1,10 @@
 <template>
     <section class="hot-find loadUp">
-        <ul class="kind-box">
-            <card-artical></card-artical>
+        <ul class="kind-box"
+            v-for="item in articleList"
+            :key="item.id"
+            v-if="articleList[0]">
+            <card-artical :cont="item"></card-artical>
         </ul>
         <!-- 专题 special -->
         <section class="index-special">
@@ -44,6 +47,17 @@ export default {
     components: {
         cardArtical: molecule.cardArtical,
         textHd: atomy.textHd
+    },
+    props: {
+        articleList: {
+            type: Array,
+            default: () => []
+        }
+    },
+    data() {
+        return {
+
+        }
     }
 };
 </script>

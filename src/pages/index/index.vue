@@ -26,7 +26,8 @@
                               :initIndex='kindIndex'></table-native>
                 <div>
                     <index-knowledge v-if="kindIndex === 0"></index-knowledge>
-                    <hot-find v-if="kindIndex === 1"></hot-find>
+                    <hot-find :articleList="articleList"
+                              v-if="kindIndex === 1"></hot-find>
                     <newest-share v-if="kindIndex === 2"></newest-share>
                     <!-- <index-category v-if="kindIndex === 2"></index-category> -->
                 </div>
@@ -172,6 +173,7 @@ export default {
     },
     data() {
         return {
+            articleList: [],
             kindNative: ["知识点", "热门发现", "最新分享", "关注的"], ///
             kindIndex: 1 //
         };
@@ -188,11 +190,14 @@ export default {
         //
         articleListQuery() {
             let _data = {
-                page: 10,
-                size: 1
+                page: 1,
+                size: 10
             }
+
             articleListQuery(_data).then(res => {
                 console.log('res 文章列表: ', res)
+                this.articleList = res.data.data.rows
+
             })
         },
         // 导航栏切换后的回调

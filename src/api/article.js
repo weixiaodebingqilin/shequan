@@ -20,6 +20,7 @@ export const articleDetailQuery = (id) => service.get(`${prev}/article/${id}`);
  * articleQuery 查询文章列表
  * @method {post} 
  * @param {Object} data 
+ * @param {Object} param
  * @return {Object} res 
  */
 export const articleListQuery = (data) => service.post(`${prev}/article/search/${data.page}/${data.size}`, data);
